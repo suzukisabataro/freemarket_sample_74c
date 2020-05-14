@@ -1,0 +1,23 @@
+%header
+  .nav
+    .nav-title
+      .nav-title-icon
+        = link_to "" do
+          = image_tag "material/logo/logo.png", size: "220x60"
+      .from
+        = form_with local: true, class:"from-seach" do |f|
+          = f.text_field :name, class: "from-seach-area", placeholder: "キーワードから探す"
+          = f.submit "検索", class: "from-seach-submit"
+    .nav-link
+      .nav-link-choice
+        = link_to "" do
+          -# アイコン
+          .nav-link-choice-category カテゴリから探す
+        = link_to "" do
+          -# アイコン
+          .nav-link-choice-brand ブランドから探す
+      %ul
+        = link_to "" do
+          %li ログイン
+        = link_to "" do
+          %li 新規登録
