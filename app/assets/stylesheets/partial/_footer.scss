@@ -1,0 +1,87 @@
+// Appバナー
+.appBanner {
+  background: url('/image/bg-appBanner-pict.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 220px;
+  padding: 100px 40px;
+  .inner {
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    display: block;
+    h2 {
+      font-size: 27px;
+      margin: 0;
+    }
+      p {
+      font-size: 39px;
+      margin: 0;
+    }
+    &-icon {
+      width: 100%;
+      display: flex;
+      margin-top: 20px;
+      justify-content: center;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+// フッター
+footer {
+  background-color: #272727;
+  height: 300px;
+  padding: 60px 0; 
+  .footer-nav {
+    margin: 0 auto;
+    width: 80%;
+    height: 200px;
+    display: flex;
+    padding: 0;
+    &-list {
+      width: 33.33333%;
+      height: 100%;
+      margin-right: 17px;
+      list-style: none;
+      text-align: center;
+      &-title {
+        color: #fff;
+        margin: 0 0 20px 0;
+        height: 20%;
+      }
+      ul {
+        padding: 0;
+        height: calc(80% - 20px);
+        li {
+          list-style: none;
+          height: 25%;
+          
+          a {
+            text-decoration: none;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+  .footer-campany {
+    margin: 0 auto;
+    width: 250px;
+    a {
+      margin: 0 auto;
+    }
+  }
+  p {
+    color: #fff;
+    text-align: center;
+    margin: 0;
+  }
+}
