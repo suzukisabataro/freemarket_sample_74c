@@ -1,5 +1,5 @@
 ## ER図
-[![Image from Gyazo](https://i.gyazo.com/c1154dc335489c7514c77c732409a421.png)](https://gyazo.com/c1154dc335489c7514c77c732409a421)
+[![Image from Gyazo](https://i.gyazo.com/907ad06f26dca32fbcd159a8c7c32bcf.png)](https://gyazo.com/907ad06f26dca32fbcd159a8c7c32bcf)
 # freemarket_sample_74b
 フリマアプリのクローンサイト。
 
@@ -100,61 +100,6 @@
 - has_many :images
 - belongs_to :user
 - add_index :items, :name
-
-## Categoryテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|sub|integer|
-|sub_sub|integer|
-|size|integer|
-|brand|integer|
-### Association
-- has_many :items
-
-## Item_Conditionテーブル
-|Column|Type|Options|
-|------|----|-------|
-|value|string|null: false|
-### Association
-- has_many :items
-
-## Sizeテーブル
-|Column|Type|Options|
-|------|----|-------|
-|value|string|null: false|
-|group|integer|
-### Association
-- has_many :items
-
-## DeliveryChargeテーブル
-|Column|Type|Options|
-|------|----|-------|
-|value|string|null: false|
-### Association
-- has_many :items
-
-## DeliveryDaysテーブル
-|Column|Type|Options|
-|------|----|-------|
-|value|string|null: false|
-### Association
-- has_many :items
-
-## DeliveryWayテーブル
-|Column|Type|Options|
-|------|----|-------|
-|value|string|null: false|
-|charge|integer|
-### Association
-- has_many :items
-
-## Areaテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-### Association
-- has_many :items
 
 ## Brandsテーブル
 |Column|Type|Options|
