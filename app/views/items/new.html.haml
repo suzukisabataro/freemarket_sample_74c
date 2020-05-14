@@ -1,0 +1,129 @@
+= form_with model:@item, local:true do |f|
+  .wapper
+    .header
+      .header-icon
+        = link_to do
+          =image_tag "material/logo/logo.png", width:"189px", height:"49px"
+    .body
+      .brank
+      .main_body
+        .article
+          .article-content
+            .content-label
+              .label-1
+                %b 出品画像
+              .label-2
+                %b 必須
+            .content-text
+              最大10枚までアップロードできます。
+            .content-image
+              %label.content-image_icon
+                =image_tag "material/icon/icon_camera.png", width:"24px", height:"24px"
+                = f.fields_for :item_images do |i|
+                  = i.file_field :image, class: 'file-input'
+              .content-image_text
+                %P ドラッグ&ドロップ 
+                またはクリックしてファイルをアップロード 
+        .product_name
+          .product-content
+            .product-name_title
+              .product-upper
+                .label-1
+                  %b 商品名
+                .label-2
+                  %b 必須
+              = f.text_field :name, class: 'product-bottom',placeholder: '商品名を入力してください'
+              .product-lower
+                40字以下で入力してください
+            .product-bottom
+              .label-1
+                %b 商品の説明
+              .label-2
+                %b 必須
+            .product-name_text
+              = f.text_area :description, class: 'text-buttom', placeholder: '説明文を入力してください'
+              .text-lower
+        .product_explanation
+          .explanation-content
+            .content-1
+              %b 商品の詳細
+            .content-2
+              .second-upper
+                .upper-1
+                  %b カテゴリー
+                .label-2
+                  %b 必須
+            = f.collection_select :category_id, Category.all, :id, :name, prompt: "--"
+            .content-4
+              .fourth-upper
+                .upper-1
+                  %b ブランド
+                .upper-2
+                  %b 任意
+              .fourth-lower
+            %input.content-5
+            .content-6
+              .six-upper
+                .upper-1
+                  %b 商品の状態
+                .label-2
+                  %b 必須
+            = f.collection_select :condition_id, Condition.all, :id, :value, prompt: "--" 
+        .delivery
+          .delivery-content
+            .delivery-1
+              .upper-1
+                %b 配送について
+              .upper-2
+            .delivery-2
+              .d2-upper
+                %b 配送量の負担
+              .d2-lower
+                %b 必須
+            = f.collection_select :delivery_charge_id, DeliveryCharge.all, :id, :value, prompt: "--" 
+            .delivery-4
+              .d4-upper
+                %b 発送元の地域
+              .d4-lower
+                %b 必須
+            = f.collection_select :area_id, Area.all, :id, :name
+            .delivery-6
+              .d6-upper
+                %b 発送までの日数
+              .d6-lower
+                %b 必須
+            = f.collection_select :delivery_days_id, DeliveryDays.all, :id, :value, prompt: "--"
+        .price
+          .price-content
+            .price-1
+              .p1-upper
+                %b 価格（¥300〜9,999,999）
+              .p1-lower
+            .price-2
+              .p2-upper
+                .upper-left
+                  %b 販売価格
+                .upper-center
+                  %b 必須
+                .upper-logo
+                  %b ¥
+                  = f.text_field :price, class: 'upper-right'
+              .p2-bottom
+                .bottom-left
+                  販売手数料
+                .bottom-right
+                  %b ¥500
+              .p2-lower
+                .lower-left
+                  販売利益
+                .lower-right
+                  ¥ 4500
+        .exhibition
+          .exhibition-content
+            = f.submit "出品する",class:"content-1"
+            = f.submit "下書きに保存",class:"content-2"
+            = link_to root_path,class: "content-3" do
+              %b 戻る
+          .exhibition-content2
+            %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+-# = render partial: 'footer'
