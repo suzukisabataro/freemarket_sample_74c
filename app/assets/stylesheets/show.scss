@@ -1,0 +1,174 @@
+
+
+
+table th{
+    padding:10px;
+    & td{
+        writing-mode:horizontal-tb;
+      } 
+    }
+
+
+.show__header--contents{
+  text-align:center;    
+    }
+
+.show__items--content{
+    width: 70%; 
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
+.show__main--contents{
+    display:flex;
+    justify-content:center;
+}
+
+.show_image{
+    width:50%;
+    height:400px;
+    margin-right:20px;
+}
+
+
+.show__price{
+    display:flex;
+    display:table;
+    margin-top:20px;
+    margin-left:auto;
+    margin-right:auto;
+    &--price{
+        margin-right:8px;
+        bottom:0px;
+        font-size:30px;
+    }
+    &--included{
+        font-size:5px;
+        bottom:0px; 
+    }
+    &--fee{
+        bottom:0px;
+    }
+}
+
+
+
+
+
+
+.purchase-screen{
+    text-align:center;
+    margin-top:25px;
+}
+
+
+.show__btn--name__link{
+    background-color:red;
+    height:70px;
+    font-size:30px;
+    color:white;
+    padding:30px 300px;
+    text-decoration:none;
+}
+
+
+
+.show__comments{
+    margin-left:150px;
+}
+
+.show__link{
+    display:flex;
+    justify-content: space-between;
+    &__next{
+        margin-right:100px;
+        margin-top:20px;
+        margin-bottom:20px;
+    }
+    &__prev{
+        margin-left:100px;
+        margin-top:20px;
+        margin-bottom:20px;
+    }
+}
+
+
+.show__medhia--links{
+    width:500px;
+    height:100px;
+    margin:0 auto;
+    position:relative;
+    &--box{
+        width:250px;
+        height:50px;
+        position:absolute;
+        top:25px;
+        left:125px;
+        text-align:center;
+    }
+
+
+}
+
+
+a{
+    text-decoration:none;
+}
+
+.fa-facebook{
+  font-size:3rem;
+  color:#3b5998;
+}
+
+.fa-twitter{
+  font-size:3rem;
+  color:#55ACEE;
+  padding-left:20px;
+}
+
+.fa-line{
+  font-size:3rem;
+  color:#00B900;
+  padding-left:20px;
+  padding-right:20px;
+}
+
+.fa-pinterest-square{
+    font-size:3rem; 
+    color:#bd081c;
+}
+
+.show__users{
+    margin-top:30px;
+    margin-left:70px;
+    font-size:30px;
+}
+
+@mixin padding{
+    padding:16px;
+}
+
+.show__users--other{
+  width:800px;
+  display:flex;
+  margin:0 auto;
+  flex-wrap:wrap;
+  justify-content:space-around;
+  &__item{
+    margin-bottom:40px;
+    background-color:white;
+    &--contents{
+        background-color:white;
+        text-align:center;
+        font-size:15px;
+        &__name{
+          @include padding;
+        }
+        &__price{
+          @include padding;
+        }
+    }
+  }  
+}
+
