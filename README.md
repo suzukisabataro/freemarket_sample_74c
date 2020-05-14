@@ -38,7 +38,7 @@
 |city|string|null: false|
 |address1（番地）|string|null: false|
 |building_name|string|
-|user_id|refarence|null: false, foreign_key: true|
+|user_id|refarences|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 
@@ -47,15 +47,15 @@
 |------|----|-------|
 |costomer_id|intager|null: false|
 |cord_id|intager|null: false|
-|user_id|refarence|null: false, foreign_key: true|
+|user_id|refarences|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 
 ## Commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|refarence|null: false, foreign_key: true|
-|items_id|refarence|null: false, foreign_key: true|
+|user_id|refarences|null: false, foreign_key: true|
+|items_id|refarences|null: false, foreign_key: true|
 |commtnt|text|null: false|
 
 ### Association
@@ -65,8 +65,8 @@
 ## Likesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|refarence|null: false, foreign_key: true|
-|item_id|refarence|null: false, foreign_key: true|
+|user_id|refarences|null: false, foreign_key: true|
+|item_id|refarences|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :item
@@ -77,15 +77,15 @@
 |name|string|null: false|
 |description|text|null: false|
 |price|integer|null: false|
-|brand_id|refarence|foreign_key: true|
+|brand_id|refarences|foreign_key: true|
 |item_condition_id(商品状態)|reference|null: false, foreign_key: true|
-|size_id|refarence|null: false|
-|delivery_charge|reference|null: false, foreign_key: true|
-|delivery_day_id|reference|null: false, foreign_key: true|
-|delivery_way_id|reference|null: false, foreign_key: true|
-|prefecture_id|reference|null: false, foreign_key: true|
-|category_id|reference|null: false, foreign_key: true|
-|user_id|reference|null: false, foreign_key: true|
+|size_id|refarences|null: false|
+|delivery_charge|references|null: false, foreign_key: true|
+|delivery_day_id|references|null: false, foreign_key: true|
+|delivery_way_id|references|null: false, foreign_key: true|
+|prefecture_id|references|null: false, foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to_active_hash :item_condition
@@ -111,7 +111,7 @@
 ## Item_imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|item_id|reference|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 |item_images|string|null: false|
 ### Association
 - belongs_to :item
