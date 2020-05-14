@@ -1,0 +1,22 @@
+.purchaseBtn {
+  width: 120px;
+  height: 120px;
+  background-color: #3CCACE;
+  padding: 15px;
+  text-align: center;
+  border-radius: 50%;
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  &__text {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    display: block;
+    padding: 8px 0;
+  }
+  &__image {
+    width: 60x;
+    height: 60px;
+  }
+}
