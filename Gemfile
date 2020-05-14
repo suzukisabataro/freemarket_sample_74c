@@ -69,7 +69,16 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
+gem 'haml-rails'
+gem 'erb2haml'
+gem 'font-awesome-sass'
+gem 'devise', '~> 4.6.1'
+gem 'mini_magick'
+gem 'carrierwave'
+gem 'active_hash'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
 group :production do
   gem 'unicorn'
 end
