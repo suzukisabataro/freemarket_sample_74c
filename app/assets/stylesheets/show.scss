@@ -81,12 +81,12 @@ table th{
 .show__link{
     display:flex;
     justify-content: space-between;
-    &__next{
+    &--next{
         margin-right:100px;
         margin-top:20px;
         margin-bottom:20px;
     }
-    &__prev{
+    &--prev{
         margin-left:100px;
         margin-top:20px;
         margin-bottom:20px;
@@ -94,12 +94,13 @@ table th{
 }
 
 
-.show__medhia--links{
+.show__media--links{
     width:500px;
     height:100px;
     margin:0 auto;
     position:relative;
     &--box{
+        display:flex;
         width:250px;
         height:50px;
         position:absolute;
