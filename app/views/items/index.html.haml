@@ -1,0 +1,98 @@
+.items__index
+  = render partial: 'partial/navbar'
+%section.top
+  .top__name
+    %h2.top__name--title
+      = "人生を変えるフリマアプリ"
+    %p.top__name--subtitle
+      FURIMAはだれでもかんたんに出品・購入できる
+      %br
+      フリマアプリです
+    .index__top--btn
+      = link_to class: "app__btn" do
+        = image_tag "http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg", class: "app"
+      = link_to class: "goo__btn" do
+        = image_tag "http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg", class: "goo"
+
+%section.topReason
+  %h2.topReason__title
+    = "FURIMAアプリが選ばれる理由"
+  %ul.topReason__lists
+    %li.topReason__lists--list
+      .list__pict
+        %span.list__pict--num
+          = "1"
+        = image_tag "material/pict/pict-reason-01.jpg", class: "pict"
+        %h3.list__pict--message
+          %span{:style => "color: mediumturquoise;"} 3分
+          %span{:style => "color: black;"} ですぐに出品！
+        %p.list__pict--submessage
+          = "スマホで入力するだけで簡単に出品できる！"
+    %li.topReason__lists--list
+      .list__pict
+        %span.list__pict--num
+          = "2"
+        = image_tag "material/pict/pict-reason-02.jpg", class: "pict"
+        %h3.list__pict--message
+          %span{:style => "color: mediumturquoise;"} シンプル
+          %span{:style => "color: black;"} で使いやすい！
+        %p.list__pict__submessage
+          = "めんどくさい入力は必要なく、検索も購入もスムーズ！"
+    %li.topReason__lists--list
+      .list__pict
+        %span.list__pict--num
+          = "3"
+        = image_tag "material/pict/pict-reason-03.jpg", class: "pict"
+        %h3.list__pict--message
+          %span{:style => "color: mediumturquoise;"} 手数料
+          %span{:style => "color: black;"} 業界最安値！
+        %p.list__pict--submessage
+          = "最大3%でお得に出品&購入！"
+
+%section.indexmiddle
+  .indexmiddle__name
+    %h2.indexmiddle__name--title
+      = "会員数日本一位"
+    %p.indexmiddle__name--subtitle
+      FURIMAは、フリマアプリで最も人気。
+      %br
+      出品・購入回数も業界最多です！
+      %br
+      ほしかったあの商品に出会えるかもしれません。
+    .index__top--btn
+      = link_to class: "app__btn" do
+        = image_tag "http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg", class: "app"
+      = link_to class: "goo__btn" do
+        = image_tag "http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg", class: "goo"
+
+%section.features
+  %h2.features__title
+    = "FURIMAの特徴"
+  .features__items
+    %section.features__items--item
+      %figure.features__items--image
+        = image_tag "material/icon/icon-01.png", class: "features__image"
+      %h3.features__items--title
+        = "簡単に売り買いできる"
+      %p.features__items--text
+        = "スマホひとつで、いつでもどこでも簡単に出品・購入が可能！"
+    %section.features__items--item
+      %figure.features__items--image
+        = image_tag "material/icon/icon-03.png", class: "features__image"
+      %h3.features__items--title
+        = "売上金は即日振込みに対応"
+      %p.features__items--text
+        = "午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!"
+    %section.features__items--item
+      %figure.features__items--image
+        = image_tag "material/icon/icon-04.png", class: "features__image"
+      %h3.features__items--title
+        = "様々な支払いに対応"
+      %p.features__items--text
+        = "お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。"
+.product-image
+  = render partial: 'product-image'
+.camera
+  = render partial: 'partial/camera'
+.items__index
+  = render partial: 'partial/footer'
