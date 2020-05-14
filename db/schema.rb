@@ -28,8 +28,7 @@ ActiveRecord::Schema.define(version: 2020_05_14_041109) do
     t.integer "condition", null: false
     t.integer "size", null: false
     t.integer "delivery_charge", null: false
-    t.integer "delivery_days", null: false
-    t.integer "delivery_ways", null: false
+    t.integer "delivery_day", null: false
     t.integer "area", null: false
     t.integer "category", null: false
     t.integer "category1"
