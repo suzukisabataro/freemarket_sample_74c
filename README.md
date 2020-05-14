@@ -19,7 +19,7 @@
 |birth_day_dd|integer|null: false|
 |introduuction|text||
 |phone_number|integer|null: false|
-|address_id|references|null: false, foreign_key: true|
+
 ### Association
 - belongs_to_active_hash :birth_day_yy
 - belongs_to_active_hash :birth_day_mm
@@ -27,8 +27,8 @@
 - belongs_to_active_hash :prefecture
 - has_many :items
 - has_many :comments
-- has_one :credit_cards, (pay.ja使用)
-- has_one :Address
+- has_one :credit_card, (pay.ja使用)
+- has_one :address
 
 ## Addressテーブル
 |Column|Type|Options|
@@ -66,7 +66,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|refarence|null: false, foreign_key: true|
-|items_id|refarence|null: false, foreign_key: true|
+|item_id|refarence|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :item
@@ -96,6 +96,7 @@
 - belongs_to_active_hash :prefecture
 - belongs_to_active_hash :category
 - belongs_to_active_hash :size
+- belongs_to : brand
 - has_many :images
 - belongs_to :user
 - add_index :items, :name
@@ -155,7 +156,7 @@
 ### Association
 - has_many :items
 
-## Brandテーブル
+## Brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
