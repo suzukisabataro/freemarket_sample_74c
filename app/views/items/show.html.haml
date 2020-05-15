@@ -1,0 +1,126 @@
+
+
+.show__header--contents
+  .show__items--name
+    %h1
+      = "商品名fendi Tシャツ 美品"         
+  .show__items--content
+    %h2
+      = "商品の説明『fendi Tシャツ 美品』は、42回の取引実績を持つじ　んさんから出品されました。フェンディ（Tシャツ/カットソー(半袖/袖なし)/レディース）の商品で、兵庫県から4~7日で発送されます。"            
+
+.show__main--contents
+  =image_tag "testimage.jpg", class:"show_image"
+  
+  
+  .show__items--details
+    %table.show_items--details__details{border:"1"}
+      %tr
+        %th
+          = "出品者"
+        %td                    
+          = "出品者(current_user?)"  
+
+      %tr
+        %th
+          = "カテゴリー"
+        %td 
+          = "レディース"
+
+      %tr 
+        %th 
+          = "ブランド"
+        %td 
+          = "シャネル"
+
+      %tr 
+        %th 
+          = "商品のサイズ"
+        %td 
+          = "FREE SIZE"
+
+      %tr 
+        %th 
+          = "商品の状態"
+        %td 
+          = "未使用に近い"
+
+      %tr 
+        %th 
+          = "配送料の負担"
+        %td 
+          = "送料込み（出品者負担)"
+
+      %tr 
+        %th 
+          = "配送の方法"
+        %td 
+          = "未定"
+
+      %tr 
+        %th 
+          = "配送元地域"
+        %td 
+          = "兵庫県"
+
+      %tr 
+        %th 
+          = "発送日の目安"
+        %td 
+          = "1週間程度"
+
+.show__price
+  %span.show__price--price
+    = "￥700,000" 
+  %span.show__price--included
+    = "(税込)"
+  %span.show__price--fee
+    = "送料込み"
+
+.purchase-screen
+  =link_to"購入画面に進む","#",class:"show__btn--name__link" 
+                
+.show__comments
+  .show__comments--comment
+    ="ほとんど着てません"
+  .show__comments--tag
+    ="タグ"
+  .show__comments--tag 
+    ="タグ"
+  .show__comments--tag
+    ="タグ"
+
+.show__link
+  .show__link--prev
+    =link_to do
+      %i.fa.fa-arrow-left
+        エリザベス硬貨
+  .show__link--next
+    =link_to do
+      ダイヤモンド
+      %i.fa.fa-arrow-right
+
+.show__media--links
+  .show__media--links--box
+    =link_to"https://www.facebook.com/" do
+      %i.fab.fa-facebook
+    =link_to"https://twitter.com/" do
+      %i.fab.fa-twitter
+    =link_to"https://access.line.me/" do
+      %i.fab.fa-line
+    =link_to"https://www.pinterest.jp/"do
+      %i.fab.fa-pinterest-square
+   
+
+.show__users
+  ="jinnさんの作品"
+
+  .show__users--other
+    - @items.each do |item|
+      .show__users--other__item
+        =image_tag item.item_images.first.image.url, size:"220x190", class:"show__users--other__item--image"
+        .show__users--other__item--contents
+          .show__users--other__item--contents__name
+            =item.name
+          .show__users--other__item--contents__price
+            ="¥  #{item.price}"      
+        
