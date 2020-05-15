@@ -1,5 +1,4 @@
--# .items__show
--#   = render partial: 'partial/navbar'
+
 
 .show__header--contents
   .show__items--name
@@ -7,10 +6,10 @@
       = "商品名fendi Tシャツ 美品"         
   .show__items--content
     %h2
-      = "商品の説明『fendi Tシャツ 美品』は、42回の取引実績を持つじ　んさんから出品されました。フェンディ（Tシャツ/カットソー(半袖/袖なし)/レディース）の商品で、兵庫県から4~7日で発送されます。"             # = @items.text
+      = "商品の説明『fendi Tシャツ 美品』は、42回の取引実績を持つじ　んさんから出品されました。フェンディ（Tシャツ/カットソー(半袖/袖なし)/レディース）の商品で、兵庫県から4~7日で発送されます。"            
 
 .show__main--contents
-  %img{src:"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQyGvtQ49xquaaJ2h3El2Bq9bfQwUOPI-A77JEC_zDef4XPiVn1&usqp=CAU", class:"show_image"}
+  =image_tag "testimage.jpg", class:"show_image"
   
   
   .show__items--details
@@ -79,49 +78,41 @@
 
 .purchase-screen
   =link_to"購入画面に進む","#",class:"show__btn--name__link" 
-
-%br 
-%br 
-%br 
-
                 
 .show__comments
-  ="ほとんど着てません"
-  %br
-  ="タグ"
-  %br
-  ="タグ"
-  %br
-  ="タグ"
+  .show__comments--comment
+    ="ほとんど着てません"
+  .show__comments--tag
+    ="タグ"
+  .show__comments--tag 
+    ="タグ"
+  .show__comments--tag
+    ="タグ"
 
 .show__link
   .show__link--prev
-    %a{href:"#"}
+    =link_to do
       %i.fa.fa-arrow-left
         エリザベス硬貨
   .show__link--next
-    %a{href:"#"}
+    =link_to do
       ダイヤモンド
       %i.fa.fa-arrow-right
 
 .show__media--links
   .show__media--links--box
-    %a{href:"https://www.facebook.com/"}
+    =link_to"https://www.facebook.com/" do
       %i.fab.fa-facebook
-    %a{href:"https://twitter.com/"}
+    =link_to"https://twitter.com/" do
       %i.fab.fa-twitter
-    %a{href:"https://access.line.me/"} 
+    =link_to"https://access.line.me/" do
       %i.fab.fa-line
-    %a{href:"https://www.pinterest.jp/"} 
+    =link_to"https://www.pinterest.jp/"do
       %i.fab.fa-pinterest-square
-    -# <div class="line-it-button" data-lang="ja" data-type="share-b" data-ver="3"  data-url="request.original_url" data-color="default" data-size="small" data-count="false" style="display: none;"></div>
-    -# <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
-
+   
 
 .show__users
   ="jinnさんの作品"
-
-
 
   .show__users--other
     - @items.each do |item|
@@ -133,19 +124,3 @@
           .show__users--other__item--contents__price
             ="¥  #{item.price}"      
         
-          
-                     
-                          
--# .items__show
--#   = render partial: 'partial/footer'
-
-
-
-
-
-
-
-
-
-
-    
