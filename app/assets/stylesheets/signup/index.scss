@@ -1,0 +1,55 @@
+.main-signup {
+  background: $main-white;
+  height: 100vh;
+  font-size: 18px;
+  .main-box {
+    width: 600px;
+    background: $sabu-white;
+    margin: 0 auto;
+    &__header {
+      height: 90px;
+      border-bottom: 1px solid lightgrey;
+      text-align: center;
+      font-weight: bold;
+      line-height: 100px;
+      font-size: 23px;
+    }
+
+    &__contents {
+      height: calc(100% - 95px);
+      background: $sabu-white;
+      
+      a {
+        display: block;
+        height: 48px;
+        width: 68%;
+        margin: 20px auto;
+        border-radius: 4px;
+        line-height: 48px;
+        text-decoration: none;
+        text-align: center;
+      }
+      .mail {
+        margin-top: 30px;
+        color: $sabu-white;
+        background: #ea352d;
+        border: 1px solid #ea352d;
+      }
+      .facebook {
+        color: $sabu-white;
+        background: #385185;
+        border: 1px solid #385185;
+      }
+      .google {
+        color: #333;
+        background: $sabu-white;
+        border: 1px solid #333;
+      }
+      &__text {
+        text-decoration: none;
+        color: rgb(46, 135, 170);
+        padding-bottom: 30px;
+      }
+    }
+  } 
+}

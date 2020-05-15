@@ -1,5 +1,15 @@
+@import "variables";
+@import 'footer';
+@import 'header';
+@import 'user/login';
+@import 'signup/index';
+@import 'signup/registration';
+@import 'signup/sms_confirmation';
+@import 'signup/sms_confirmation_sms';
+@import 'signup/address';
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
-@import"reset";
 @import "items";
 @import"show";
 @import"font-awesome-sprockets";
