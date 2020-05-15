@@ -1,0 +1,23 @@
+.main-signin
+  = render "items/header"
+  .main
+    .main__login
+      .main__login__account
+        %p アカウントをお持ちでない方はこちら
+        = link_to "新規会員登録", "/signup/step1"
+      .main__login__inner
+        = link_to "" do
+          Facebookでログイン
+        = link_to "", class: "google" do
+          Googleでログイン
+      .main__login__bottom
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          = render "devise/shared/error_messages", resource: resource
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "main__login__bottom__field"
+          = f.password_field :password, autocomplete: "off", placeholder: "パスワード", class: "main__login__bottom__field"
+          .main__login__bottom__robot
+            googleのロボット
+          = f.submit "ログイン", class: "main__login__bottom__btn"
+          = link_to "", class: "main__login__bottom__text" do
+            パスワードを忘れた
+  = render "items/footer"
