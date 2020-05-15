@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
     @items = Item.limit(10).order('created_at DESC')
   end
 
+
   def show
     @items=Item.all.includes(:item_images).order('created_at DESC')
     @url = request.url

@@ -1,8 +1,10 @@
-@import "reset";
+
+@import"reset";
+@import "items";
+@import"show";
+@import"font-awesome-sprockets";
+@import"font-awesome";
 @import"partial/navbar";
 @import"partial/footer";
-@import "partial/camera";
-@import "items";
 @import "product-image";
-@import "font-awesome-sprockets";
-@import "font-awesome";
+@import "partial/camera";
