@@ -1,19 +1,17 @@
 .main-signup_3 {
-  background: var(--main-white);
+  background: $main-white;
   height: 100vh;
   font-size: 17px;
   .main {
-    background-color: var(--main-white);
+    background-color: $main-white;
     height: 498px;
     &__container {
-      background-color: white;
       height: 100%;
       width: 50%;
       margin: auto;
 
       // 電話番号の確認
       &__header {
-        background-color: white;
         height: 100px;
         font-size: 22px;
         font-weight: bold;
@@ -45,7 +43,7 @@
             padding: 10px 16px 8px;
             border-radius: 4px;
             border: 1px solid #ccc;
-            background: var(--sabu-white);
+            background: $sabu-white;
             line-height: 1.5;
             font-size: 16px;
             font-weight: bold;
@@ -69,7 +67,7 @@
             width: 335px;
             margin: 20px auto 5px;
             font-size: 14px;
-            color: var(--sabu-white);
+            color: $sabu-white;
             text-decoration: none;
             text-align: center;
             line-height: 3.3;

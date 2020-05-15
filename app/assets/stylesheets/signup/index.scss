@@ -1,10 +1,10 @@
 .main-signup {
-  background: var(--main-white);
+  background: $main-white;
   height: 100vh;
   font-size: 18px;
   .main-box {
     width: 600px;
-    background: var(--sabu-white);
+    background: $sabu-white;
     margin: 0 auto;
     &__header {
       height: 90px;
@@ -17,7 +17,7 @@
 
     &__contents {
       height: calc(100% - 95px);
-      background: var(--sabu-white);
+      background: $sabu-white;
       
       a {
         display: block;
@@ -31,18 +31,18 @@
       }
       .mail {
         margin-top: 30px;
-        color: var(--sabu-white);
+        color: $sabu-white;
         background: #ea352d;
         border: 1px solid #ea352d;
       }
       .facebook {
-        color: var(--sabu-white);
+        color: $sabu-white;
         background: #385185;
         border: 1px solid #385185;
       }
       .google {
         color: #333;
-        background: var(--sabu-white);
+        background: $sabu-white;
         border: 1px solid #333;
       }
       &__text {
