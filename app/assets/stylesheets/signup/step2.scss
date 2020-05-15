@@ -1,0 +1,214 @@
+// 背景のViewport
+.main-signup_2 {
+  background: #eeeeee;
+  height: 100%;
+  font-size: 18px;
+  .main-box {
+    width: 700px;
+    background: #fff;
+    margin: 0 auto;
+    &__header {
+      height: 90px;
+      border-bottom: 1px solid lightgrey;
+      text-align: center;
+      font-weight: bold;
+      line-height: 100px;
+      font-size: 22px;
+    }
+  }
+}
+
+.main__container__form {
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  &__content-top {
+    height: 90%;
+    max-width: 343px;
+    margin: 0 auto;
+    padding-top: 30px;
+
+    // 名前・mail・パスワード入力欄
+    &__box {
+      height: 100px;
+      width: 100%;
+      padding-bottom: 18px;
+      &__label {
+        font-weight: 550;
+        display: inline-block;
+      }
+      &__require {
+        background: #ea352d;
+        display: inline-block;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+      }
+      &__text {
+        height: 40px;
+        width: calc(100% - 32px);
+        margin: 8px 0 0;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+      }
+      &__info {
+        color: #888;
+        font-size: 16px;
+        margin-top: 10px;
+      }
+      &__check {
+        margin: 10px 0;
+        &__box {
+          padding: 0 0 0 28px;
+          font-size: 16px;
+          vertical-align: middle;
+          cursor: pointer;
+          width: 24px;
+          height: 24px;
+        }
+        &__label {
+          font-size: 16px;
+          vertical-align: middle;
+          cursor: pointer;
+        }
+      }
+    }
+    .password_box {
+      padding-bottom: 80px;
+    }
+
+    // 本人確認入力欄
+    &__identity {
+      height: 100px;
+      width: 100%;
+      margin: auto;
+      margin-bottom: 30px;
+      &__head {
+        font-weight: 550;
+        margin: 10px 0; 
+      }
+      &__main {
+        margin: 8px 0 0;
+        font-size: 15px;
+        
+      }
+    }
+
+    // お名前&（カナ）の入力欄
+    &__box__name {
+      display: flex;
+      height: 50px;
+      justify-content: space-between;
+      margin-top: 8px;
+      &__kanji {
+        width: 131.5px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+      }
+    }
+
+    // 生年月日の入力欄
+    &__birth {
+      height: 100%;
+      width: 100%;
+      padding-bottom: 18px;
+      &__label {
+        font-weight: 550;
+        display: inline-block;
+      }
+      &__require {
+        background: #ea352d;
+        display: inline-block;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+      }
+      &__area {
+        display: flex;
+        &__yymmdd {
+          padding-right: 5px;
+          select {
+          display: inline-block;
+          height: 48px;
+          width: 76px;
+          margin: 8px 3px 3px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          }
+        }
+      }
+      // 本人情報
+      &__text {
+        color: #888;
+        font-size: 15px;
+        margin-top: 10px;
+      }
+    }
+
+    // 次に進む（エリア）
+    &__info {
+      height: 100%;
+      width: 100%;
+      padding-bottom: 30px;
+      &__text {
+        font-size: 14.5px;
+        margin-top: 30px;
+        text-align: center;
+      }
+      &__btn {
+        height: 100%;
+        width: 100%;
+        &__red {
+          background: #ea352d;
+          height: 48px;
+          width: 100%;
+          margin: 30px auto 20px;
+          font-size: 14px;
+          color: #fff;
+          text-decoration: none;
+          text-align: center;
+          line-height: 3.3;
+        }
+      }
+      &__about {
+        font-size: 14.5px;
+        margin: 30px 0 30px 0;
+        text-align: right;
+      }
+      a {
+        box-sizing: border-box;
+        text-decoration: none;
+      }
+      &__label {
+        background-color: whitesmoke;
+        color: #888888;
+        font-size: 12px;
+        display: block;
+        height: 40px;
+        width: 100%;
+        margin: auto;
+        padding: 10px;
+        a {
+          box-sizing: border-box;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

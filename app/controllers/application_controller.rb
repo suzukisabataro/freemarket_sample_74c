@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
-  before_action :basic_auth
+  protect_from_forgery with: :exception
 
   private
   def production?
@@ -13,5 +13,4 @@ class ApplicationController < ActionController::Base
       password == Rails.application.credentials[:basic_auth][:pass]
     end
   end
-
 end
