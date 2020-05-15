@@ -4,7 +4,7 @@
     .main-box__header
       会員情報入力
     .main__container__form
-    = form_for @user, url: step3_signup_index_path, method: :get, class: 'main__container__form' do |f|
+    = form_for @user, url: sms_confirmation_signup_index_path, method: :get, class: 'main__container__form' do |f|
       .main__container__form__content-top
 
         -# ニックネーム入力欄

@@ -5,15 +5,15 @@
     .main-box__header 新規会員登録
     .main-box__contents
 
-      = link_to step2_signup_index_path, class: "mail" do
+      = link_to registration_signup_index_path, class: "mail" do
         = icon('far', 'envelope', class: 'main__content__line__btn--mail__icon')
         メールアドレスで登録する
 
-      = link_to step2_signup_index_path, class: "facebook" do
+      = link_to registration_signup_index_path, class: "facebook" do
         = icon('fab', 'facebook-square', class: 'main__content__line__btn--facebook__icon')
         Facebookで登録する
 
-      = link_to step2_signup_index_path, class: "google" do
+      = link_to registration_signup_index_path, class: "google" do
         = icon('fab', 'google', class: 'main__content__line__btn--google__icon') 
         Googleで登録する
 

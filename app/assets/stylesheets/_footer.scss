@@ -1,7 +1,12 @@
+:root {
+  --main-white:#eeeeee;
+  --sabu-white:#fff;
+}
+
 .product-footer {
-  height:180px;
+  height: 180px;
   padding: 40px 0;
-  background-color:#eeeeee;
+  background-color: var(--main-white);
   &_center {
     margin : 0 auto;
     height: 54px;

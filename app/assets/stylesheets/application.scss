@@ -1,11 +1,11 @@
 @import 'footer';
 @import 'header';
 @import 'user/login';
-@import 'signup/step1';
-@import 'signup/step2';
-@import 'signup/step3';
-@import 'signup/step4';
-@import 'signup/step5';
+@import 'signup/index';
+@import 'signup/registration';
+@import 'signup/sms_confirmation';
+@import 'signup/sms_confirmation_sms';
+@import 'signup/address';
 @import "font-awesome-sprockets";
 @import "font-awesome";
 

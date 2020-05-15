@@ -5,12 +5,12 @@ Rails.application.routes.draw do
 
   resources :signup do
     collection do
-      get 'step1'
-      get 'step2'
-      get 'step3'
-      get 'step4'
-      get 'step5'
-      post 'step6'
+      get 'index'
+      get 'registration'
+      get 'sms_confirmation'
+      get 'sms_confirmation_sms'
+      get 'address'
+      post 'create'
     end
   end
   

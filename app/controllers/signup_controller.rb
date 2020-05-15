@@ -1,13 +1,13 @@
 class SignupController < ApplicationController
 
-  def  step1
+  def index
   end
 
-  def step2
+  def registration
     @user = User.new
   end
 
-  def step3
+  def sms_confirmation
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:encrypted_password] = user_params[:encrypted_password]
@@ -22,12 +22,12 @@ class SignupController < ApplicationController
     @user = User.new
   end
 
-  def step4
+  def sms_confirmation_sms
     session[:phone_number] = user_params[:phone_number]
     @user = User.new
   end
 
-  def step5
+  def address
 
     @user = User.new
     @user.build_address
@@ -35,7 +35,7 @@ class SignupController < ApplicationController
 
   end
 
-  def step6
+  def create
     @user = User.new(user_params)
       # nickname: session[:nickname],
       # email: session[:email],
