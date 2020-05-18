@@ -1,0 +1,94 @@
+.main-signup_3 {
+  background: $main-white;
+  height: 100vh;
+  font-size: 17px;
+  .main {
+    background-color: $main-white;
+    height: 498px;
+    &__container {
+      height: 100%;
+      width: 50%;
+      margin: auto;
+
+      // 電話番号の確認
+      &__header {
+        height: 100px;
+        font-size: 22px;
+        font-weight: bold;
+        margin: auto;
+        text-align: center;
+        line-height: 100px;
+        border-bottom: 1.5px #f5f5f5 solid;
+
+      }
+
+      // フォーム
+      &__form {
+        height: 100%;
+        width: 100%;
+        margin: auto;
+        &__input {
+          width: 340px;
+          font-weight: 550;
+          margin: auto;
+          &__title {
+            font-weight: 550;
+            margin-top: 20px;
+            font-size: 17px;
+          }
+          &__text {
+            height: 30px;
+            width: 90%;
+            margin: 8px auto 0;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: $sabu-white;
+            line-height: 1.5;
+            font-size: 16px;
+            font-weight: bold;
+          }
+        }
+
+        &__info {
+          font-size: 13px;
+          display: block;
+          height: 32px;
+          width: 340px;
+          margin: auto;
+          padding: 10px;
+        }
+
+        &__btn {
+          &__red {
+            background: #ea352d;
+            display: block;
+            height: 48px;
+            width: 335px;
+            margin: 20px auto 5px;
+            font-size: 14px;
+            color: $sabu-white;
+            text-decoration: none;
+            text-align: center;
+            line-height: 3.3;
+          }
+        }
+
+        &__label {
+          height: 50px;
+          width: 335px;
+          margin: auto;
+          font-size: 13.7px;
+        }
+
+        &__text {
+          height: 50px;
+          width: 335px;
+          margin: 20px auto 0;
+          font-size: 14px;
+          text-align: right;
+        }
+      }
+    }
+  }
+}
