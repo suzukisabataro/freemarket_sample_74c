@@ -8,8 +8,10 @@ class SignupController < ApplicationController
   end
 
   def sms_confirmation
+
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
+    session[:password] = user_params[:password]
     session[:encrypted_password] = user_params[:encrypted_password]
     session[:birth_yy] = user_params[:birth_yy]
     session[:birth_mm] = user_params[:birth_mm]
@@ -36,22 +38,34 @@ class SignupController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-      # nickname: session[:nickname],
-      # email: session[:email],
-      # password: session[:password],
-      # birth_yy: session[:birth_yy],
-      # birth_mm: session[:birth_mm],
-      # birth_dd: session[:birth_dd],
-      # family_name: session[:family_name],
-      # first_name: session[:first_name],
-      # family_name_kana: session[:family_name_kana],
-      # first_name_kana: session[:first_name_kana],
-      # phone_number: session[:phone_number])
+    @user = User.new(
+      nickname: session[:nickname], 
+      email: session[:email],
+      password: session[:password],
+      password_confirmation: session[:password_confirmation],
+      family_name: session[:family_name], 
+      first_name: session[:first_name], 
+      family_name_kana: session[:family_name_kana], 
+      first_name_kana: session[:first_name_kana], 
+      phone_number: session[:phone_number],
+    )
+    @user.save
 
-      @user.save
+    @address = @user.build_address(
+      first_name: session[:address_first_name],
+      last_name: session[:address_last_name],
+      first_name_kana: session[:address_first_name_kana],
+      last_name_kana: session[:address_last_name_kana],
+      phone_number: session[:address_phone_number],
+      post_number: session[:post_number],
+      prefecture_id: session[:prefecture_id],
+      city: session[:city],
+      address_number: session[:address_number],
+      building: session[:building],
+    )
+    @address.save
 
-      redirect_to root_path
+    redirect_to root_path
   end 
 
 
@@ -62,14 +76,15 @@ class SignupController < ApplicationController
       :email,
       :password,
       :encrypted_password,
-      :birth_year,
-      :birth_month,
-      :birth_day,
+      :birth_yy,
+      :birth_mm,
+      :birth_dd,
       :first_name,
       :family_name_name,
       :first_name_kana,
       :family_name_name_kana,
       :phone_number,
+
       address_attributes:[
       :id,
       :first_name,
