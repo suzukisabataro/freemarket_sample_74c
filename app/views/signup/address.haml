@@ -1,7 +1,7 @@
 .main-signup_5
   = render partial: 'items/header'
   .main
-    = form_for @user, url: '/signup/create', method: :post, html:{class: 'main__container'} do |f|
+    = form_for @user, url: '/signup', method: :post, html:{class: 'main__container'} do |f|
     
       .main__container__header
         発送元・お届け先住所入力

@@ -20,7 +20,6 @@ class SignupController < ApplicationController
     session[:first_name] = user_params[:first_name]
     session[:family_name_kana] = user_params[:family_name_kana]
     session[:first_name_kana] = user_params[:first_name_kana]
-
     @user = User.new
   end
 
@@ -34,15 +33,16 @@ class SignupController < ApplicationController
     @user = User.new
     @user.build_address
 
-
   end
 
   def create
     @user = User.new(
       nickname: session[:nickname], 
       email: session[:email],
-      password: session[:password],
-      password_confirmation: session[:password_confirmation],
+      password: session[:encrypted_password],
+      birth_yy: session[:birth_yy],
+      birth_mm: session[:birth_mm],
+      birth_dd: session[:birth_dd],
       family_name: session[:family_name], 
       first_name: session[:first_name], 
       family_name_kana: session[:family_name_kana], 
@@ -52,16 +52,16 @@ class SignupController < ApplicationController
     @user.save
 
     @address = @user.build_address(
-      first_name: session[:address_first_name],
-      last_name: session[:address_last_name],
-      first_name_kana: session[:address_first_name_kana],
-      last_name_kana: session[:address_last_name_kana],
-      phone_number: session[:address_phone_number],
-      post_number: session[:post_number],
-      prefecture_id: session[:prefecture_id],
-      city: session[:city],
-      address_number: session[:address_number],
-      building: session[:building],
+      first_name: user_params[:address_attributes][:first_name],
+      last_name:  user_params[:address_attributes][:last_name],
+      first_name_kana:  user_params[:address_attributes][:first_name],
+      last_name_kana:  user_params[:address_attributes][:last_name],
+      phone_number:  user_params[:address_attributes][:phone_number],
+      post_number:  user_params[:address_attributes][:post_number],
+      prefecture_id:  user_params[:address_attributes][:prefecture_id],
+      city:  user_params[:address_attributes][:city],
+      address_number:  user_params[:address_attributes][:address_number],
+      building:  user_params[:address_attributes][:building],
     )
     @address.save
 
@@ -80,13 +80,12 @@ class SignupController < ApplicationController
       :birth_mm,
       :birth_dd,
       :first_name,
-      :family_name_name,
+      :family_name,
       :first_name_kana,
-      :family_name_name_kana,
+      :family_name_kana,
       :phone_number,
 
       address_attributes:[
-      :id,
       :first_name,
       :last_name,
       :first_name_kana,
