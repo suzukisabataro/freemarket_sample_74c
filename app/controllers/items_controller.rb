@@ -5,7 +5,11 @@ class ItemsController < ApplicationController
 
 
   def show
-    @items=Item.all.includes(:item_images).order('created_at DESC')
+    @items = Item.find_by(id: params[:id])
+    @category = Category.find(@item.category)
+    @users = User.all
+    # @items=Item.all.includes(:item_images).order('created_at DESC').limit(6)
+    # @items = @items.User.build 
     @url = request.url
   end
 

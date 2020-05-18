@@ -18,37 +18,37 @@
         %th
           = "出品者"
         %td                    
-          = "出品者(current_user?)"  
+          = @items.name  
 
       %tr
         %th
           = "カテゴリー"
         %td 
-          = "レディース"
+          = @items.category([:id])
 
       %tr 
         %th 
           = "ブランド"
         %td 
-          = "シャネル"
+          = @items.brand
 
       %tr 
         %th 
           = "商品のサイズ"
         %td 
-          = "FREE SIZE"
+          = @items.size
 
       %tr 
         %th 
           = "商品の状態"
         %td 
-          = "未使用に近い"
+          = @items.condition
 
       %tr 
         %th 
           = "配送料の負担"
         %td 
-          = "送料込み（出品者負担)"
+          = @items.delivery_charge
 
       %tr 
         %th 
@@ -60,17 +60,17 @@
         %th 
           = "配送元地域"
         %td 
-          = "兵庫県"
+          = @items.area
 
       %tr 
         %th 
           = "発送日の目安"
         %td 
-          = "1週間程度"
+          = @items.delivery_day
 
 .show__price
   %span.show__price--price
-    = "￥700,000" 
+    = @items.price
   %span.show__price--included
     = "(税込)"
   %span.show__price--fee
@@ -115,12 +115,11 @@
   ="jinnさんの作品"
 
   .show__users--other
-    - @items.each do |item|
-      .show__users--other__item
-        =image_tag item.item_images.first.image.url, size:"220x190", class:"show__users--other__item--image"
-        .show__users--other__item--contents
-          .show__users--other__item--contents__name
-            =item.name
-          .show__users--other__item--contents__price
-            ="¥  #{item.price}"      
-        
+    .show__users--other__item
+      =image_tag @items.item_images.first.image, size:"220x190", class:"show__users--other__item--image"
+      .show__users--other__item--contents
+        .show__users--other__item--contents__name
+          =@items.name
+        .show__users--other__item--contents__price
+          ="¥  #{@items.price}"      
+      
