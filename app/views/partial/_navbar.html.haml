@@ -8,37 +8,29 @@
         = form_with local: true, class:"from-seach" do |f|
           = f.text_field :name, class: "from-seach-area", placeholder: "キーワードから探す"
           = f.submit "検索", class: "from-seach-submit"
-  
-    .categories
-      %ul.categories__list
-        %li
-          = link_to "#", class: "category__link" do
-            = image_tag "material/icon/icon_category.png", class: "category", size: "14x14"
-            = "カテゴリーから探す"
-          %ul.category__parent.category__list
-            - @parents.each do |parent|  
-              %li.category
-                = link_to "#", class: "category__parent--name" do
-                  = parent.name
-                %ul.category__child.category__list
-                  - parent.children.each do |child|
-                    %li.child
-                      = link_to "#", class: "category__child--name" do
-                        = child.name
-                      %ul.category__grandchild.category__list
-                        - child.children.each do |grandchild|
-                          %li.grandchild
-                            = link_to "#", class: " category__child--name" do
-                              = grandchild.name
-      %ul
-        %li
-          = link_to "#", class: "brand__link" do
-            = image_tag "material/icon/icon_brand.png", class: "brand", size: "14x14"
-            = "ブランドから探す"
+    .nav-link
+      .nav-link-choice
+        = link_to "" do
+          -# アイコン
+          .nav-link-choice-category カテゴリから探す
+        = link_to "" do
+          -# アイコン
+          .nav-link-choice-brand ブランドから探す
+    
+      - if user_signed_in?
+        %ul
+          = link_to "" do
+            %li いいね一覧
+          = link_to "" do
+            %li お知らせ
+          = link_to destroy_user_session_path, method: :delete do
+            %li 仮ログアウト
+          = link_to "" do
+            %li マイページ
 
-      .nav__user
-        %ul.nav__user--links
-          = link_to "", class: "user-login" do
-            %li.login ログイン
-          = link_to "", class: "user-signin" do
-            %li.signin 新規登録
+      - else
+        %ul
+          = link_to new_user_session_path, method: :get do
+            %li ログイン
+          = link_to "" do
+            %li 新規登録
