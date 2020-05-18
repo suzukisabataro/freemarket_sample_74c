@@ -1,3 +1,5 @@
+@import"reset";
+@import "new";
 @import "variables";
 @import 'footer';
 @import 'header';
@@ -9,11 +11,9 @@
 @import 'signup/address';
 @import "font-awesome-sprockets";
 @import "font-awesome";
-
 @import "items";
+@import "create";
 @import"show";
-@import"font-awesome-sprockets";
-@import"font-awesome";
 @import"partial/navbar";
 @import"partial/footer";
 @import "product-image";
