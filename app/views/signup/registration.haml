@@ -50,7 +50,7 @@
           .main__container__form__content-top__box__require
             必須
           .main__container__form__content-top__box__name
-            = f.text_field :family_name, type: "text", placeholder:"例)山田", class: "main__container__form__content-top__box__name__kanji"
+            = f.text_field :last_name, type: "text", placeholder:"例)山田", class: "main__container__form__content-top__box__name__kanji"
             = f.text_field :first_name, type: "text", placeholder:"例)太郎", class: "main__container__form__content-top__box__name__kanji"
         -# お名前カナ（全角）入力欄
         .main__container__form__content-top__box
@@ -59,7 +59,7 @@
           .main__container__form__content-top__box__require
             必須
           .main__container__form__content-top__box__name
-            = f.text_field :family_name_kana, type: "text", placeholder:"例)ヤマダ", class: "main__container__form__content-top__box__name__kanji"
+            = f.text_field :last_name_kana, type: "text", placeholder:"例)ヤマダ", class: "main__container__form__content-top__box__name__kanji"
             = f.text_field :first_name_kana, type: "text", placeholder:"例)タロウ", class: "main__container__form__content-top__box__name__kanji"
         -# 生年月日入力欄
         .main__container__form__content-top__birth
