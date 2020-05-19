@@ -92,7 +92,7 @@
                 %b 発送までの日数
               .d6-lower
                 %b 必須
-            = f.collection_select :delivery_days_id, DeliveryDays.all, :id, :value, prompt: "--"
+            = f.collection_select :delivery_day_id, DeliveryDay.all, :id, :value, prompt: "--"
         .price
           .price-content
             .price-1

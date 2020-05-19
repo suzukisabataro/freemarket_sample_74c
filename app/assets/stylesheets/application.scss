@@ -1,4 +1,5 @@
 @import "variables";
+@import "_reset";
 @import 'footer';
 @import 'header';
 @import 'user/login';
@@ -9,11 +10,10 @@
 @import 'signup/address';
 @import "font-awesome-sprockets";
 @import "font-awesome";
-
 @import "items";
 @import"show";
-@import"font-awesome-sprockets";
-@import"font-awesome";
+@import"new";
+@import"create";
 @import"partial/navbar";
 @import"partial/footer";
 @import "product-image";
