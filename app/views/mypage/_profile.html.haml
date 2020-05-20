@@ -1,0 +1,69 @@
+%section
+  .main__profile
+    %figure
+      = image_tag "https://free-style.mkstyle.net/web/wp-content/uploads/Paris-Elements-Vector-Collection.jpg", size: "700x200", class: "back-image"
+    = link_to class: "profile-image" do
+      .main__profiles
+        = image_tag "material/icon/member_photo_noimage_thumb.png", size: "80x80", class: "profile-icon"
+        %h3.main__profiles--name
+          = "モンキーD・ルフィー"
+        .main__profiles--evaluation
+          .evaluation
+            = "評価"
+          %span.bold
+            = "0"
+          .posts
+            = "商品数"
+          %span.bold
+            = "0"
+
+  %section.mypage__tab
+    %ul.mypage__tabs
+      %li.active-left
+        %h3
+          = link_to class: "data" do
+            = "お知らせ"
+      %li.active-right
+        %h3
+          = link_to class: "data" do
+            = "やることリスト"
+    .tab__content
+      %ul.content__list
+        %li.contet__list--news
+          = link_to class: "new-topic" do
+            %figure.icons
+              = icon('fa', 'cube', class: 'icon-cube')
+            .content__box
+              .content__box--text
+                = "今、話題のFURIMA絶賛好評中！！！"
+              %time
+                = icon('fa', 'clock', class: 'icon-clock')
+                %span
+                  = "１時間前"
+            %figure.icons-angle
+              = icon('fa', 'angle-right', class: 'icon-angle')
+        %li.contet__list--lists
+          = link_to do
+            .content-lists
+              = "一覧を見る"
+
+  %section.purchase
+    %h3.purchase__title
+      = "購入した商品"
+    %ul.purchase__tabs
+      %li.active-left
+        %h3
+          = link_to class: "data" do
+            = "取引中"
+      %li.active-right
+        %h3
+          = link_to class: "data" do
+            = "過去の取引"
+    .purchase__content
+      %ul.purchase__content--list
+        %li.purchase__content--news
+          = link_to class: "new-topic" do
+            .icons-buy
+              = icon('fa', 'cube', class: 'cube-buy')
+              %p.purchase__buy--text
+                = "過去に取引した商品がありません"
