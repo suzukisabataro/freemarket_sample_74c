@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
 
 
   def show
-    @items=Item.all.includes(:item_images).order('created_at DESC')
+    @items=Item.find(params[:id]).includes(:item_images).order('created_at DESC')
     @url = request.url
   end
 
