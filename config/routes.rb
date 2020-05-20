@@ -16,5 +16,12 @@ Rails.application.routes.draw do
       get 'address'
     end
   end
-  
+
+  resources :mypage, only: [:index] do
+    member do
+      get 'user_profile'
+      get 'credit_card'
+      get 'logout'
+    end
+  end
 end

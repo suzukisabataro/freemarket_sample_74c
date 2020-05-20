@@ -2,7 +2,7 @@
   .nav
     .nav-title
       .nav-title-icon
-        = link_to "" do
+        = link_to root_path do
           = image_tag "material/logo/logo.png", size: "220x60"
       .from
         = form_with local: true, class:"from-seach" do |f|
@@ -25,7 +25,7 @@
             %li お知らせ
           = link_to destroy_user_session_path, method: :delete do
             %li 仮ログアウト
-          = link_to "" do
+          = link_to mypage_index_path do
             %li マイページ
             
       - else
