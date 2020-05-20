@@ -100,6 +100,7 @@
                 #img{
                   cursor: pointer;
                   .js-file_group{
+                    display: inline-block;
                     background-color: tomato;
                     height: 16px;
                     width:50px;

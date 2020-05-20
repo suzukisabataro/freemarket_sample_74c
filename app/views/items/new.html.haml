@@ -31,7 +31,7 @@
                     = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
                 - if @item.persisted?
                   .js-file_group{"data-index" => "#{@item.images.count}"}
-                  = file_field_tag :src, name: "item[item_images_attributes][#{@item.images.count}][src]", class: 'js-file'
+                  = file_field_tag :src, name: "item[item_images_attributes][#{@item.images.count}][image]", class: 'js-file'
                   -# カメラアイコン
                 .article-icon
                   %label{for: "item_images_attributes_0_image", class: "content-image_icon", id: "label-box--0"}
