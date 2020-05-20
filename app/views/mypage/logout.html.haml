@@ -1,0 +1,12 @@
+.items__index
+  = render partial: 'partial/navbar'
+  
+.contents
+  .left__content
+    = render partial: 'side'
+
+  %section
+    .main__logout
+      = link_to root_path do
+        %h2.main__logout--box
+          = "ログアウト"

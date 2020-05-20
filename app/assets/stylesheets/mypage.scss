@@ -1,0 +1,264 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.contents {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+
+.left__content {
+  width: 300px;
+  margin: 20px 0px 20px 40px;
+  .left__side {
+    list-style: none;
+    background-color: white;
+    padding: 0;
+    &--list {
+      font-size: 14px;
+      position: relative;
+      &-item {
+        color: black;
+        text-decoration: none;
+        display: block;
+        border-bottom: 1px solid lightgray;
+        padding: 16px;
+      }
+      .angle {
+        position: absolute;
+        top: 14px;
+        right: 16px;
+        font-size: 20px;
+      }
+    }
+  }
+}
+.card {
+  font-size: 15px;
+}
+.information {
+  font-size: 15px;
+}
+
+.main__content {
+  margin-top: 20px;
+  margin-right: 40px;
+  .main__profile {
+    position: relative;
+    width: 700px;
+    height: 200px;
+    figure {
+      margin-bottom: 0px;
+      opacity: 0.8;
+    }
+    .main__profiles {
+      position: absolute;
+      top: 20px;
+      left: 320px;
+      text-align: center;
+      color: black;
+      .profile-icon {
+        border-radius: 30px;
+      }
+      &--name {
+        font-size: 14px;
+      }
+      &--evaluation {
+        display: flex;
+        font-size: 20px;
+        padding-left: 5px;
+        .evaluation {
+          margin-right: 10px;
+        }
+        .posts {
+          margin-right: 10px;
+        }
+        .bold {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+.mypage__tab {
+  width: 700px;
+  margin-left: 40px;
+  .mypage__tabs {
+    height: 72px;
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    color: black;
+    .active-left {
+      line-height: 35px;
+      border-top: 1px solid red;
+      width: 350px;
+      background-color: white;
+      text-align: center;
+    }
+    .active-right {
+      line-height: 35px;
+      border-top: 1px solid red;
+      text-align: center;
+      width: 350px;
+      background-color: lightgray;
+    }
+  }
+}
+.tab__content {
+  width: 700px;
+  margin-left: 0px;
+  .content__list {
+    list-style: none;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+  .contet__list--news {
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+    }
+  .icons {
+    margin: 0 0 0 10px;
+    width: 48px;
+    height: 48px;
+    background-color: lightgray;
+    position: relative;
+    display: inline-block;
+    .icon-cube {
+      font-size: 30px;
+      position: absolute;
+      top: 9px;
+      left: 9px;
+    }
+  }
+  .content__box {
+    display: inline-block;
+    margin: 0 40px;
+    &--text {
+      line-height: 48px;
+    }
+    .icon-clock {
+      color: lightgrey;
+    }
+    span {
+      color: lightgrey;
+    }
+  }
+  .icons-angle {
+    margin: 0;
+    position: absolute;
+    top: 35px;
+    right: 16px;
+    font-size: 20px;
+    display: inline-block;
+  }
+  .contet__list--lists {
+    width: 670px;
+    height: 63px;
+    background-color: white;
+    text-align: center;
+    padding: 15px;;
+    .content-lists {
+      height: 56px;
+      background-color: lightgray;
+      line-height: 56px;
+    }
+  }
+}
+
+.purchase {
+  width: 700px;
+  margin-left: 40px;
+  margin-top: 40px;
+  .purchase__title {
+    background-color: lightgrey;
+    height: 72px;
+    margin: 0;
+    line-height: 72px;
+    padding-left: 10px;
+  }
+  .purchase__tabs {
+    height: 72px;
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    color: black;
+    .active-left {
+      line-height: 35px;
+      border-top: 1px solid red;
+      width: 350px;
+      background-color: white;
+      text-align: center;
+    }
+    .active-right {
+      line-height: 35px;
+      border-top: 1px solid red;
+      text-align: center;
+      width: 350px;
+      background-color: lightgray;
+    }
+  }
+}
+.purchase__content {
+  width: 700px;
+  margin-left: 0px;
+  &--list {
+    height: 236px;
+    list-style: none;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    position: relative;
+  }
+  .icons-buy {
+    margin: 0 0 0 10px;
+    display: inline-block;
+    text-align: center;
+    margin-top: 50px;
+    .cube-buy {
+      font-size: 60px;
+      color: #f5f5f5;
+    }
+    .purchase__buy--text {
+      color: #f5f5f5;
+      font-weight: bold;
+      font-size: 20px;
+    }
+  }
+}
+
+// logout
+.main__logout {
+  width: 700px;
+  height: 200px;
+  margin-left: 40px;
+  margin-top: 35px;
+  background-color: lightgray;
+  &--box {
+    margin-top: 70px;
+    margin-left: 200px;
+    line-height: 50px;
+    background-color: red;
+    color: white;
+    text-align: center;
+    width: 300px;
+    height: 50px;
+    display: inline-block;
+  }
+}

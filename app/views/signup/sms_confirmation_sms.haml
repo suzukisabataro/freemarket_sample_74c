@@ -1,0 +1,55 @@
+.main-signup_4
+  = render partial: 'items/header'
+  .main
+    .main__container
+
+      -# 電話番号の確認
+      .main__container__header
+        電話番号認証
+
+      -# フォーム
+      = form_for @user, url: address_signup_index_path, method: :get, class: 'main__container__form' do |f|
+
+        .main__container__form__input
+          .main__container__form__input__title
+            .main__container__form__input__title__title
+              認証番号
+            .main__container__form__input__title__require
+              必須
+          = f.text_field :phone_number, type: "text", placeholder:"認証番号を入力", class: "main__container__form__input__text"
+        
+        .main__container__form__info
+          SMSで届いた認証番号を入力してください
+
+        .main__container__form__btn
+          = f.submit "SMSを送信する" ,class: "main__container__form__btn__red" 
+      
+      -# ２段目
+      .main__container__next
+        .main__container__next__box
+          .main__container__next__box__label
+            30秒たっても認証番号が届かない方へ
+          .main__container__next__box__info
+            電話で認証番号を聞くこともできます。
+        .main__container__next__btn
+          = link_to "#", class: "main__container__next__btn__red" do
+            電話で認証番号を聞く（通話無料）
+
+      -# ３段目
+      .main__container__bottom
+        .main__container__bottom__label
+          認証番号を再送することもできます。
+          %br もう一度電話番号を入力して下さい。
+        .main__container__bottom__again
+          = link_to "#", class: "main__container__bottom__again__label" do
+            電話で認証番号を聞く（通話無料）
+        .main__container__bottom__info
+          ※SMSが届かない場合は
+          = link_to "#", class: "main__container__bottom__again__label" do
+            SMS受信設定
+          を確認して、
+          %br もう一度電話番号を入力してください。
+
+
+
+  = render partial: 'items/footer'

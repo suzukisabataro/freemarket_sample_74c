@@ -1,17 +1,18 @@
 class ItemsController < ApplicationController
   before_action :set_item_image, except: [:index, :new, :create]
   def index
-    # @items = Item.limit(10).order('created_at DESC')
+    @items = Item.limit(10).order('created_at DESC')
   end
 
+
   def show
-    @items=Item.all.includes(:item_images).order('created_at DESC')
-    @url = request.url
+    @item = Item.find(params[:id])
+    # @items=Item.all.includes(:item_images).order('created_at DESC')
+    # @url = request.url
   end
 
   def new
     @item = Item.new
-    @item.item_images.new
     @item.item_images.build
   end
 
@@ -24,10 +25,10 @@ class ItemsController < ApplicationController
     end
   end
 
-  # def edit
-  #   # @items = Item.find(params[:id])
-  #   # @items.save
-  # end
+  def edit
+    # @items = Item.find(params[:id])
+    # @items.save
+  end
 
   private
   def item_params

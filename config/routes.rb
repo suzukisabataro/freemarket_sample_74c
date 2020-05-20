@@ -2,7 +2,21 @@ Rails.application.routes.draw do
   devise_for :users
   root 'items#index' 
   resources :items, only: [:show, :edit, :new, :create]
-  
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :signup, only: [:index, :create] do
+    collection do
+      get 'registration'
+      get 'sms_confirmation'
+      get 'sms_confirmation_sms'
+      get 'address'
+    end
+  end
+
+  resources :mypage, only: [:index] do
+    member do
+      get 'user_profile'
+      get 'credit_card'
+      get 'logout'
+    end
+  end
 end
- 

@@ -2,7 +2,7 @@
   .nav
     .nav-title
       .nav-title-icon
-        = link_to "" do
+        = link_to root_path do
           = image_tag "material/logo/logo.png", size: "220x60"
       .from
         = form_with local: true, class:"from-seach" do |f|
@@ -16,8 +16,21 @@
         = link_to "" do
           -# アイコン
           .nav-link-choice-brand ブランドから探す
-      %ul
-        = link_to "" do
-          %li ログイン
-        = link_to "" do
-          %li 新規登録
+    
+      - if user_signed_in?
+        %ul
+          = link_to "" do
+            %li いいね一覧
+          = link_to "" do
+            %li お知らせ
+          = link_to destroy_user_session_path, method: :delete do
+            %li 仮ログアウト
+          = link_to mypage_index_path do
+            %li マイページ
+            
+      - else
+        %ul
+          = link_to new_user_session_path, method: :get do
+            %li ログイン
+          = link_to signup_index_path do
+            %li 新規登録

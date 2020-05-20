@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_14_041109) do
+ActiveRecord::Schema.define(version: 2020_05_14_121537) do
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "first_name_kana", null: false
+    t.string "last_name_kana", null: false
+    t.integer "post_number", null: false
+    t.integer "area_id", null: false
+    t.string "city", null: false
+    t.string "address_number", null: false
+    t.string "building"
+    t.string "phone_number"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id", null: false
@@ -25,14 +41,13 @@ ActiveRecord::Schema.define(version: 2020_05_14_041109) do
     t.text "description", null: false
     t.integer "price", null: false
     t.string "brand"
-    t.integer "condition", null: false
-    t.integer "size", null: false
-    t.integer "delivery_charge", null: false
-    t.integer "delivery_day", null: false
-    t.integer "area", null: false
-    t.integer "category", null: false
-    t.integer "category1"
-    t.integer "category2"
+    t.integer "condition_id", null: false
+    t.integer "size_id"
+    t.integer "delivery_charge_id", null: false
+    t.integer "delivery_day_id", null: false
+    t.integer "delivery_way_id"
+    t.integer "area_id", null: false
+    t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,10 +57,10 @@ ActiveRecord::Schema.define(version: 2020_05_14_041109) do
     t.string "encrypted_password", default: "", null: false
     t.string "nickname", null: false
     t.string "image"
-    t.string "family_name", null: false
     t.string "first_name", null: false
-    t.string "family_name_kana", null: false
+    t.string "last_name", null: false
     t.string "first_name_kana", null: false
+    t.string "last_name_kana", null: false
     t.integer "birth_dd", null: false
     t.integer "birth_mm", null: false
     t.integer "birth_yy", null: false
