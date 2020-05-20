@@ -23,13 +23,14 @@ class SignupController < ApplicationController
     @user = User.new
   end
 
-  def sms_confirmation_sms
-    session[:phone_number] = user_params[:phone_number]
-    @user = User.new
-  end
+  # 電話番号認証
+  # def sms_confirmation_sms
+  #   session[:phone_number] = user_params[:phone_number]
+  #   @user = User.new
+  # end
 
   def address
-
+    session[:phone_number] = user_params[:phone_number]
     @user = User.new
     @user.build_address
 
@@ -49,23 +50,26 @@ class SignupController < ApplicationController
       first_name_kana: session[:first_name_kana], 
       phone_number: session[:phone_number],
     )
-    @user.save
-
-    @address = @user.build_address(
-      first_name: user_params[:address_attributes][:first_name],
-      last_name:  user_params[:address_attributes][:last_name],
-      first_name_kana:  user_params[:address_attributes][:first_name],
-      last_name_kana:  user_params[:address_attributes][:last_name],
-      phone_number:  user_params[:address_attributes][:phone_number],
-      post_number:  user_params[:address_attributes][:post_number],
-      area_id:  user_params[:address_attributes][:area_id],
-      city:  user_params[:address_attributes][:city],
-      address_number:  user_params[:address_attributes][:address_number],
-      building:  user_params[:address_attributes][:building],
-    )
-    @address.save
-
-    redirect_to root_path
+    if @user.save
+      session[:id] = @user.id
+      @address = @user.build_address(
+        first_name: user_params[:address_attributes][:first_name],
+        last_name:  user_params[:address_attributes][:last_name],
+        first_name_kana:  user_params[:address_attributes][:first_name],
+        last_name_kana:  user_params[:address_attributes][:last_name],
+        phone_number:  user_params[:address_attributes][:phone_number],
+        post_number:  user_params[:address_attributes][:post_number],
+        area_id:  user_params[:address_attributes][:area_id],
+        city:  user_params[:address_attributes][:city],
+        address_number:  user_params[:address_attributes][:address_number],
+        building:  user_params[:address_attributes][:building],
+      )
+      @address.save
+      sign_in User.find(session[:id]) unless user_signed_in?
+      redirect_to root_path
+    else
+      redirect_to signup_index_path
+    end
   end 
 
 
