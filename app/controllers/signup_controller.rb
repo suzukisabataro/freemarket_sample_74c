@@ -72,6 +72,7 @@ class SignupController < ApplicationController
   end
 
   def address_valid
+
     @user = Address.new(
       first_name: user_params[:address_attributes][:first_name],
       last_name:  user_params[:address_attributes][:last_name],
@@ -85,7 +86,7 @@ class SignupController < ApplicationController
       building:  user_params[:address_attributes][:building],
     )
 
-    render address_signup_index_path unless @user.valid?
+    render address_signup_index_path unless @user.valid?(:validates_step3)
   end
 
   def create
