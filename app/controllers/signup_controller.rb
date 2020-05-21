@@ -72,24 +72,27 @@ class SignupController < ApplicationController
   end
 
   def address_valid
-
-    @user = Address.new(
-      first_name: user_params[:address_attributes][:first_name],
-      last_name:  user_params[:address_attributes][:last_name],
-      first_name_kana:  user_params[:address_attributes][:first_name],
-      last_name_kana:  user_params[:address_attributes][:last_name],
-      phone_number:  user_params[:address_attributes][:phone_number],
-      post_number:  user_params[:address_attributes][:post_number],
-      area_id:  user_params[:address_attributes][:area_id],
-      city:  user_params[:address_attributes][:city],
-      address_number:  user_params[:address_attributes][:address_number],
-      building:  user_params[:address_attributes][:building],
+    @user = User.new(
+      nickname: session[:nickname], 
+      email: session[:email],
+      password: session[:password],
+      birth_yy: session[:birth_yy],
+      birth_mm: session[:birth_mm],
+      birth_dd: session[:birth_dd],
+      last_name: session[:last_name], 
+      first_name: session[:first_name], 
+      last_name_kana: session[:last_name_kana], 
+      first_name_kana: session[:first_name_kana], 
+      phone_number: session[:phone_number],
     )
 
+    @user.address_attributes = user_params[:address_attributes]
     render address_signup_index_path unless @user.valid?(:validates_step3)
   end
 
   def create
+
+    binding.pry
     @user = User.new(
       nickname: session[:nickname], 
       email: session[:email],
@@ -106,6 +109,7 @@ class SignupController < ApplicationController
     if @user.save
       session[:id] = @user.id
       @address = @user.build_address(
+
         first_name: user_params[:address_attributes][:first_name],
         last_name:  user_params[:address_attributes][:last_name],
         first_name_kana:  user_params[:address_attributes][:first_name],
@@ -153,5 +157,4 @@ class SignupController < ApplicationController
       :building,
       :phone_number])
   end
-
 end
