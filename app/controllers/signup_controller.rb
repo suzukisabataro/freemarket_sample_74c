@@ -1,18 +1,21 @@
 class SignupController < ApplicationController
 
+  before_action :registration_valid, only: :sms_confirmation
+  before_action :sms_confiirmation_valid, only: :address
+
   def index
+    redirect_to root_path if user_signed_in?
   end
 
   def registration
     @user = User.new
   end
 
-  def sms_confirmation
 
+  def registration_valid #バリデーション
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
-    session[:encrypted_password] = user_params[:encrypted_password]
     session[:birth_yy] = user_params[:birth_yy]
     session[:birth_mm] = user_params[:birth_mm]
     session[:birth_dd] = user_params[:birth_dd]    
@@ -20,27 +23,57 @@ class SignupController < ApplicationController
     session[:first_name] = user_params[:first_name]
     session[:last_name_kana] = user_params[:last_name_kana]
     session[:first_name_kana] = user_params[:first_name_kana]
+    
+    @user = User.new(
+    nickname: session[:nickname],
+    email: session[:email],
+    password: session[:password],
+    birth_yy: session[:birth_yy],
+    birth_mm: session[:birth_mm],
+    birth_dd: session[:birth_dd],
+    last_name: session[:last_name],
+    first_name: session[:first_name],
+    last_name_kana: session[:last_name_kana],
+    first_name_kana: session[:first_name_kana],
+    )
+
+    render registration_signup_index_path unless @user.valid?
+  end
+
+  def sms_confirmation
     @user = User.new
   end
 
-  # 電話番号認証
-  # def sms_confirmation_sms
-  #   session[:phone_number] = user_params[:phone_number]
-  #   @user = User.new
-  # end
+  def sms_confiirmation_valid #バリデーション
+
+    session[:phone_number] = user_params[:phone_number]
+
+    @user = User.new(
+      nickname: session[:nickname], 
+      email: session[:email],
+      password: session[:password],
+      birth_yy: session[:birth_yy],
+      birth_mm: session[:birth_mm],
+      birth_dd: session[:birth_dd],
+      last_name: session[:last_name], 
+      first_name: session[:first_name], 
+      last_name_kana: session[:last_name_kana], 
+      first_name_kana: session[:first_name_kana], 
+      phone_number: session[:phone_number]
+      )
+
+    render sms_confirmation_signup_index_path unless @user.valid?
+  end
 
   def address
-    session[:phone_number] = user_params[:phone_number]
-    @user = User.new
     @user.build_address
-
   end
 
   def create
     @user = User.new(
       nickname: session[:nickname], 
       email: session[:email],
-      password: session[:encrypted_password],
+      password: session[:password],
       birth_yy: session[:birth_yy],
       birth_mm: session[:birth_mm],
       birth_dd: session[:birth_dd],
@@ -79,7 +112,6 @@ class SignupController < ApplicationController
       :nickname,
       :email,
       :password,
-      :encrypted_password,
       :birth_yy,
       :birth_mm,
       :birth_dd,

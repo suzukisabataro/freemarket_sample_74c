@@ -9,7 +9,7 @@
 
       -# フォーム
       = form_for @user, url: address_signup_index_path, method: :get, class: 'main__container__form' do |f|
-
+        = @user.errors.full_messages
         .main__container__form__input
           .main__container__form__input__title
             携帯電話の番号
