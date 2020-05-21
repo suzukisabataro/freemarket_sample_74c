@@ -2,6 +2,7 @@ class SignupController < ApplicationController
 
   before_action :registration_valid, only: :sms_confirmation
   before_action :sms_confiirmation_valid, only: :address
+  before_action :address_valid, only: :create
 
   def index
     redirect_to root_path if user_signed_in?
@@ -23,7 +24,7 @@ class SignupController < ApplicationController
     session[:first_name] = user_params[:first_name]
     session[:last_name_kana] = user_params[:last_name_kana]
     session[:first_name_kana] = user_params[:first_name_kana]
-    
+
     @user = User.new(
     nickname: session[:nickname],
     email: session[:email],
@@ -37,7 +38,7 @@ class SignupController < ApplicationController
     first_name_kana: session[:first_name_kana],
     )
 
-    render registration_signup_index_path unless @user.valid?
+    render registration_signup_index_path unless @user.valid?(:validates_step1)
   end
 
   def sms_confirmation
@@ -62,11 +63,29 @@ class SignupController < ApplicationController
       phone_number: session[:phone_number]
       )
 
-    render sms_confirmation_signup_index_path unless @user.valid?
+    render sms_confirmation_signup_index_path unless @user.valid?(:validates_step2)
   end
 
   def address
+    @user = User.new
     @user.build_address
+  end
+
+  def address_valid
+    @user = Address.new(
+      first_name: user_params[:address_attributes][:first_name],
+      last_name:  user_params[:address_attributes][:last_name],
+      first_name_kana:  user_params[:address_attributes][:first_name],
+      last_name_kana:  user_params[:address_attributes][:last_name],
+      phone_number:  user_params[:address_attributes][:phone_number],
+      post_number:  user_params[:address_attributes][:post_number],
+      area_id:  user_params[:address_attributes][:area_id],
+      city:  user_params[:address_attributes][:city],
+      address_number:  user_params[:address_attributes][:address_number],
+      building:  user_params[:address_attributes][:building],
+    )
+
+    render address_signup_index_path unless @user.valid?
   end
 
   def create
