@@ -12,6 +12,8 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :delivery_way_id
       t.integer :area_id, null: false
       t.integer :category_id, null: false
+      t.integer :buyer
+      t.references :user, type: :bigint, foreign_key: true
       t.timestamps
     end
   end
