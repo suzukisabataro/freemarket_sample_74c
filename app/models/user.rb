@@ -10,6 +10,9 @@ class User < ApplicationRecord
   validates :first_name,              presence: true, on: :validates_step1
   validates :last_name_kana,          presence: true, on: :validates_step1
   validates :first_name_kana,         presence: true, on: :validates_step1
+  validates :birth_dd,                presence: true, on: :validates_step1
+  validates :birth_mm,                presence: true, on: :validates_step1
+  validates :birth_yy,                presence: true, on: :validates_step1
 
   #  sms_confirmationの登録画面（STEP2）
   validates :phone_number,            presence: true, uniqueness: true, on: :validates_step2

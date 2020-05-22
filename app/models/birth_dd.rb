@@ -13,3 +13,4 @@ class Birth_dd < ActiveHash::Base
     {id: 31, name: '30'},{id: 32, name: '31'}
   ]
 end
+

@@ -5,7 +5,6 @@
       会員情報入力
     .main__container__form
     = form_for @user, url: sms_confirmation_signup_index_path, method: :get, class: 'main__container__form' do |f|
-      = @user.errors.full_messages
       .main__container__form__content-top
 
         -# ニックネーム入力欄
@@ -15,7 +14,7 @@
           .main__container__form__content-top__box__require
             必須
           = f.text_field :nickname, type: "text", placeholder:"例)フリマ太郎", class: "main__container__form__content-top__box__text"
-
+          = render 'shard/error_messages', errors: @user.errors.full_messages_for(:nickname)
         -# メールアドレス入力欄
         .main__container__form__content-top__box
           .main__container__form__content-top__box__label
@@ -23,7 +22,7 @@
           .main__container__form__content-top__box__require
             必須
           = f.text_field :email, type: "text", placeholder:"PC・携帯どちらでも可", class: "main__container__form__content-top__box__text"
-
+          = render 'shard/error_messages', errors: @user.errors.full_messages_for(:email)
         -# パスワード入力欄
         .main__container__form__content-top__box.password_box
           .main__container__form__content-top__box__label
@@ -32,12 +31,13 @@
             必須
           -# 変更点
           = f.password_field :password, type: "text", placeholder:"７文字以上の半角英数字", class: "main__container__form__content-top__box__text"
+          = render 'shard/error_messages', errors: @user.errors.full_messages_for(:password)  
           .main__container__form__content-top__box__info
             ※英字と数字の両方を含めて設定してください
           .main__container__form__content-top__box__check
             %input#chkbox{type: "checkbox", class: "main__container__form__content-top__box__check__box"}
             %label{for: "chkbox", class: "main__container__form__content-top__box__check__label"} パスワードを表示する
-          
+        
         -# 本人確認入力欄
         .main__container__form__content-top__identity
           .main__container__form__content-top__identity__head
@@ -54,6 +54,7 @@
           .main__container__form__content-top__box__name
             = f.text_field :last_name, type: "text", placeholder:"例)山田", class: "main__container__form__content-top__box__name__kanji"
             = f.text_field :first_name, type: "text", placeholder:"例)太郎", class: "main__container__form__content-top__box__name__kanji"
+          = render 'shard/error_messages', errors: @user.errors.full_messages_for(:last_name)
         -# お名前カナ（全角）入力欄
         .main__container__form__content-top__box
           .main__container__form__content-top__box__label
@@ -63,6 +64,7 @@
           .main__container__form__content-top__box__name
             = f.text_field :last_name_kana, type: "text", placeholder:"例)ヤマダ", class: "main__container__form__content-top__box__name__kanji"
             = f.text_field :first_name_kana, type: "text", placeholder:"例)タロウ", class: "main__container__form__content-top__box__name__kanji"
+          = render 'shard/error_messages', errors: @user.errors.full_messages_for(:last_name_kana)
         -# 生年月日入力欄
         .main__container__form__content-top__birth
           .main__container__form__content-top__birth__label
@@ -71,14 +73,15 @@
             必須
           .main__container__form__content-top__birth__area
             .main__container__form__content-top__birth__area__yymmdd
-              = f.collection_select :birth_yy, Birth_yy.all, :id, :name
+              = f.collection_select :birth_yy, Birth_yy.all, :id, :name, prompt: "--" 
               年
             .main__container__form__content-top__birth__area__yymmdd
-              = f.collection_select :birth_mm, Birth_mm.all, :id, :name
+              = f.collection_select :birth_mm, Birth_mm.all, :id, :name, prompt: "--" 
               月
             .main__container__form__content-top__birth__area__yymmdd
-              = f.collection_select :birth_dd, Birth_dd.all, :id, :name
+              = f.collection_select :birth_dd, Birth_dd.all, :id, :name, prompt: "--" 
               日
+          = render 'shard/error_messages', errors: @user.errors.full_messages_for(:birth_dd)
           
           -# 本人情報
           .main__container__form__content-top__birth__text

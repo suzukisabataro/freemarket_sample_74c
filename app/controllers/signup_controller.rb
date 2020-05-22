@@ -92,7 +92,6 @@ class SignupController < ApplicationController
 
   def create
 
-    binding.pry
     @user = User.new(
       nickname: session[:nickname], 
       email: session[:email],
