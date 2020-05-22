@@ -7,10 +7,10 @@
       = @item.name      
   .show__items--content
     %h2
-      = @item.description
+      = @item.description       
 
 .show__main--contents
-  =image_tag "#{@item.item_images.first.image}", class:"show_image"
+  =image_tag @item.item_images.first.image.url, class:"show_image"
   
   
   .show__items--details
@@ -24,8 +24,10 @@
       %tr
         %th
           = "カテゴリー"
-        %td 
-          = "レディース"
+        %td
+          = link_to class: "category__link" do
+            = icon('fa', 'angle-right', class: 'angle')
+            = @item.category.name
 
       %tr 
         %th 
