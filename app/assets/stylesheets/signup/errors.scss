@@ -1,0 +1,36 @@
+.field_with_errors {
+  display: inherit;
+  .main__container__form__content-top__box__text {  
+    border: solid 1px red;
+  }
+  .main__container__form__content-top__box__name__kanji {
+    border: solid 1px red;
+  }
+  select {
+    border: solid 1px red;
+  }
+  .main__container__form__input__text {
+    border: solid 1px red;
+  }
+  .main__container__form__kanji__family-name {
+    border: solid 1px red;
+  }
+  .main__container__form__kanji__first-name {
+    border: solid 1px red;
+  }
+  .main__container__form__kana__family-name {
+    border: solid 1px red;
+  }
+  .main__container__form__kana__first-name {
+    border: solid 1px red;
+  }
+  .main__container__form__post__number {
+    border: solid 1px red;
+  }
+  .main__container__form__city__detail {
+    border: solid 1px red;
+  }
+  .main__container__form__addnumber__detail {
+    border: solid 1px red;
+  }
+}
