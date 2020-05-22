@@ -20,13 +20,17 @@ class BuyersController < ApplicationController
   def pay
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     Payjp::Charge.create(
-      :amount => @item.price, #支払金額を引っ張ってくる
-      :customer => @card.customer_id,  #顧客ID
-      :currency => 'jpy',              #日本円
+      amount: @item.price, #支払金額を引っ張ってくる
+      customer: @card.customer_id,  #顧客ID
+      currency: 'jpy',              #日本円
     )
     @item.buyer = current_user.id
-    @item.save
+  -if @item.save
     redirect_to complete_item_buyers_path #完了画面に移動
+  else
+    render "index"
+  end
+    
   end
 
   def complete
