@@ -25,13 +25,12 @@ class BuyersController < ApplicationController
       currency: 'jpy',              #日本円
     )
     @item.buyer = current_user.id
-  if @item.save
-    redirect_to complete_item_buyers_path #完了画面に移動
-  else
-    flash[:error_message] = "購入に失敗しました"
-    render "index"
-  end
-    
+    if @item.save
+      redirect_to complete_item_buyers_path #完了画面に移動
+    else
+      flash[:error_message] = "購入に失敗しました"
+      render "index"
+    end  
   end
 
   def complete
