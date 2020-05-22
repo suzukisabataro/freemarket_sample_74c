@@ -21,7 +21,7 @@
             メールアドレス
           .main__container__form__content-top__box__require
             必須
-          = f.text_field :email, type: "text", placeholder:"PC・携帯どちらでも可", class: "main__container__form__content-top__box__text"
+          = f.email_field :email, type: "text", placeholder:"PC・携帯どちらでも可", class: "main__container__form__content-top__box__text"
           = render 'shard/error_messages', errors: @user.errors.full_messages_for(:email)
         -# パスワード入力欄
         .main__container__form__content-top__box.password_box
@@ -81,7 +81,15 @@
             .main__container__form__content-top__birth__area__yymmdd
               = f.collection_select :birth_dd, Birth_dd.all, :id, :name, prompt: "--" 
               日
-          = render 'shard/error_messages', errors: @user.errors.full_messages_for(:birth_dd)
+          - if @user.errors.full_messages_for(:birth_dd) || @user.errors.full_messages_for(:birth_mm) || @user.errors.full_messages_for(:birth_yy)
+            -# = render 'shard/error_messages', errors: @user.errors.full_messages_for(:birth_dd)
+            = render 'shard/error_messages', errors: @user.errors.full_messages_for(:birth_mm)
+
+          -# - elsif @user.errors.full_messages_for(:birth_mm) && @user.errors.full_messages_for(:birth_yy)
+          -#   = render 'shard/error_messages', errors: @user.errors.full_messages_for(:birth_mm)
+
+          -# - elsif @user.errors.full_messages_for(:birth_yy)
+          -#   = render 'shard/error_messages', errors: @user.errors.full_messages_for(:birth_yy)
           
           -# 本人情報
           .main__container__form__content-top__birth__text

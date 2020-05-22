@@ -15,6 +15,9 @@
       font-size: 22px;
     }
   }
+  .signups_errors__error {
+    font-size: 15px;
+  }
 }
 
 .main__container__form {
@@ -29,9 +32,8 @@
 
     // 名前・mail・パスワード入力欄
     &__box {
-      height: 100px;
+      height: 100%;
       width: 100%;
-      padding-bottom: 30px;
       &__label {
         font-weight: 550;
         display: inline-block;
@@ -78,9 +80,6 @@
           cursor: pointer;
         }
       }
-    }
-    .password_box {
-      padding-bottom: 80px;
     }
 
     // 本人確認入力欄
