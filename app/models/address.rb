@@ -7,7 +7,7 @@ class Address < ApplicationRecord
   validates :first_name,              presence: true, on: :validates_step3
   validates :last_name,               presence: true, on: :validates_step3
   validates :first_name_kana,         presence: true, on: :validates_step3
-  validates :last_name_kana,         presence: true, on: :validates_step3
+  validates :last_name_kana,          presence: true, on: :validates_step3
   validates :post_number,             presence: true, on: :validates_step3
   validates :city,                    presence: true, on: :validates_step3
   validates :area_id,                 presence: true, on: :validates_step3

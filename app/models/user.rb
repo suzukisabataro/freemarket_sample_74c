@@ -15,7 +15,7 @@ class User < ApplicationRecord
   validates :birth_yy,                presence: true, on: :validates_step1
 
   #  sms_confirmationの登録画面（STEP2）
-  validates :phone_number,            presence: true, uniqueness: true, numericality: true, on: :validates_step2
+  validates :phone_number,            presence: true, uniqueness: true, numericality: true, length: {maximum: 11}, on: :validates_step2
 
 
   has_one :address
