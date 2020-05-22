@@ -12,15 +12,15 @@
     margin-top:15px;
 }
 
-li{
+
+
+ul.signup-card-list{
+  display:flex;
+  justify-content:center;
+  margin-right:30px;
+  li{
   list-style:none;
-}
-
-
-ul{
-    display:flex;
-    justify-content:center;
-    margin-right:30px;
+  }
 }
 
 
