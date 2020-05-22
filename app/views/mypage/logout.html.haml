@@ -1,3 +1,4 @@
+
 .items__index
   = render partial: 'partial/navbar'
   
@@ -7,6 +8,6 @@
 
   %section
     .main__logout
-      = link_to root_path do
+      = link_to destroy_user_session_path, method: :delete do
         %h2.main__logout--box
           = "ログアウト"

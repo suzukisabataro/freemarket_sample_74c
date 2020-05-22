@@ -1,3 +1,7 @@
+a {
+    color: lightskyblue;
+}
+
 table th{
     padding:10px;
     & td{
@@ -48,6 +52,7 @@ table th{
     }
 }
 
+
 .purchase-screen{
     text-align:center;
     margin-top:25px;
@@ -81,7 +86,6 @@ table th{
         margin-bottom:20px;
     }
 }
-
 
 .show__media--links{
     width:500px;
