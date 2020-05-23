@@ -25,3 +25,30 @@ ja:
   attributes:
     created_at: 作成日
     updated_at: 更新日
+      user: ユーザー
+      address: アドレス
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+        nickname: ニックネーム
+        image: プロフィール写真
+        first_name: 名
+        first_name_kana: 名カナ
+        last_name: 姓
+        last_name_kana: 姓カナ
+        birth_dd: 日
+        birth_mm: 月
+        birth_yy: 年
+        phone_number: 電話番号
+      address: 
+        first_name: 名
+        first_name_kana: 名カナ
+        last_name: 姓
+        last_name_kana: 姓カナ
+        post_number: 郵便番号
+        area_id: 都道府県
+        city: 都市
+        address_number: 住所１
+        building: 建物名
+        phone_number: 電話番号

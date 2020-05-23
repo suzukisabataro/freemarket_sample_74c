@@ -7,10 +7,10 @@
       = @item.name      
   .show__items--content
     %h2
-      = "商品の説明『fendi Tシャツ 美品』は、42回の取引実績を持つじ　んさんから出品されました。フェンディ（Tシャツ/カットソー(半袖/袖なし)/レディース）の商品で、兵庫県から4~7日で発送されます。"            
+      = "商品の説明『fendi Tシャツ 美品』は、42回の取引実績を持つじんさんから出品されました。フェンディ（Tシャツ/カットソー(半袖/袖なし)/レディース）の商品で、兵庫県から4~7日で発送されます。"            
 
 .show__main--contents
-  =image_tag "testimage.jpg", class:"show_image"
+  =image_tag @item.item_images.first.image.url, class:"show_image"
   
   
   .show__items--details
@@ -24,8 +24,10 @@
       %tr
         %th
           = "カテゴリー"
-        %td 
-          = "レディース"
+        %td
+          = link_to class: "category__link" do
+            = icon('fa', 'angle-right', class: 'angle')
+            = @item.category.name
 
       %tr 
         %th 

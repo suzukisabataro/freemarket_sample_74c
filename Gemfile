@@ -81,6 +81,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
 gem 'jquery-rails'
 gem 'rails-i18n'
+gem 'ancestry'
 group :production do
   gem 'unicorn'
 end

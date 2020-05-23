@@ -64,7 +64,8 @@
                   %b 必須
                 .error
                   = render 'layouts/error_messages', errors: @item.errors.full_messages_for(:category_id)
-            = f.collection_select :category_id, Category.all, :id, :name, prompt: "--"
+            -# = f.collection_select :category_id, Category.all, :id, :name, prompt: "--"
+            = f.collection_select :category_id, Category.limit(13), :id, :name, prompt: "--"
             .content-4
               .fourth-upper
                 .upper-1
