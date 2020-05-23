@@ -80,6 +80,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
 gem 'jquery-rails'
+gem 'rails-i18n'
 group :production do
   gem 'unicorn'
 end

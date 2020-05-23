@@ -18,7 +18,8 @@
   margin-top: 16px;
   outline: none;
   padding: 0 16px;
-  width: inherit
+  width: 626px;
+  max-width: 626px;
 }
 
 @mixin submit{
@@ -50,13 +51,13 @@
     background-color: #eeeeee;
     .main_body{
       width:700px;
+      height:100%;
       margin-right: auto;
       margin-left: auto;
       background-color: white;
 
       .article{
         height:300px;
-        width:700px;
         background-color: white;
         border-bottom: 1px solid #CCC;
         display: flex;
@@ -81,57 +82,46 @@
             margin-top:16px;
             font-size: 13px;
           }
-          // イメージコンテナ
-          .content-image{
-            background-color: skyblue;
-            height:150px;
-            border:1px dotted gray; 
-            margin-top: 16px;
-            text-align: center;
-            font-size: 12px;
+          .dropzone-container {
             position: relative;
-
-            #image-box{
-              // background-color: springgreen;
-              display: block;
-              #previews{
-                background-color: steelblue;
-
-                #img{
-                  cursor: pointer;
-                  .js-file_group{
-                    display: inline-block;
-                    background-color: tomato;
-                    height: 16px;
-                    width:50px;
-                    .js-file{
-                      background-color: yellow;
-                      display:none;
-                      .js-remove{
-                        color: #00b0ff;
-                        width: 50%;
-                        height: 50px;
-                        line-height: 50px;
-                        border: 1px solid #eee;
-                        background: #f5f5f5;
-                        cursor: pointer;
-                      }  
-                    }
-                  }  
-                }
-              }  
+            margin:  auto 0;
+            font-weight: 200;
+            text-align: center;
+            .input_area {
+              display: none;
             }
-          }
-            .article-icon{
-              line-height: 100px;
-              position: absolute;
- 
-              .content-image_text{
-                left: 195px;
-                top: 50px;
+            .input-area-text{
+              line-height: 123px;
+            }
+            .dropzone-area {
+              width: 100%;
+              min-height: 100px;
+              background: #f5f5f5;
+              border: 0.1rem dashed #ccc;
+              cursor: pointer;
+              float: right;
+            }
+            .dropzone-area2 {
+              @extend .dropzone-area;
+              display: none;
+            }
+            .img_view {
+              background-color: #f5f5f5;
+              height: 160px;
+              width: 120px;
+              float: left;
+              
+              .btn.delete {
+                text-align: center;
+                color: #0099e8;
               }
-  
+              img{
+                height: 123px;
+                width: 120px;
+                clear: both;
+              }
             }
+          }          
         }
       }
       .product_name{
@@ -179,7 +169,11 @@
             width:620px;
             .text-buttom{
               height:221px;
+              max-height:221px;
               width:620px;
+              max-width:620px;
+              min-width: 620px;
+              min-height: 221px;
               border-radius: 5px;
               border: 1px solid #ccc;
             }
@@ -261,9 +255,15 @@
             display:flex;
             font-size:14px;
             .upper-2{
-              height:20px;
-              width:20px;
-              background-color: steelblue;
+              width: 1.4rem;
+              height: 1.4rem;
+              border-radius: 50%;
+              background: #0099e8;
+              color: #fff;
+              line-height: 1.4rem;
+              font-size: 1.2rem;
+              text-align: center;
+              text-decoration: none;
             }
           }
           .delivery-2{
@@ -324,9 +324,15 @@
               margin-bottom: 24px;  
             }
             .p1-lower{
-              height:20px;
-              width:20px;
-              background-color: steelblue;
+              width: 1.4rem;
+              height: 1.4rem;
+              border-radius: 50%;
+              background: #0099e8;
+              color: #fff;
+              line-height: 1.4rem;
+              font-size: 1.2rem;
+              text-align: center;
+              text-decoration: none;
             }
           }
           .price-2{
@@ -360,7 +366,11 @@
               display:flex;
               font-size:12px;  
               margin-top: 32px;  
-              .bottom-right{
+              .bottom-left{
+                font-weight: bold;
+              }
+              .right_bar{
+                font-weight: bold;
                 margin:0 0 0 auto
               }
             }
@@ -369,7 +379,11 @@
               font-size:12px;  
               margin-top: 32px;  
               border-top: 1px solid #CCC;
-              .lower-right{
+              .lower-left{
+                font-weight: bold;
+              }
+              .right_bar_2{
+                font-weight: bold;
                 margin:0 0 0 auto
               }
             }
@@ -400,11 +414,12 @@
           .content-3{
             color: #0095ee;
             text-align: center;
+            margin-top: 5px;
           }
         }
         .exhibition-content2{
-          margin-left: auto;
-          margin-right: auto;
+          margin-left: 10px;
+          margin-right: 10px;
           font-size: 12px;
           line-height: 1.4em;
         }
@@ -412,6 +427,48 @@
     }
   }
 }
-.hidden-destroy{
-  color:blue($color: #000000)
+.dropzone-container {
+  position: relative;
+  margin:  auto 0;
+  font-weight: 200;
+  text-align: center;
+  .input_area {
+    display: none;
+  }
+  .input-area-text{
+    line-height: 123px;
+  }
+  .dropzone-area {
+    width: 100%;
+    min-height: 100px;
+    background: #f5f5f5;
+    border: 0.1rem dashed #ccc;
+    cursor: pointer;
+    float: right;
+  }
+  .dropzone-area2 {
+    @extend .dropzone-area;
+    display: none;
+  }
+  .img_view {
+    background-color: #f5f5f5;
+    height: 160px;
+    width: 120px;
+    float: left;
+    
+    .btn.delete {
+      text-align: center;
+      color: #0099e8;
+    }
+    img{
+      height: 123px;
+      width: 120px;
+      clear: both;
+    }
+  }
+}
+.error{
+  color: red;
+  font-size: 12px;
+  display: inline;
 }

@@ -1,0 +1,27 @@
+ja:
+  activerecord:
+    models:
+      # view側： User.model_name.human => "ユーザ" / t("activerecord.models.user")と同じ
+      item:  
+      item_image: 
+    # model毎に定義したいattributesを記述
+    attributes:
+        item:
+          id: ID
+          # view側： User.human_attribute_name :name => "名前" /　t("activerecord.attributes.user.name")と同じ
+          name: 商品名
+          description: 商品説明
+          price: 商品価格
+          area_id: 発送元の地域
+          condition_id: 商品の状態
+          delivery_charge_id: 配送方法
+          delivery_day_id: 発送までの日数
+          category_id: 商品カテゴリー
+          item_images: 商品画像
+        item_image:
+          id: ID
+          item_id: アイテムID
+  # 全てのmodelで共通して使用するattributesを定義
+  attributes:
+    created_at: 作成日
+    updated_at: 更新日
