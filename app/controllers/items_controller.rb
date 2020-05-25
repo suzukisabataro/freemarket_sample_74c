@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @item.item_images
-    @user = User.find(params[:id])
+    @user = User.find_by(id:@item.user_id)
     @condition = Condition.find(@item.condition_id)
     @charge = DeliveryCharge.find(@item.delivery_charge_id)
     @way = DeliveryWay.find(@item.delivery_way_id)

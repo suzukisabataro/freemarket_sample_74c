@@ -74,37 +74,20 @@
     = "送料込み"
 
 .purchase-screen  
-  - if user_signed_in? && (current_user.id == @product.user_id)
+  - if user_signed_in? && (current_user.id == @item.user_id)
     .show_btn-edit
       =link_to"編集",mypage_index_path,class:"show__btn--name__link" 
     .show_btn-destroy
-      =link_to"削除",mypage_index_path, method: :delete,class:"show__btn--destroy__link"    
-  - elsif user_signed_in? && @item.buyer == nil 
-    .show.btn-show
-      =link_to "購入画面に進む",item_buyers_path(@item.id),class:"show__btn--name__link" 
-  - else
-    .show.btn-show_ng
-      =link_to "ログインして下さい",new_user_session_path, method: :get, class:"show__btn--name__link"   
-  - elsif @item.buyer != nil
+      =link_to"削除",mypage_index_path,class:"show__btn--destroy__link" 
+  - elsif user_signed_in? && (@item.buyer != nil)
     .show_btn-soldout
-      =link_to"SOLDOUT",root_path,class:"show__btn--name__link"
- 
-
-
-  
-  -# - if user_signed_in? && (current_user.id == @item.buyer)
-  -# - else
-  -#   - if @item.buyer.present?
-  -#     .show_btn-soldout
-  -#       =link_to"SOLDOUT",root_path,class:"show__btn--name__link" 
-  -#   -else 
-  -#     .show.btn-show
-  -#       =link_to"購入画面に進む",item_buyers_path(@item.id),class:"show__btn--name__link" 
-  -#     .show_btn-edit
-  -#       =link_to"編集",edit_item_path,class:"show__btn--edit__link" 
-  -#     .show_btn-destroy
-  -#       =link_to"削除",item_path, method: :delete,class:"show__btn--destroy__link"
- 
+      =link_to"SOLDOUT",root_path,class:"show__btn--name__link"   
+  - elsif user_signed_in? && (current_user.id != @item.user_id)
+    .show_btn-show
+      =link_to "購入画面に進む",item_buyers_path(@item.id),class:"show__btn--name__link"
+  - else
+    .show_btn-show_ng
+      =link_to "ログインして下さい",new_user_session_path, method: :get, class:"show__btn--name__link" 
     
                 
 .show__comments
