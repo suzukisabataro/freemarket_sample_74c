@@ -1,6 +1,8 @@
-%h1
+%h1.card_information-payment
   クレジットカード情報
-
+.payment-content__creditcards__list
+  %figure.figure_images
+    = image_tag "#{@card_src}",alt: @card_brand, id: "card_image", class:"card_images", height: "70px"
   .form-content
     %br
     = "**** **** **** " + @default_card_information.last4
