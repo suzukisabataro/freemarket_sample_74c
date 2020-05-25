@@ -3,9 +3,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
-  
-  validates :nickname, :birth_yy, :birth_mm, :birth_dd, :first_name, :last_name, :first_name_kana, :last_name_kana, :phone_number,presence: true
   
   has_many :items
   has_one :card
@@ -20,7 +17,7 @@ class User < ApplicationRecord
   validates :birth_mm,                presence: true, on: :validates_step1
   validates :birth_yy,                presence: true, on: :validates_step1
 
-  mount_uploader :profile_photo, ImageUploader
+  # mount_uploader :profile_photo, ImageUploader
 
   #  sms_confirmationの登録画面（STEP2）
   validates :phone_number,            presence: true, uniqueness: true, numericality: true, length: {maximum: 11}, on: :validates_step2

@@ -1,5 +1,4 @@
 class ItemImage < ApplicationRecord
-  belongs_to :item, inverse_of: :item_images
-
-  mount_uploader :image, ImageUploader
+  belongs_to :item
+  mount_uploader :image, ItemImageUploader
 end
