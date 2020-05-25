@@ -8,7 +8,7 @@ $(document).on('turbolinks:load', ()=> {
     return html;
   }
   const buildImg = (index, url)=> {
-    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
+    const html = `<img data-index="${index}" src="${url}" width="121px" height="121px">`;
     return html;
   }
 
