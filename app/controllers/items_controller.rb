@@ -2,7 +2,12 @@ class ItemsController < ApplicationController
   before_action :move_to_index, only: [:new, :create, :edit, :update]
   before_action :set_item, except: [:index, :new, :create]
   def index
-    @items = Item.limit(10).order('created_at DESC')
+    @item = Item.limit(10).order('created_at DESC')
+    @ladies = Item.where(category: 1).includes(:item_images).order("created_at DESC").limit(10)
+    @mens = Item.where(category: 2).includes(:item_images).order("created_at DESC").limit(10)
+    @home_appliances = Item.where(category: 8).includes(:item_images).order("created_at DESC").limit(10)
+    @others = Item.where(category: 13).includes(:item_images).order("created_at DESC").limit(10)
+    @buyer = Item.where(buyer: nil).includes(:item_images)
   end
 
 
