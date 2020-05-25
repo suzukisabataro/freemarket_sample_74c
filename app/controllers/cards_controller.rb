@@ -36,8 +36,9 @@ class CardsController < ApplicationController
       end
         redirect_to new_card_path
     end
-  
-    def show 
+ 
+      
+    def show #Cardのデータpayjpに送り情報を取り出す
       card = Card.find_by(user_id: current_user.id)
       if card.blank?
         redirect_to new_card_path 
@@ -45,6 +46,21 @@ class CardsController < ApplicationController
         Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
         customer = Payjp::Customer.retrieve(card.customer_id)
         @default_card_information = customer.cards.retrieve(card.card_id)
+          @card_brand = @default_card_information.brand 
+          case @card_brand
+          when "Visa"
+            @card_src = "visa.svg"
+          when "JCB"
+            @card_src = "jcb.svg"
+          when "MasterCard"
+            @card_src = "master-card.svg"
+          when "American Express"
+            @card_src = "american_express.svg"
+          when "Diners Club"
+            @card_src = "dinersclub.svg"
+          when "Discover"
+            @card_src = "discover.svg"
+          end
       end
     end
   end

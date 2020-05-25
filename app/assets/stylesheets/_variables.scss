@@ -1,2 +1,15 @@
 $main-white:#eeeeee;
 $sabu-white:#fff;
+@mixin btn{
+  width:800px;
+  background-color:red;
+  margin: auto;
+}
+@mixin btn_link{
+  font-size:30px;
+  color:white;
+  text-decoration:none;
+}
+@mixin padding{
+  padding:16px;
+}
