@@ -27,5 +27,5 @@
 /config/master.key
  payjp_card(b)
 /.env
-public/uploads/
+public/uploads/*
 
