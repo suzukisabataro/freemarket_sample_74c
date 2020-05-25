@@ -7,7 +7,7 @@
       = @item.name      
   .show__items--content
     %h2
-      = "商品の説明『fendi Tシャツ 美品』は、42回の取引実績を持つじんさんから出品されました。フェンディ（Tシャツ/カットソー(半袖/袖なし)/レディース）の商品で、兵庫県から4~7日で発送されます。"            
+      = @item.description       
 
 .show__main--contents
   =image_tag @item.item_images.first.image.url, class:"show_image"
@@ -19,7 +19,7 @@
         %th
           = "出品者"
         %td                    
-          = "出品者(current_user?)"  
+          = "@i"  
 
       %tr
         %th
@@ -80,10 +80,10 @@
     = "送料込み"
 
 .purchase-screen
-  =link_to"購入画面に進む","#",class:"show__btn--name__link" 
+  =link_to"購入画面に進む",item_buyers_path(@item.id),class:"show__btn--name__link" 
                 
 .show__comments
-  .show__comments--comment
+  .show__comments--comment 
     ="ほとんど着てません"
   .show__comments--tag
     ="タグ"

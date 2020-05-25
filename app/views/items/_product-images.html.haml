@@ -20,7 +20,7 @@
   .products__list
     %h3.products__list--name
       = "アイテム一覧"
-    = link_to root_path, class: "items" do
+    = link_to item_path("@items[:id]"), class: "items" do
       %span
         = "もっと見る"
         = icon('fa', 'angle-right', class: 'angle')

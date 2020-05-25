@@ -1,0 +1,78 @@
+.user-card__content{
+    text-align:center;
+}
+
+.card_number{
+    display:flex;
+    justify-content: center;
+}
+
+.card_number-field{
+    text-align:center;
+    margin-top:15px;
+}
+
+
+
+ul.signup-card-list{
+  display:flex;
+  justify-content:center;
+  margin-right:30px;
+  li{
+  list-style:none;
+  }
+}
+
+
+.require{
+    margin-left:30px;
+    background-color:red;
+    color:white;
+}
+
+.number{
+    height:40px;
+    width:300px;
+}
+
+.card_limit{
+    justify-content:center;
+    display:flex;
+}
+
+.card_limit-field{
+    text-align:center;
+    margin-left:25px;
+    margin-top:10px;
+}
+
+.exp_month{
+    height:30px;
+    width:50px;
+}
+
+.exp_year{
+    height:30px;
+    width:50px;
+}
+
+.card_sql{
+    display:flex;
+    justify-content:center;
+}
+
+.card_sql-field{
+    text-align:center;
+}
+
+.cvc{
+    width:150px;
+    height:30px;
+    margin-top:10px;
+}
+
+.submit_button{
+    background-color:red;
+    height:50px;
+    width:200px;
+}
