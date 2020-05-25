@@ -64,6 +64,7 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'rspec-rails'
 
 end
 
@@ -79,6 +80,9 @@ gem 'active_hash'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
+gem 'payjp'
+gem "jquery-rails"
+gem 'dotenv-rails'
 gem 'rails-i18n'
 gem 'ancestry'
 group :production do

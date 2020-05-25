@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 2020_05_21_062159) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "customer_id"
+    t.string "card_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cards_on_user_id"
+  end
+
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -56,8 +65,11 @@ ActiveRecord::Schema.define(version: 2020_05_21_062159) do
     t.integer "delivery_way_id"
     t.integer "area_id", null: false
     t.integer "category_id", null: false
+    t.integer "buyer"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -83,5 +95,7 @@ ActiveRecord::Schema.define(version: 2020_05_21_062159) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cards", "users"
   add_foreign_key "item_images", "items"
+  add_foreign_key "items", "users"
 end

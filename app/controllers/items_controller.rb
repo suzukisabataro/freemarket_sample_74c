@@ -6,8 +6,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    # @items=Item.all.includes(:item_images).order('created_at DESC')
-    # @url = request.url
+    @item.item_images
   end
 
   def new
@@ -27,6 +26,6 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :description, :price, :area_id, :category_id, :condition_id, :delivery_charge_id, :delivery_day_id, item_images_attributes: [:image])
+    params.require(:item).permit(:name, :description, :price, :area_id, :category_id, :condition_id, :delivery_charge_id, :delivery_day_id, item_images_attributes: [:image]).merge(user_id: current_user.id)
   end
 end
