@@ -58,6 +58,11 @@ table th{
     margin-top:25px;
 }
 
+.show_btn-soldout{
+   @include btn;
+   padding:1pc 0;
+}
+
 .show__btn--name__link{
     @include btn_link;
     padding:15px 295px;
