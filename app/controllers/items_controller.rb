@@ -8,11 +8,11 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.item_images
     @user = User.find(params[:id])
-    @condition = Condition.find(params[:id])
-    @charge = DeliveryCharge.find(params[:id])
-    @way = DeliveryWay.find(params[:id])
-    @area = Area.find(params[:id])
-    @day = DeliveryDay.find(params[:id])
+    @condition = Condition.find(@item.condition_id)
+    @charge = DeliveryCharge.find(@item.delivery_charge_id)
+    @way = DeliveryWay.find(@item.delivery_way_id)
+    @area = Area.find(@item.area_id)
+    @day = DeliveryDay.find(@item.delivery_day_id)
   end
 
   def new
