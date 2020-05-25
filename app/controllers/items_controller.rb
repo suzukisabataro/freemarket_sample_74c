@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :move_to_index, only: [:new, :create, :edit, :update]
   before_action :set_item_image, except: [:index, :new, :create]
   def index
     @items = Item.limit(10).order('created_at DESC')
@@ -32,6 +33,10 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:name, :description, :price, :area_id, :category_id, :condition_id, :delivery_charge_id, :delivery_day_id, item_images_attributes: [:image]).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?     
   end
 
 
