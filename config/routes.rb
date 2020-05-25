@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   root 'items#index' 
-  resources :items, only: [:show, :edit, :new, :create]
+  resources :items
   resources :cards, only: [:new, :show, :destroy,:index] do
     collection do
       post 'pay', to: 'cards#pay'
