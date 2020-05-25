@@ -1,11 +1,11 @@
 = flash[:notice]
 %h2.buy-content__title
-  購入内容の確認
+  ご注文商品
   .buy-content__item
     .buy-content__item__inner
       .buy-item-main
         .buy-item-image
-          = image_tag "#{@item.item_images.first.image}", size: '64x64', class: 'buydetails-contet__image'
+          = image_tag "#{@item.item_images.first.image}", size: '150x150', class: 'buydetails-contet__image'
         .buy-item-detail
           .buy-item-name
             = @item.name
