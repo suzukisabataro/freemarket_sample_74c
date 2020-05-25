@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     collection do
       get 'registration'
       get 'sms_confirmation'
-      get 'sms_confirmation_sms'
+      # get 'sms_confirmation_sms' #電話番号認証
       get 'address'
     end
   end

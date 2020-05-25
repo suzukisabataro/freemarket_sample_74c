@@ -28,8 +28,10 @@ header {
           margin-top: 10px;
           height: 80%;
           border: solid 1px rgb(95, 95, 95);
+          background-color: rgb(245, 245, 245);
           display: flex;
           justify-content: space-between;
+          border-radius: 10px;
           &-area {
             height: 90%;
             padding-left:10px;
@@ -38,12 +40,16 @@ header {
             margin: auto 0;
             font-size: 17px;
             width: 100%;
+            border-radius: 10px;
+            background-color: rgb(245, 245, 245);
           }
           &-submit {
             margin: auto 0;
             border: none;
             width: 50px;
             height: 50px;
+            border-radius: 10px;
+            background-color: rgb(245, 245, 245);
           }
         }
             }
@@ -61,8 +67,17 @@ header {
               a {
                 margin: auto 0;
                 text-decoration: none;
+                display: flex;
+                img {
+                  margin: auto 0;
+                  padding-right: 7px;
+                }
+                .nav-link-choice-name {
+                  color: #333;
+                  font-weight: bold;
+                }
               }
-              &-brand {
+              .brand {
                 padding-left: 10px;
               }
             }
@@ -76,6 +91,17 @@ header {
                 padding: 0 14px;
                 margin: auto 0;
                 text-decoration: none;
+                display: flex;
+                img {
+                  width: 40px;
+                  height: 40px;
+                  border-radius: 50%;
+                }
+                li {
+                  line-height: 40px;
+                  color: #333;
+                  padding-left: 3px;
+                }
               }
             }
           }

@@ -29,7 +29,6 @@
         margin: auto;
         &__input {
           width: 340px;
-          font-weight: 550;
           margin: auto;
           &__title {
             font-weight: 550;
@@ -60,12 +59,14 @@
         }
 
         &__btn {
+          padding: 0px;
+          margin: 20px auto;
           &__red {
             background: #ea352d;
             display: block;
             height: 48px;
             width: 335px;
-            margin: 20px auto 5px;
+            margin: 10px auto 5px;
             font-size: 14px;
             color: $sabu-white;
             text-decoration: none;

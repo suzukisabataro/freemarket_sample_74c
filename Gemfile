@@ -83,6 +83,7 @@ gem 'omniauth-google-oauth2'
 gem 'payjp'
 gem "jquery-rails"
 gem 'dotenv-rails'
+gem 'rails-i18n'
 gem 'ancestry'
 group :production do
   gem 'unicorn'
