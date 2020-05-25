@@ -19,7 +19,7 @@
         %th
           = "出品者"
         %td                    
-          = "@i"  
+          = @user.nickname  
 
       %tr
         %th
@@ -33,43 +33,37 @@
         %th 
           = "ブランド"
         %td 
-          = "シャネル"
-
-      %tr 
-        %th 
-          = "商品のサイズ"
-        %td 
-          = "FREE SIZE"
+          = @item.brand
 
       %tr 
         %th 
           = "商品の状態"
         %td 
-          = "未使用に近い"
+          = @condition.value
 
       %tr 
         %th 
           = "配送料の負担"
         %td 
-          = "送料込み（出品者負担)"
+          = @charge.value
 
       %tr 
         %th 
           = "配送の方法"
         %td 
-          = "未定"
+          = @way.value
 
       %tr 
         %th 
           = "配送元地域"
         %td 
-          = "兵庫県"
+          = @area.name
 
       %tr 
         %th 
           = "発送日の目安"
         %td 
-          = "1週間程度"
+          = @day.value
 
 .show__price
   %span.show__price--price
@@ -80,7 +74,16 @@
     = "送料込み"
 
 .purchase-screen
-  =link_to"購入画面に進む",item_buyers_path(@item.id),class:"show__btn--name__link" 
+  - if user_signed_in?
+    .show.btn-show
+      =link_to"購入画面に進む",item_buyers_path(@item.id),class:"show__btn--name__link" 
+    .show_btn-edit
+      =link_to"編集",edit_item_path,class:"show__btn--edit__link" 
+    .show_btn-destroy
+      =link_to"削除",item_path, method: :delete,class:"show__btn--destroy__link"
+  - else
+    =link_to "購入画面に進む",new_user_session_path,class:"show__btn--name__link" 
+    
                 
 .show__comments
   .show__comments--comment 
@@ -113,18 +116,5 @@
     =link_to"https://www.pinterest.jp/"do
       %i.fab.fa-pinterest-square
    
-
--# .show__users
-  -# ="jinnさんの作品"
-
-  -# .show__users--other
-  -#   - @items.each do |item|
-  -#     .show__users--other__item
-  -#       =image_tag item.item_images.first.image.url, size:"220x190", class:"show__users--other__item--image"
-  -#       .show__users--other__item--contents
-  -#         .show__users--other__item--contents__name
-  -#           =item.name
-  -#         .show__users--other__item--contents__price
-  -#           ="¥  #{item.price}"     
 .items__index
   = render partial: 'footer'

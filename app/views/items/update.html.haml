@@ -1,0 +1,12 @@
+.items__create
+  = render partial: 'partial/navbar'
+.create
+  .create__box
+    .create__box__message
+      = "商品の編集が完了しました"
+    = link_to root_path, class: "link" do
+      = "トップページに戻る"
+    = link_to items_path, class: "link" do
+      = "商品詳細ページに戻る"
+.items__create
+  = render partial: 'partial/footer'

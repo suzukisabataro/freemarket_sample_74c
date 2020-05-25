@@ -7,6 +7,12 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @item.item_images
+    @user = User.find(params[:id])
+    @condition = Condition.find(params[:id])
+    @charge = DeliveryCharge.find(params[:id])
+    @way = DeliveryWay.find(params[:id])
+    @area = Area.find(params[:id])
+    @day = DeliveryDay.find(params[:id])
   end
 
   def new
@@ -22,6 +28,12 @@ class ItemsController < ApplicationController
   def edit
     # @items = Item.find(params[:id])
     # @items.save
+  end
+
+  def destroy
+  end
+
+  def update
   end
 
   private
