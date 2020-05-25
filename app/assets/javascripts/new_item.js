@@ -1,216 +1,46 @@
 
-$(document).on("turbolinks:load", function() {
-  const dropzone = $(".dropzone-area");
-  const dropzone2 = $(".dropzone-area2");
-  var images = [];
-  var inputs = [];
-  var input_area = $(".input_area");
-  var preview = $("#preview");
-  var preview2 = $("#preview2");
-  var defaultInput = [];
-  var i = 0;
-
-  function appendPreview(index) {
-    var previewHtml = $(`<div class="img_view" data-image="${index}"><img>
-                <div class="btn_wrapper">
-                  <div class="btn delete">削除
-                  </div>
-                </div>
-                </div>`);
-    return previewHtml;
+$(document).on('turbolinks:load', ()=> {
+  const buildFileField = (num)=> {
+    const html = `<div data-index="${num}" class="js-file_group">
+                    <input class="js-file" type="file", name="item[item_images_attributes][${num}][image]",id="item_item_images_attributes_${num}_image"><br>
+                    <div class="js-remove">削除</div>
+                  </div>`;
+    return html;
+  }
+  const buildImg = (index, url)=> {
+    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
+    return html;
   }
 
-  function appendPreview1(index, url, id) {
-    var previewHtml = $(`<div class="img_view" data-image="${index}" data-id="${id}"><img src="${url}">
-                <div class="btn_wrapper">
-                  <div class="btn delete">削除
-                  </div>
-                </div>
-                </div>`);
-    $("#preview").append(previewHtml);
-    return previewHtml;
-  }
+  let fileIndex = [1,2,3,4,5,6,7,8,9,10];
+  lastIndex = $('.js-file_group:last').data('index');
+  fileIndex.splice(0, lastIndex);
 
-  function appendPreview2(index, url, id) {
-    var previewHtml = $(`<div class="img_view" data-image="${index}" data-id="${id}"><img src="${url}">
-                <div class="btn_wrapper">
-                  <div class="btn delete">削除</div>
-                  </div>
-                </div>`);
-    $("#preview2").append(previewHtml);
-    return previewHtml;
-  }
+  $('.hidden-destroy').hide();
 
-  $(document).on("change", 'input[type= "file"].upload-image', function(event) {
-    var file = $(this).prop("files")[0];
-    var reader = new FileReader();
-    inputs.push($(this));
-    var img = appendPreview(i);
-    reader.onload = function(e) {
-      img.find("img").attr({
-        src: e.target.result
-      });
-    };
-    reader.readAsDataURL(file);
-    images.push(img);
+  $('#image-box').on('change', '.js-file', function(e) {
+    const targetIndex = $(this).parent().data('index');
+    const file = e.target.files[0];
+    const blobUrl = window.URL.createObjectURL(file);
 
-    if (images.length >= 5) {
-      dropzone2.css({
-        display: "block"
-      });
-      dropzone.css({
-        display: "none"
-      });
-      preview.children().remove();
-      preview2.children().remove();
-      $.each(images, function(index, image) {
-        if (index < 5) {
-          preview.append(image);
-        } else {
-          preview2.append(image);
-        }
-      });
-      dropzone2.css({
-        width: `calc(100% - (124px * ${images.length - 5}))`
-      });
-      if (images.length == 9) {
-        dropzone2
-          .find("p")
-          .replaceWith('<i class="fa fa-camera image-input-icon"></i>');
-      }
-    } else {
-      preview.children().remove();
-      preview2.children().remove();
-      $.each(images, function(index, image) {
-        if (index < 5) {
-          preview.append(image);
-        } else {
-          preview2.append(image);
-        }
-      });
-      dropzone.css({
-        width: `calc(100% - (124px * ${images.length}))`
-      });
+    if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
+      img.setAttribute('image', blobUrl);
+    } else {  
+      $('#previews').append(buildImg(targetIndex, blobUrl));
+      $('#image-box').append(buildFileField(fileIndex[0]));
+      fileIndex.shift();
+      fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     }
-    if (images.length == 4) {
-      dropzone
-        .find("p")
-        .replaceWith('<i class="fa fa-camera image-input-icon"></i>');
-    }
-    if (images.length == 10) {
-      dropzone2.css({
-        display: "none"
-      });
-      dropzone.css({
-        display: "none"
-      });
-      return;
-    }
-    i += 1;
-    var new_image = $(
-      `<input multiple= "multiple" name="images[image][]" class="upload-image" data-image= ${i} type="file" id="upload-image">`
-    );
-    input_area.prepend(new_image);
   });
 
-  $(document).on("click", ".delete", function() {
-    var target_image = $(this)
-      .parent()
-      .parent();
-    $.each(images, function(index, image) {
-      if (image.attr("data-image") == target_image.data("image")) {
-        images_index = index;
-      }
-    });
-    $.each(inputs, function(index, input) {
-      if ($(this).data("image") == target_image.data("image")) {
-        inputs_index = index;
-        $(this).remove();
-        target_image.remove();
-        images.splice(images_index, 1);
-        inputs.splice(inputs_index, 1);
-      }
-    });
-    $.each(defaultInput, function(index, input) {
-      if (input == target_image.data("id")) {
-        target_image.remove();
-        defaultInput.splice(
-          $.inArray(target_image.data("id"), defaultInput),
-          1
-        );
-        images.splice(images_index, 1);
-      }
-    });
+  $('#image-box').on('click', '.js-remove', function() {
+    const targetIndex = $(this).parent().data('index');
+    const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
+    if (hiddenCheck) hiddenCheck.prop('checked', true);
 
-    if (inputs.length == 0) {
-      input_area.children().remove();
-      i += 1;
-      var new_image = $(
-        `<input multiple= "multiple" name="images[image][]" class="upload-image" data-image= ${i} type="file" id="upload-image">`
-      );
-      input_area.prepend(new_image);
-    }
+    $(this).parent().remove();
+    $(`img[data-index="${targetIndex}"]`).remove();
 
-    if (images.length >= 5) {
-      dropzone.css({
-        display: "none"
-      });
-      dropzone2.css({
-        display: "block"
-      });
-      preview.children().remove();
-      preview2.children().remove();
-      $.each(images, function(index, image) {
-        if (index < 5) {
-          preview.append(image);
-        } else {
-          preview2.append(image);
-        }
-      });
-      dropzone2.css({
-        width: `calc(100% - (124px * ${images.length - 5}))`
-      });
-      if (images.length == 9) {
-        dropzone2.find("p").replaceWith('<i class="fa fa-camera image-input-icon"></i>');
-      }
-      if (images.length == 8) {
-        dropzone2
-          .find("i")
-          .replaceWith(
-            '<p class="input-area-text">ここをクリックしてください</p>'
-          );
-      }
-    } else {
-      dropzone.css({
-        display: "block"
-      });
-      dropzone2.css({
-        display: "none"
-      });
-      preview.children().remove();
-      $.each(images, function(index, image) {
-        if (index < 5) {
-          preview.append(image);
-        } else {
-          preview2.append(image);
-        }
-      });
-      dropzone.css({
-        width: `calc(100% - (124px * ${images.length}))`
-      });
-      if (images.length == 4) {
-        dropzone.find("p").replaceWith('<i class="fa fa-camera image-input-icon"></i>');
-        dropzone2.css({
-          display: "none"
-        });
-      }
-      if (images.length == 3) {
-        dropzone
-          .find("i")
-          .replaceWith(
-            '<p class="input-area-text">ここをクリックしてください</p>'
-          );
-      }
-    }
+    if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
 });
