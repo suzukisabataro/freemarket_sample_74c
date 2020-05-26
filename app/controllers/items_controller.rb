@@ -2,12 +2,11 @@ class ItemsController < ApplicationController
   before_action :move_to_index, only: [:new, :create, :edit, :update]
   before_action :set_item, except: [:index, :new, :create]
   def index
-    @item = Item.limit(10).order('created_at DESC')
+    @items = Item.limit(10).order('created_at DESC')
     @ladies = Item.where(category: 1).includes(:item_images).order("created_at DESC").limit(10)
     @mens = Item.where(category: 2).includes(:item_images).order("created_at DESC").limit(10)
     @home_appliances = Item.where(category: 8).includes(:item_images).order("created_at DESC").limit(10)
     @others = Item.where(category: 13).includes(:item_images).order("created_at DESC").limit(10)
-    @buyer = Item.where(buyer: nil).includes(:item_images)
   end
 
 
@@ -54,7 +53,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :description, :price, :area_id, :category_id, :condition_id, :delivery_charge_id, :delivery_day_id, :delivery_way_id, item_images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :description, :price, :area_id, :category_id, :condition_id, :delivery_charge_id, :delivery_day_id, :delivery_way_id, :buyer, item_images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
   def move_to_index
