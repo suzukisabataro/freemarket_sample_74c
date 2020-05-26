@@ -37,31 +37,28 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+
     if @item.user != current_user
       redirect_to root_path, alert: "ログインしてください"
     end
   end
 
   def update
-    @item = Item.find(params[:id])
-    if @item.update(item_params[:id])
-      redirect_to mypage_index_path,(@item),notice: "更新に成功しました"
-    else
-      render :edit
-    end
+    item = Item.find(params[:id])
+    item.update(item_params) if item.user_id == current_user.id
   end 
 
+  def destroy 
+  if @item.user == current_user && @item.destroy
+      redirect_to root_path
+    else
+      redirect_to new_item_path
+    end
+  end
 
   private
   def item_params
       params.require(:item).permit(:name, :description, :price, :area_id, :category_id, :condition_id, :delivery_charge_id, :delivery_way_id, :delivery_day_id, item_images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
-    def destroy 
-    if @item.user == current_user && @item.destroy
-        redirect_to root_path
-      else
-        redirect_to new_item_path
-      end
-    end
   end
 
 

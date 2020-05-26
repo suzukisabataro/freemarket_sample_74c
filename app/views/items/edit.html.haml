@@ -135,7 +135,8 @@
                   %b 必須
                 .upper-logo
                   %b ¥
-                  %input#price_calc.upper-right{placeholder: "例) 300", type: "number"}/
+                  = f.text_field :price, :placeholder => "例) 300", id: 'price_calc', class: 'upper-right'
+                  -# %input#price_calc.upper-right{placeholder: "例) 300", type: "number"}/
               .error
                 = render 'layouts/error_messages', errors: @item.errors.full_messages_for(:price)
               .p2-bottom
@@ -145,7 +146,7 @@
               .p2-lower
                 .lower-left
                   販売利益
-                  = f.number_field :price, style: "display: none", id: "price"
+                  -# = f.number_field :price, style: "display: none", id: "price"
                 .right_bar_2
         .exhibition
           .exhibition-content
