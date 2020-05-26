@@ -11,7 +11,7 @@ class Item < ApplicationRecord
   validates :item_images,          presence: true
   validates :name,                presence: true
   validates :description,         presence: true, length: { maximum: 1000 }
-  validates :price,               presence: true, numericality:	{minimum:300,maximum:9999999}
+  validates :price,               presence: true, numericality: {minimum:300,maximum:9999999}
   validates :condition_id,        presence: true
   validates :delivery_charge_id,  presence: true
   validates :delivery_day_id,     presence: true
