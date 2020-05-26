@@ -78,7 +78,8 @@
     .show_btn-edit
       =link_to"編集",mypage_index_path,class:"show__btn--name__link" 
     .show_btn-destroy
-      =link_to"削除",mypage_index_path,class:"show__btn--destroy__link" 
+      -# =link_to"削除",mypage_index_path,class:"show__btn--destroy__link" 
+      =link_to"削除",item_path(@item.id), method: :delete, data: {confirm: "削除しますか？"}, class:"show__btn--destroy__link"
   - elsif user_signed_in? && (@item.buyer != nil)
     .show_btn-soldout
       =link_to"SOLDOUT",root_path,class:"show__btn--name__link"   
