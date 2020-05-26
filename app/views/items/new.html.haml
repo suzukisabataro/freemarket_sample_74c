@@ -138,7 +138,7 @@
               .p2-lower
                 .lower-left
                   販売利益
-                = f.number_field :price, style: "display: none", id: "price"
+                  = f.number_field :price, style: "display: none", id: "price"
                 .right_bar_2
         .exhibition
           .exhibition-content
@@ -147,6 +147,7 @@
             = link_to root_path,class: "content-3" do
               %b 戻る
           .exhibition-content2
+            = @item.errors.full_messages
             %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
 = render partial: 'footer'
 
