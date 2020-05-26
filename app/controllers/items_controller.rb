@@ -55,12 +55,13 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :description, :price, :area_id, :category_id, :condition_id, :delivery_charge_id, :delivery_day_id, item_images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
-  def destroy 
+      params.require(:item).permit(:name, :description, :price, :area_id, :category_id, :condition_id, :delivery_charge_id, :delivery_way_id, :delivery_day_id, item_images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
+    def destroy 
     if @item.user == current_user && @item.destroy
-      redirect_to root_path
-    else
-      redirect_to new_item_path
+        redirect_to root_path
+      else
+        redirect_to new_item_path
+      end
     end
   end
 
