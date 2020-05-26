@@ -4,6 +4,7 @@
 @import 'header';
 @import 'card/new';
 @import 'card/show';
+@import'buyer/index';
 @import 'user/login';
 @import 'signup/index';
 @import 'signup/registration';
@@ -17,6 +18,7 @@
 @import"show";
 @import"new";
 @import"create";
+@import "buyers/complete";
 @import"partial/navbar";
 @import"partial/footer";
 @import "product-image";

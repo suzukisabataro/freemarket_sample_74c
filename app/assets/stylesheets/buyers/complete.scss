@@ -1,0 +1,62 @@
+body {
+  background-color: #eeeeee;
+}
+
+.buy {
+  width: 700px;
+  margin: 0 auto;
+  background-color: whitesmoke;
+  &__content {
+    text-align: center;
+    &--item {
+      .buy__item--main {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+.buy__detail {
+  text-align: center;
+  border-bottom: 3px solid #eee;
+  .buy-item-name {
+    font-size: 30px;
+  }
+  .buy-price {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 20px;
+  }
+  .tax_included {
+    font-size: 10px;
+  }
+}
+
+.buy__price {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  vertical-align: bottom;
+  margin-top: 20px;
+  &--table {
+    font-size: 25px;
+    margin-right: 20px;
+  }
+  &--tabls {
+    font-size: 20px;
+    margin-left: 100px;
+    padding-top: 5px;
+  }
+}
+
+.buy__content--submit {
+  margin-top: 20px;
+  background-color: red;
+  .buy__content--btn {
+    padding-left: 300px;
+    color: white;
+  }
+}
