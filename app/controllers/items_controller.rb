@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    if @item.update(item_params)
+    if @item.update(item_params[:id])
       redirect_to mypage_index_path,(@item),notice: "更新に成功しました"
     else
       render :edit
