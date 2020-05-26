@@ -26,19 +26,30 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    # @items = Item.find(params[:id])
-    # @items.save
+    @item = Item.find(params[:id])
+    if @item.user != current_user
+      redirect_to root_path, alert: "ログインしてください"
+    end
   end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to mypage_index_path,(@item),notice: "更新に成功しました"
+    else
+      render :edit
+    end
+  end 
+
 
   private
   def item_params
-    params.require(:item).permit(:name, :description, :price, :area_id, :category_id, :condition_id, :delivery_charge_id, :delivery_day_id, item_images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :description, :price, :area_id, :category_id, :condition_id, :delivery_charge_id, :delivery_day_id, item_images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def move_to_index
     redirect_to action: :index unless user_signed_in?     
   end
-
 
   def set_item
     @item = Item.find(params[:id])
