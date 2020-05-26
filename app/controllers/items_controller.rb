@@ -41,9 +41,13 @@ class ItemsController < ApplicationController
     # @items.save
   end
 
-  def destroy
-    @item.destroy
-    redirect_to root_path
+  def destroy 
+    if @item.user == current_user
+      @item.destroy
+      redirect_to root_path
+    else
+      redirect_to new_item_path
+    end
   end
 
   def update
