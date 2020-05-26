@@ -1,22 +1,22 @@
 %section.index__category
   %h2.index__category--top
-    = "人気カテゴリー"
+    = "人気アイテム"
   .category__names
     %ul.category__names--box
       %li.category__names--boxs
-        = link_to root_path, class: "category__a" do
+        = link_to "#item", class: "category__a" do
           = "レディース"
       %li.category__names--boxs
-        = link_to root_path, class: "category__a" do
+        = link_to "#item", class: "category__a" do
           = "メンズ"
       %li.category__names--boxs
-        = link_to root_path, class: "category__a" do
+        = link_to "#item", class: "category__a" do
           = "家電"
       %li.category__names--boxs
-        = link_to root_path, class: "category__a" do
+        = link_to "#item", class: "category__a" do
           = "おもちゃ"
 
-%section.products
+%section.products#item
   .products__list
     %h3.products__list--name
       = "アイテム一覧"
@@ -28,7 +28,7 @@
   .product
     .product__posts
       %ul.product__posts--boxs
-        - @items.each do |item|
+        - @item.each do |item|
           %li.product__posts--boxs__item
             .posts__image
               = link_to item_path(item.id), class: "product-a" do
@@ -36,33 +36,33 @@
                 %span.posts__price
                   ￥
                   =item.price
-                %span.posts__sold
+                = render partial: 'partial/sold'
                 .posts__text
                   %p.posta__tag
                     =item.name
 
 %section.index__category
   %h2.index__category--top
-    = "人気ブランド"
+    = "人気カテゴリー"
   .category__names
     %ul.category__names--box
       %li.category__names--boxs
-        = link_to root_path, class: "category__a" do
-          = "シャネル"
+        = link_to "#lady", class: "category__a" do
+          = "レディース"
       %li.category__names--boxs
-        = link_to root_path, class: "category__a" do
-          = "ナイキ"
+        = link_to "#mens", class: "category__a" do
+          = "メンズ"
       %li.category__names--boxs
-        = link_to root_path, class: "category__a" do
-          = "アディダス"
+        = link_to "#home_appliances", class: "category__a" do
+          = "家電"
       %li.category__names--boxs
-        = link_to root_path, class: "category__a" do
-          = "ルイ・ヴィトン"
+        = link_to "#other", class: "category__a" do
+          = "その他"
 
-%section.products
+%section.products#lady
   .products__list
     %h3.products__list--name
-      = "アイテム一覧"
+      = "レディース一覧"
     = link_to root_path, class: "items" do
       %span
         = "もっと見る"
@@ -71,7 +71,7 @@
   .product
     .product__posts
       %ul.product__posts--boxs
-        - @items.each do |item|
+        - @ladies.each do |item|
           %li.product__posts--boxs__item
             .posts__image
               = link_to class: "product-a" do
@@ -79,6 +79,79 @@
                 %span.posts__price
                   ￥
                   =item.price
+                = render partial: 'partial/sold'
+                .posts__text
+                  %p.posta__tag
+                    =item.name
+%section.products#mens
+  .products__list
+    %h3.products__list--name
+      = "メンズ一覧"
+    = link_to root_path, class: "items" do
+      %span
+        = "もっと見る"
+        = icon('fa', 'angle-right', class: 'angle')
+
+  .product
+    .product__posts
+      %ul.product__posts--boxs
+        - @mens.each do |item|
+          %li.product__posts--boxs__item
+            .posts__image
+              = link_to class: "product-a" do
+                =image_tag item.item_images.first.image.url, class: "item-image"
+                %span.posts__price
+                  ￥
+                  =item.price
+                = render partial: 'partial/sold'
+                .posts__text
+                  %p.posta__tag
+                    =item.name
+%section.products#home_appliances
+  .products__list
+    %h3.products__list--name
+      = "家電一覧"
+    = link_to root_path, class: "items" do
+      %span
+        = "もっと見る"
+        = icon('fa', 'angle-right', class: 'angle')
+
+  .product
+    .product__posts
+      %ul.product__posts--boxs
+        - @home_appliances.each do |item|
+          %li.product__posts--boxs__item
+            .posts__image
+              = link_to class: "product-a" do
+                =image_tag item.item_images.first.image.url, class: "item-image"
+                %span.posts__price
+                  ￥
+                  =item.price
+                = render partial: 'partial/sold'
+                .posts__text
+                  %p.posta__tag
+                    =item.name
+%section.products#other
+  .products__list
+    %h3.products__list--name
+      = "その他一覧"
+    = link_to root_path, class: "items" do
+      %span
+        = "もっと見る"
+        = icon('fa', 'angle-right', class: 'angle')
+
+  .product
+    .product__posts
+      %ul.product__posts--boxs
+        - @others.each do |item|
+          %li.product__posts--boxs__item
+            .posts__image
+              = link_to class: "product-a" do
+                =image_tag item.item_images.first.image.url, class: "item-image"
+                %span.posts__price
+                  ￥
+                  =item.price
+                = render partial: 'partial/sold'
                 .posts__text
                   %p.posta__tag
                     =item.name

@@ -58,15 +58,44 @@ table th{
     margin-top:25px;
 }
 
-.show__btn--name__link{
-    background-color:red;
-    height:70px;
-    font-size:30px;
-    color:white;
-    padding:30px 300px;
-    text-decoration:none;
+.show_btn-soldout{
+   @include btn;
+   padding:1pc 0;
 }
 
+.show__btn--name__link{
+    @include btn_link;
+    padding:15px 295px;
+    
+}
+
+.show__btn--edit__link{
+    @include btn_link;
+    padding:15px 370px;
+}
+
+.show__btn--destroy__link{
+    @include btn_link;
+    padding:15px 370px;
+}
+
+.show_btn-show{
+    @include btn;
+    padding:1pc 0;
+    margin-bottom:50px;
+    
+}
+
+.show_btn-edit{
+    @include btn;
+    padding:1pc 0;
+    margin-bottom:50px;
+}
+
+.show_btn-destroy{
+    @include btn;
+    padding:1pc 0;
+}
 .show__comments{
     margin-left:150px;
     margin-top:100px;
@@ -134,10 +163,6 @@ a{
     margin-top:30px;
     margin-left:70px;
     font-size:30px;
-}
-
-@mixin padding{
-    padding:16px;
 }
 
 .show__users--other{

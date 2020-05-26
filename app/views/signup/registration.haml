@@ -2,7 +2,6 @@
   = render partial: 'items/header'
   .main-box
     .main-box__header
-      =@user.errors.full_messages
       会員情報入力
     .main__container__form
     = form_for @user, url: sms_confirmation_signup_index_path, method: :get, class: 'main__container__form' do |f|
