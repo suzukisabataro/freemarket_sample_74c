@@ -81,8 +81,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
 gem 'payjp'
-gem "jquery-rails"
 gem 'dotenv-rails'
+gem 'jquery-rails', '~> 4.3.5'
 gem 'rails-i18n'
 gem 'ancestry'
 group :production do
