@@ -42,6 +42,7 @@
             - if item.buyer  != nil
               = render partial: 'partial/sold'
             -else
+
 %section.index__category
   %h2.index__category--top
     = "人気カテゴリー"
@@ -80,9 +81,13 @@
                 %span.posts__price
                   ￥
                   =item.price
+                = render partial: 'partial/sold'
                 .posts__text
                   %p.posta__tag
                     =item.name
+            - if item.buyer  != nil
+              = render partial: 'partial/sold'
+            -else
 %section.products#mens
   .products__list
     %h3.products__list--name
@@ -106,6 +111,9 @@
                 .posts__text
                   %p.posta__tag
                     =item.name
+            - if item.buyer  != nil
+              = render partial: 'partial/sold'
+            -else
 
 %section.products#home_appliances
   .products__list
@@ -131,6 +139,9 @@
                 .posts__text
                   %p.posta__tag
                     =item.name
+            - if item.buyer  != nil
+              = render partial: 'partial/sold'
+            -else
 %section.products#other
   .products__list
     %h3.products__list--name
@@ -155,3 +166,6 @@
                 .posts__text
                   %p.posta__tag
                     =item.name
+            - if item.buyer  != nil
+              = render partial: 'partial/sold'
+            -else
