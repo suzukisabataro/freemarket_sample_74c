@@ -1,27 +1,31 @@
-%h1.buy-content__attention
-%i.far.fa-clock
-    発送をお待ちください
-%h2.buy-content__attention__title
-    購入が完了しました
-.buy-content__item
-    .buy-content__item__inner
-    .buy-item-main
-        .buy-item-image
-        = image_tag "#{@item.item_images.first.image}", size: '64x64', class: 'buydetails-contet__image'
-        .buy-item-detail
-        .buy-item-name
-            = @item.name
-            %p.buy-price
-            %span 
-                = "¥#{@item.price.to_s}"
-            %span
-                .shipping-free (税込) 送料込み
-.buy-content__item
-    %form.buy-form
-    .buy-price-table
-        .buy-price-table__left
-        支払金額
-        .buy-price-table__right
-        = "¥#{@item.price.to_s}"
-    .buy-content__user-info__submit
-        = link_to "トップページへ戻る", root_path, class: 'buy-content__user-info__submit__button'
+= render partial: 'items/header'
+
+.buy
+  %h1.buy__content
+    %i.far.fa-clock
+      = "発送をお待ちください"
+  %h2.buy__content
+    = "購入が完了しました"
+  .buy__content--item
+    .buy__item--main
+      .buy__item--image
+      = image_tag "#{@item.item_images.first.image}", size: '300x300', class: 'buydetails-contet__image'
+
+  .buy__detail
+    .buy-item-name
+      = @item.name
+    .buy-price
+      %span 
+        ="¥#{@item.price.to_s}"
+      %span.tax_included
+        = "(税込) 送料込み"
+
+  .buy__price
+    .buy__price--table
+      = "支払金額"
+    .buy__price--tabls
+      = "¥#{@item.price.to_s}"
+
+  .buy__content--submit
+    = link_to "トップページへ戻る", root_path, class: "buy__content--btn"
+= render partial: 'items/footer'
