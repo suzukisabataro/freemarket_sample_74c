@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', ()=> {$(function(){
   $('#price_calc').on('input', function(){
     const data = $('#price_calc').val();
     const profit = Math.round(data * 0.9)
@@ -11,6 +11,7 @@ $(function(){
     if(profit == ''){
       $('right_bar_2').html('');
       $('right_bar_2').html('');
-    }
+      }
+    })
   })
-})
+});
