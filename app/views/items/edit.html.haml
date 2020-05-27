@@ -1,1 +1,159 @@
-編集画面作成中！
+= form_with model:@item, local:true do |f|
+  .wapper
+    .header
+      .header-icon
+        = link_to do
+          =image_tag "material/logo/logo.png", width:"189px", height:"49px"
+    .body
+      .main_body
+        .article
+          .article-content
+            .content-label
+              .label-1
+                %b 出品画像
+              .label-2
+                %b 必須
+              .error
+                = render 'layouts/error_messages', errors: @item.errors.full_messages_for(:item_images)
+            .content-text
+              最大５枚までアップロードできます。             
+            #image-box
+              .box-1
+                #previews
+                  - if @item.persisted?
+                    - @item.item_images.each_with_index do |image, i|
+                      = image_tag image.image.url, data: { index: i }, width: "121", height: '121'
+              .box-2
+                = f.fields_for :item_images do |image|
+                  .js-file_group{"data-index" => "#{image.index}"}
+                    = image.file_field :image, class: 'js-file'
+                    %br/
+                    %span.js-remove 削除
+                  - if @item.persisted?
+                    = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+                  - if @item.persisted?
+                    .js-file_group{"data-index" => "#{@item.item_images.count}"}
+                      = file_field_tag :image, name: "item[item_images_attributes][#{@item.item_images.count}][image]", class: 'js-file'
+                      .js-remove 削除
+
+
+        .product_name
+          .product-content
+            .product-name_title
+              .product-upper
+                .label-1
+                  %b 商品名
+                .label-2
+                  %b 必須
+                .error
+                  = render 'layouts/error_messages', errors: @item.errors.full_messages_for(:name)
+              = f.text_field :name, class: 'product-bottom',placeholder: '商品名を入力してください'
+              .product-lower
+                40字以下で入力してください
+            .product-bottom
+              .label-1
+                %b 商品の説明
+              .label-2
+                %b 必須
+              .error
+                = render 'layouts/error_messages', errors: @item.errors.full_messages_for(:description)
+            .product-name_text
+              = f.text_area :description, class: 'text-buttom', placeholder: '説明文を入力してください'
+              .text-lower
+        .product_explanation
+          .explanation-content
+            .content-1
+              %b 商品の詳細
+            .content-2
+              .second-upper
+                .upper-1
+                  %b カテゴリー
+                .label-2
+                  %b 必須
+                .error
+                  = render 'layouts/error_messages', errors: @item.errors.full_messages_for(:category_id)
+            -# = f.collection_select :category_id, Category.all, :id, :name, prompt: "--"
+            = f.collection_select :category_id, Category.limit(13), :id, :name, prompt: "--"
+            .content-4
+              .fourth-upper
+                .upper-1
+                  %b ブランド
+                .upper-2
+                  %b 任意
+              .fourth-lower
+            %input.content-5
+            .content-6
+              .six-upper
+                .upper-1
+                  %b 商品の状態
+                .label-2
+                  %b 必須
+                .error
+                  = render 'layouts/error_messages', errors: @item.errors.full_messages_for(:condition_id)
+            = f.collection_select :condition_id, Condition.all, :id, :value, prompt: "--" 
+        .delivery
+          .delivery-content
+            .delivery-1
+              .upper-1
+                %b 配送について
+              = link_to "?", "", class:'upper-2'
+            .delivery-2
+              .d2-upper
+                %b 配送量の負担
+              .d2-lower
+                %b 必須
+              .error
+                = render 'layouts/error_messages', errors: @item.errors.full_messages_for(:delivery_charge_id)
+            = f.collection_select :delivery_charge_id, DeliveryCharge.all, :id, :value, prompt: "--" 
+            .delivery-4
+              .d4-upper
+                %b 発送元の地域
+              .d4-lower
+                %b 必須
+              .error
+                = render 'layouts/error_messages', errors: @item.errors.full_messages_for(:area_id)              
+            = f.collection_select :area_id, Area.all, :id, :name, prompt: "--"
+            .delivery-6
+              .d6-upper
+                %b 発送までの日数
+              .d6-lower
+                %b 必須
+              .error
+                = render 'layouts/error_messages', errors: @item.errors.full_messages_for(:delivery_day_id)
+            = f.collection_select :delivery_day_id, DeliveryDay.all, :id, :value, prompt: "--"
+        .price
+          .price-content
+            .price-1
+              .p1-upper
+                %b 価格（¥300〜9,999,999）
+              = link_to "?", "", class:'p1-lower'
+            .price-2
+              .p2-upper
+                .upper-left
+                  %b 販売価格
+                .upper-center
+                  %b 必須
+                .upper-logo
+                  %b ¥
+                  = f.text_field :price, :placeholder => "例) 300", id: 'price_calc', class: 'upper-right'
+                  -# %input#price_calc.upper-right{placeholder: "例) 300", type: "number"}/
+              .error
+                = render 'layouts/error_messages', errors: @item.errors.full_messages_for(:price)
+              .p2-bottom
+                .bottom-left
+                  販売手数料(10%)
+                .right_bar
+              .p2-lower
+                .lower-left
+                  販売利益
+                  -# = f.number_field :price, style: "display: none", id: "price"
+                .right_bar_2
+        .exhibition
+          .exhibition-content
+            = f.submit "出品情報を変更する",class:"content-1"
+            = link_to mypage_index_path,class: "content-3" do
+              %b 戻る
+          .exhibition-content2
+            %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+= render partial: 'footer'
+

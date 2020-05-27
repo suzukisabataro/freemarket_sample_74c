@@ -37,30 +37,32 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    # @items = Item.find(params[:id])
-    # @items.save
+    if @item.user != current_user
+      redirect_to root_path, alert: "ログインしてください"
+    end
   end
 
+  def update
+    @item.update(item_params) if @item.user_id == current_user.id
+  end 
+
   def destroy 
-    if @item.user == current_user && @item.destroy
+  if @item.user == current_user && @item.destroy
       redirect_to root_path
     else
       redirect_to new_item_path
     end
   end
 
-  def update
-  end
-
   private
   def item_params
-    params.require(:item).permit(:name, :description, :price, :area_id, :category_id, :condition_id, :delivery_charge_id, :delivery_day_id, :delivery_way_id, :buyer, item_images_attributes: [:image]).merge(user_id: current_user.id)
+      params.require(:item).permit(:name, :description, :price, :area_id, :category_id, :condition_id, :delivery_charge_id, :delivery_way_id, :delivery_day_id, item_images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
+
 
   def move_to_index
     redirect_to action: :index unless user_signed_in?     
   end
-
 
   def set_item
     @item = Item.find(params[:id])
