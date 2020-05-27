@@ -1,5 +1,7 @@
-a {
-    color: lightskyblue;
+.show_contents{
+    width:800px;
+    margin:0 auto;
+    background-color:whitesmoke;
 }
 
 table th{
@@ -27,7 +29,7 @@ table th{
 
 .show_image{
     width:50%;
-    height:400px;
+    height:300px;
     margin-right:20px;
 }
 
@@ -58,43 +60,54 @@ table th{
     margin-top:25px;
 }
 
-.show_btn-soldout{
-   @include btn;
-   padding:1pc 0;
-}
-
-.show__btn--name__link{
-    @include btn_link;
-    padding:15px 295px;
-    
-}
-
-.show__btn--edit__link{
-    @include btn_link;
-    padding:15px 370px;
-}
-
-.show__btn--destroy__link{
-    @include btn_link;
-    padding:15px 370px;
-}
-
-.show_btn-show{
-    @include btn;
-    padding:1pc 0;
-    margin-bottom:50px;
-    
+.show_btn{
+    display:flex;
+    justify-content:center;
 }
 
 .show_btn-edit{
-    @include btn;
-    padding:1pc 0;
-    margin-bottom:50px;
+    margin-right:30px;
 }
 
-.show_btn-destroy{
-    @include btn;
-    padding:1pc 0;
+.show__btn--name__link--soldout{
+    @include button;
+    padding:40px 140px;
+    font-size:30px;
+    background-image: linear-gradient(red 0%, #f14949 100%);
+}
+
+.show__btn--name__link--soldout:active{
+    @include button_active;
+}
+
+.show__btn--name__link-login{
+    @include button;
+    padding:40px 140px;
+    font-size:30px;
+    background-image: linear-gradient(red 0%, #f14949 100%);
+}
+
+.show__btn--name__link-login:active{
+    @include button_active;
+}
+
+.show__btn--name__link {
+    @include button;
+    padding:30px 80px;
+  }
+  
+  .show__btn--name__link:active {
+    @include button_active;
+  }
+
+.show__btn--destroy__link{
+    @include button;
+    padding:30px 80px;
+    background-image: linear-gradient(red 0%, #f14949 100%);
+}
+
+.show__btn--destroy__link:active{
+    @include button_active;
 }
 .show__comments{
     margin-left:150px;
