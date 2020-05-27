@@ -85,6 +85,7 @@ gem 'dotenv-rails'
 gem 'jquery-rails', '~> 4.3.5'
 gem 'rails-i18n'
 gem 'ancestry'
+gem "gretel"
 group :production do
   gem 'unicorn'
 end
