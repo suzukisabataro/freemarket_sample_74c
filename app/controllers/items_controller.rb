@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create]
   def index
     @items = Item.limit(10).order('created_at DESC')
+    @parents = Category.where(ancestry: nil).limit(13)
     @ladies = Item.where(category: 1).includes(:item_images).order("created_at DESC").limit(10)
     @mens = Item.where(category: 2).includes(:item_images).order("created_at DESC").limit(10)
     @home_appliances = Item.where(category: 8).includes(:item_images).order("created_at DESC").limit(10)

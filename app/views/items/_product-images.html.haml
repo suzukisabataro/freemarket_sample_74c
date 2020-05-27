@@ -76,7 +76,7 @@
         - @ladies.each do |item|
           %li.product__posts--boxs__item
             .posts__image
-              = link_to class: "product-a" do
+              = link_to item_path(item.id), class: "product-a" do
                 =image_tag item.item_images.first.image.url, class: "item-image"
                 %span.posts__price
                   ￥
@@ -88,6 +88,7 @@
             - if item.buyer  != nil
               = render partial: 'partial/sold'
             -else
+
 %section.products#mens
   .products__list
     %h3.products__list--name
@@ -103,7 +104,7 @@
         - @mens.each do |item|
           %li.product__posts--boxs__item
             .posts__image
-              = link_to class: "product-a" do
+              = link_to item_path(item.id), class: "product-a" do
                 =image_tag item.item_images.first.image.url, class: "item-image"
                 %span.posts__price
                   ￥
@@ -130,7 +131,7 @@
         - @home_appliances.each do |item|
           %li.product__posts--boxs__item
             .posts__image
-              = link_to class: "product-a" do
+              = link_to item_path(item.id), class: "product-a" do
                 =image_tag item.item_images.first.image.url, class: "item-image"
                 %span.posts__price
                   ￥
@@ -142,6 +143,7 @@
             - if item.buyer  != nil
               = render partial: 'partial/sold'
             -else
+
 %section.products#other
   .products__list
     %h3.products__list--name
@@ -157,7 +159,7 @@
         - @others.each do |item|
           %li.product__posts--boxs__item
             .posts__image
-              = link_to class: "product-a" do
+              = link_to item_path(item.id), class: "product-a" do
                 =image_tag item.item_images.first.image.url, class: "item-image"
                 %span.posts__price
                   ￥
