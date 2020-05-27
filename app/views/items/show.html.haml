@@ -68,7 +68,7 @@
 
   .show__price
     %span.show__price--price
-      = "￥#{@item.price}" 
+      = "￥#{@item.price}"
     %span.show__price--included
       = "(税込)"
     %span.show__price--fee
@@ -90,7 +90,7 @@
         =link_to "購入画面に進む",item_buyers_path(@item.id),class:"show__btn--name__link"
     - else
       .show_btn-show_ng
-        =link_to "ログインして下さい",new_user_session_path, method: :get, class:"show__btn--name__link-login" 
+        =link_to "ログインして下さい",new_user_session_path, method: :get, class:"show__btn--name__link" 
       
                   
   -# .show__comments
@@ -103,8 +103,8 @@
   -#   .show__comments--tag
   -#     ="タグ"
 
--# =link_to"https://www.facebook.com/share.php?url=request.url",rel:"nofollow"
--# <a href="https://www.facebook.com/share.php?url=ここにURL" rel="nofollow" target="_blank">画像やテキスト</a>
+
+
 
   .show__media--links
     .show__media--links--box
@@ -117,5 +117,5 @@
       =link_to"https://www.pinterest.jp/"do
         %i.fab.fa-pinterest-square
     
-  .items__index
-    = render partial: 'footer'
+.items__index
+  = render partial: 'footer'
