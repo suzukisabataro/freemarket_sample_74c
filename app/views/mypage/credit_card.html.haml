@@ -1,0 +1,16 @@
+.items__index
+  = render partial: 'partial/navbar'
+  - breadcrumb :card
+  = breadcrumbs separator: " &rsaquo; "
+  
+.contents
+  .left__content
+    = render partial: 'side'
+
+  %section
+    .main__card
+      %h2.card__name 
+        = "お支払い方法"
+      = link_to new_card_path do
+        %h2.main__card--box
+          = "クレジットカード情報"
