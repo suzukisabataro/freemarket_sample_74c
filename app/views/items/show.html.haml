@@ -1,126 +1,121 @@
 .items__index
   = render partial: 'header'
 
-.show__header--contents
-  .show__items--name
-    %h1
-      = @item.name      
-  .show__items--content
-    %h2
-      = @item.description       
+.show_contents
+  .show__header--contents
+    .show__items--name
+      %h1
+        = @item.name      
+    .show__items--content
+      %h2
+        = @item.description       
 
-.show__main--contents
-  =image_tag @item.item_images.first.image.url, class:"show_image"
-  
-  
-  .show__items--details
-    %table.show_items--details__details{border:"1"}
-      %tr
-        %th
-          = "出品者"
-        %td                    
-          = @user.nickname  
-
-      %tr
-        %th
-          = "カテゴリー"
-        %td
-          = link_to class: "category__link" do
-            = icon('fa', 'angle-right', class: 'angle')
-            = @item.category.name
-
-      %tr 
-        %th 
-          = "ブランド"
-        %td 
-          = @item.brand
-
-      %tr 
-        %th 
-          = "商品の状態"
-        %td 
-          = @condition.value
-
-      %tr 
-        %th 
-          = "配送料の負担"
-        %td 
-          = @charge.value
-
-      %tr 
-        %th 
-          = "配送の方法"
-        %td 
-          = @way.value
-
-      %tr 
-        %th 
-          = "配送元地域"
-        %td 
-          = @area.name
-
-      %tr 
-        %th 
-          = "発送日の目安"
-        %td 
-          = @day.value
-
-.show__price
-  %span.show__price--price
-    = "￥700,000" 
-  %span.show__price--included
-    = "(税込)"
-  %span.show__price--fee
-    = "送料込み"
-
-.purchase-screen  
-  - if user_signed_in? && (current_user.id == @item.user_id)
-    .show_btn-edit
-      =link_to"編集",mypage_index_path,class:"show__btn--name__link" 
-    .show_btn-destroy
-      -# =link_to"削除",mypage_index_path,class:"show__btn--destroy__link" 
-      =link_to"削除",item_path(@item.id), method: :delete, data: {confirm: "削除しますか？"}, class:"show__btn--destroy__link"
-  - elsif user_signed_in? && (@item.buyer != nil)
-    .show_btn-soldout
-      =link_to"SOLDOUT",root_path,class:"show__btn--name__link"   
-  - elsif user_signed_in? && (current_user.id != @item.user_id)
-    .show_btn-show
-      =link_to "購入画面に進む",item_buyers_path(@item.id),class:"show__btn--name__link"
-  - else
-    .show_btn-show_ng
-      =link_to "ログインして下さい",new_user_session_path, method: :get, class:"show__btn--name__link" 
+  .show__main--contents
+    =image_tag @item.item_images.first.image.url, class:"show_image"
     
-                
-.show__comments
-  .show__comments--comment 
-    ="ほとんど着てません"
-  .show__comments--tag
-    ="タグ"
-  .show__comments--tag 
-    ="タグ"
-  .show__comments--tag
-    ="タグ"
+    
+    .show__items--details
+      %table.show_items--details__details{border:"1"}
+        %tr
+          %th
+            = "出品者"
+          %td                    
+            = @user.nickname  
 
-.show__link
-  .show__link--prev
-    =link_to do
-      %i.fa.fa-arrow-left
-        エリザベス硬貨
-  .show__link--next
-    =link_to do
-      ダイヤモンド
-      %i.fa.fa-arrow-right
+        %tr
+          %th
+            = "カテゴリー"
+          %td
+            = link_to class: "category__link" do
+              = icon('fa', 'angle-right', class: 'angle')
+              = @item.category.name
 
-.show__media--links
-  .show__media--links--box
-    =link_to"https://www.facebook.com/" do
-      %i.fab.fa-facebook
-    =link_to"https://twitter.com/" do
-      %i.fab.fa-twitter
-    =link_to"https://access.line.me/" do
-      %i.fab.fa-line
-    =link_to"https://www.pinterest.jp/"do
-      %i.fab.fa-pinterest-square
-   
-.items__index
-  = render partial: 'footer'
+        %tr 
+          %th 
+            = "ブランド"
+          %td 
+            = @item.brand
+
+        %tr 
+          %th 
+            = "商品の状態"
+          %td 
+            = @condition.value
+
+        %tr 
+          %th 
+            = "配送料の負担"
+          %td 
+            = @charge.value
+
+        %tr 
+          %th 
+            = "配送の方法"
+          %td 
+            = @way.value
+
+        %tr 
+          %th 
+            = "配送元地域"
+          %td 
+            = @area.name
+
+        %tr 
+          %th 
+            = "発送日の目安"
+          %td 
+            = @day.value
+
+  .show__price
+    %span.show__price--price
+      = "￥#{@item.price}" 
+    %span.show__price--included
+      = "(税込)"
+    %span.show__price--fee
+      = "送料込み"
+
+  .purchase-screen  
+    - if user_signed_in? && (current_user.id == @item.user_id)
+      .show_btn
+        .show_btn-edit
+          =link_to"編集",mypage_index_path,class:"show__btn--name__link" 
+        .show_btn-destroy
+          -# =link_to"削除",mypage_index_path,class:"show__btn--destroy__link" 
+          =link_to"削除",item_path(@item.id), method: :delete, data: {confirm: "削除しますか？"}, class:"show__btn--destroy__link"
+    - elsif user_signed_in? && (@item.buyer != nil)
+      .show_btn-soldout
+        =link_to"SOLDOUT",root_path,class:"show__btn--name__link--soldout"   
+    - elsif user_signed_in? && (current_user.id != @item.user_id)
+      .show_btn-show
+        =link_to "購入画面に進む",item_buyers_path(@item.id),class:"show__btn--name__link"
+    - else
+      .show_btn-show_ng
+        =link_to "ログインして下さい",new_user_session_path, method: :get, class:"show__btn--name__link-login" 
+      
+                  
+  -# .show__comments
+  -#   .show__comments--comment 
+  -#     ="ほとんど着てません"
+  -#   .show__comments--tag
+  -#     ="タグ"
+  -#   .show__comments--tag 
+  -#     ="タグ"
+  -#   .show__comments--tag
+  -#     ="タグ"
+
+-# =link_to"https://www.facebook.com/share.php?url=request.url",rel:"nofollow"
+-# <a href="https://www.facebook.com/share.php?url=ここにURL" rel="nofollow" target="_blank">画像やテキスト</a>
+
+  .show__media--links
+    .show__media--links--box
+      =link_to"https://www.facebook.com/" do
+        %i.fab.fa-facebook
+      =link_to"https://twitter.com/" do
+        %i.fab.fa-twitter
+      =link_to"https://access.line.me/" do
+        %i.fab.fa-line
+      =link_to"https://www.pinterest.jp/"do
+        %i.fab.fa-pinterest-square
+    
+  .items__index
+    = render partial: 'footer'
