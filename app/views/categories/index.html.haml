@@ -1,0 +1,35 @@
+.items__index
+  = render partial: 'partial/navbar'
+.category
+  .category__list
+    %h3.category__list--title
+      = "カテゴリー 一覧"
+    - @parents.each do |parent|
+      - unless parent.name.include?("カテゴリー 一覧")
+        = link_to "#", class: "category__box" do
+          = parent.name
+  - @parents.each do |parent|
+    - unless parent.name.include?("カテゴリー 一覧")
+      .category__lists
+        .category__lists--box
+          = parent.name
+        .category__child
+          .category__child--box
+            = link_to "#", class: "category__box--child" do
+              = "すべて"
+          - parent.children.each do |child|
+            .child__box
+              .child__box--list
+                = child.name
+              .grandchild__box
+                .grandchild__box--list
+                  = link_to "#", class: "category__box--grandchild" do
+                    = "すべて"
+                - child.children.each do |grandchild|
+                  .grandchild__link
+                    - unless parent.name.include?("すべて")
+                      = link_to "#", class: "category__box--child" do
+                        = grandchild.name
+
+.camera
+  = render partial: 'partial/camera'
