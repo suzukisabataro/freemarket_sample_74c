@@ -10,12 +10,6 @@ class DeliveryWay < ActiveHash::Base
       { id: 6, value: 'クロネコヤマト', charge: '1' },
       { id: 7, value: 'ゆうパック', charge: '1' },
       { id: 8, value: 'クリックポスト', charge: '1' },
-      { id: 9, value: 'ゆうパケット', charge: '1' },
 
-      # 着払い選択時
-      { id: 10, value: '未定', charge: '2' },
-      { id: 11, value: 'クロネコヤマト', charge: '2' },
-      { id: 12, value: 'ゆうパック', charge: '2' },
-      { id: 13, value: 'ゆうメール', charge: '2' }
   ]
 end

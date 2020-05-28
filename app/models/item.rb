@@ -6,7 +6,6 @@ class Item < ApplicationRecord
   belongs_to_active_hash :delivery_day
   belongs_to_active_hash :delivery_way
   belongs_to_active_hash :condition
-  # has_many :item_images
   has_many :item_images, dependent: :destroy
   accepts_nested_attributes_for :item_images,allow_destroy: true
   validates :item_images,          presence: true
