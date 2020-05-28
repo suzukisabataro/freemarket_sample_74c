@@ -11,7 +11,9 @@
 @import 'signup/sms_confirmation';
 @import 'signup/sms_confirmation_sms';
 @import 'signup/address';
-@import "mypage";
+@import "mypage/mypage";
+@import "mypage/card";
+@import "mypage/logout";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "items";
@@ -21,6 +23,7 @@
 @import "buyers/complete";
 @import"partial/navbar";
 @import"partial/footer";
+@import "partial/gretel";
 @import "product-image";
 @import "partial/camera";
 @import "categories";

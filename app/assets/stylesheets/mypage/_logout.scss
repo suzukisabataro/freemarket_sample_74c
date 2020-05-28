@@ -1,0 +1,18 @@
+.main__logout {
+  width: 700px;
+  height: 200px;
+  margin-left: 40px;
+  margin-top: 35px;
+  background-color: whitesmoke;
+  &--box {
+    margin-top: 70px;
+    margin-left: 200px;
+    line-height: 50px;
+    background-color: red;
+    color: white;
+    text-align: center;
+    width: 300px;
+    height: 50px;
+    display: inline-block;
+  }
+}
