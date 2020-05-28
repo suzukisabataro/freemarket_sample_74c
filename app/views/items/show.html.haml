@@ -112,11 +112,12 @@
   .item__detailpage__comment
   .item__detailpage__comment__box
     .comments
+      %h4 <コメント一覧>
       - if @comments
         - @comments.each do |comment|
-          %p
+          %p.name-contents
             %strong
-              = link_to comment.user.nickname, "/users/#{comment.user_id}"
+              = link_to comment.user.nickname, "/users/#{comment.user_id}", class: "name-contents-nickname"
               ：
             = comment.comment
     .item__detailpage__comment__box__1
