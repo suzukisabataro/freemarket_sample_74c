@@ -34,7 +34,7 @@ ja:
           birth_mm: 月
           birth_yy: 年
           phone_number: 電話番号
-          address: 
+        address: 
           first_name: 名
           first_name_kana: 名カナ
           last_name: 姓
