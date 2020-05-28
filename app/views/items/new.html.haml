@@ -16,20 +16,14 @@
               .error
                 = render 'layouts/error_messages', errors: @item.errors.full_messages_for(:item_images)
             .content-text
-              最大５枚までアップロードできます。             
+              最大５枚までアップロードできます。 
             #image-box
               .box-1
                 #previews
-                  - if @item.persisted?
-                    - @item.images.each_with_index do |image, i|
-                      = image_tag image.image.url, data: { index: i }, width: "121", height: '121'
-              .box-2
+              %label.box-2
                 = f.fields_for :item_images do |image|
                   .js-file_group{"data-index" => "#{image.index}"}
                     = image.file_field :image, class: 'js-file'
-                    %br/
-                    %span.js-remove 削除
-
         .product_name
           .product-content
             .product-name_title
@@ -102,6 +96,8 @@
                 %b 配送方法
               .d2-lower
                 %b 必須
+              .error
+                = render 'layouts/error_messages', errors: @item.errors.full_messages_for(:delivery_way_id)
             = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :value, prompt: "--" 
             .delivery-4
               .d4-upper

@@ -9,12 +9,10 @@
     .show__items--content
       %h2
         = @item.description       
-
-  .show__main--contents
-    =image_tag @item.item_images.first.image.url, class:"show_image"
-    
-    
-    .show__items--details
+  .show_flex
+    .show__main--contents 
+      =image_tag("#{@image.image}",class:"show_image", size: '300x300')
+      .show__items--details
       %table.show_items--details__details{border:"1"}
         %tr
           %th
@@ -65,6 +63,13 @@
             = "発送日の目安"
           %td 
             = @day.value
+    .show_sub--contents
+      - @images[1..4].each do |image|
+        =image_tag("#{image.image}", class: 'show_image-image')
+  
+      
+      
+    
 
   .show__price
     %span.show__price--price
@@ -80,7 +85,6 @@
         .show_btn-edit
           =link_to"編集",mypage_index_path,class:"show__btn--name__link" 
         .show_btn-destroy
-          -# =link_to"削除",mypage_index_path,class:"show__btn--destroy__link" 
           =link_to"削除",item_path(@item.id), method: :delete, data: {confirm: "削除しますか？"}, class:"show__btn--destroy__link"
     - elsif user_signed_in? && (@item.buyer != nil)
       .show_btn-soldout
@@ -117,5 +121,5 @@
       =link_to"https://www.pinterest.jp/"do
         %i.fab.fa-pinterest-square
     
-.items__index
-  = render partial: 'footer'
+  .items__index
+    = render partial: 'footer'   

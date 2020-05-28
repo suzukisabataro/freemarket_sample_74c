@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, only: [:new, :create, :edit, :update]
   before_action :set_item, except: [:index, :new, :create]
+
   def index
     @items = Item.limit(10).order('created_at DESC')
     @parents = Category.where(ancestry: nil).limit(13)
@@ -20,6 +21,8 @@ class ItemsController < ApplicationController
     @way = DeliveryWay.find(@item.delivery_way_id)
     @area = Area.find(@item.area_id)
     @day = DeliveryDay.find(@item.delivery_day_id)
+    @image = @item.item_images.first
+    @images = @item.item_images
   end
 
   def new
@@ -33,6 +36,7 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       render :new
+      flash.now[:alert] = "商品出品に失敗しました"
     end
   end
 
