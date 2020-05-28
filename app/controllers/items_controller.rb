@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, only: [:new, :create, :edit, :update]
   before_action :set_item, except: [:index, :new, :create]
+
   def index
     @items = Item.limit(10).order('created_at DESC')
     @parents = Category.where(ancestry: nil).limit(13)

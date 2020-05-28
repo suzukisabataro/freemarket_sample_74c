@@ -1,0 +1,33 @@
+.search
+  = render 'partial/navbar'
+  .search_main
+    .search_main_result
+      .search_main_result__search
+        .search_main_result__search__about
+          %span.search-word
+            = (params[:keyword])
+          %span.nokekka
+            の検索結果
+          %p.search_main_result__search__about__count
+            = "#{@items.count}件表示"
+        .search_main_result__search__sort
+          %select
+            %option 並び替え
+            %option 価格の安い順
+            %option 価格の高い順
+            %option 出品の古い順
+            %option 出品の新しい順
+    .search_main__contents
+      - @items.each do |item|
+        = link_to item_path(item.id) do
+          =image_tag item.item_images.first.image.url
+          %span.posts__price2
+            ￥
+            =item.price
+          .text-price
+            =item.name
+            
+  
+          
+
+  = render 'partial/footer2'
