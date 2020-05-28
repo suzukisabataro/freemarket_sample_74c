@@ -1,14 +1,16 @@
 
 $(document).on('turbolinks:load', ()=> {
-  const buildFileField = (num)=> {
-    const html = `<div data-index="${num}" class="js-file_group">
-                    <input class="js-file" type="file", name="item[item_images_attributes][${num}][image]",id="item_item_images_attributes_${num}_image"><br>
-                    <div class="js-remove">削除</div>
-                  </div>`;
+  const buildFileField = (index)=> {
+    const html = `<div data-index="${index}" class="js-file_group">
+                    <input class="js-file" type="file", name="item[item_images_attributes][${index}][image]",id="item_item_images_attributes_${index}_image"><br>
+                  </div>`;//インプットタグ
     return html;
   }
   const buildImg = (index, url)=> {
-    const html = `<img data-index="${index}" src="${url}" width="121px" height="121px">`;
+    const html = `<div class=box-2>
+                    <img data-index="${index}" src="${url}" width="123px" height="121px">
+                    <div class="js-remove">削除</div>
+                  </div>`;//プレビュー表示
     return html;
   }
 
