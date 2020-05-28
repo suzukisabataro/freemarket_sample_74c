@@ -1,0 +1,268 @@
+.show_contents{
+  width: 800px;
+  margin: 50px auto;
+  background-color:whitesmoke;
+  &--contents {
+    &--name {
+     margin: 0 auto;
+     text-align: center;
+     padding: 10px 0;
+     font-size: 15px;
+    }
+  }
+  .show_flex {
+    padding: 0 20px;
+    .show__main--contents {
+      display: flex;
+      .img {
+       
+      }
+      table {
+        border-collapse: collapse;
+        border: 0.1rem solid #dbdbdb;
+        height: 100%;
+        margin-left: 30px;
+        tr {
+         box-sizing: inherit;
+         margin: 0;
+         padding: 0;
+         th {
+         font-weight: 400;
+         background-color: #e9e9e9;
+         padding: 0.3rem;
+         }
+         td {
+          width: 61%;
+          padding: 0.8rem;
+         }
+        }
+      }
+    }
+  }
+}
+
+table th{
+    padding:10px;
+    & td{
+        writing-mode:horizontal-tb;
+      } 
+    }
+
+.show__header--contents{
+  text-align:center;    
+    }
+
+.show__items--content{
+    width: 70%; 
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.show_sub--contents{
+    position:relative;
+}
+
+.show_image{
+    width:50%;
+    height:400px;
+    margin-right:20px;
+}
+.show_image-image{
+    width:100px;
+    height:100px;
+}
+
+
+.show__price{
+    display:flex;
+    display:table;
+    margin-top:20px;
+    margin-left:auto;
+    margin-right:auto;
+    &--price{
+        margin-right:8px;
+        bottom:0px;
+        font-size:30px;
+    }
+    &--included{
+        font-size:5px;
+        bottom:0px; 
+    }
+    &--fee{
+        bottom:0px;
+    }
+}
+
+
+.purchase-screen{
+    text-align:center;
+    margin-top:25px;
+}
+
+.show_btn{
+    display:flex;
+    justify-content:center;
+}
+
+.show_btn-edit{
+    margin-right:30px;
+}
+
+.show__btn--name__link--soldout{
+    @include button;
+    padding:40px 140px;
+    font-size:30px;
+    background-image: linear-gradient(red 0%, #f14949 100%);
+}
+
+.show__btn--name__link--soldout:active{
+    @include button_active;
+}
+
+.show__btn--name__link-login{
+    @include button;
+    padding:40px 140px;
+    font-size:30px;
+    background-image: linear-gradient(red 0%, #f14949 100%);
+}
+
+.show__btn--name__link-login:active{
+    @include button_active;
+}
+
+.show__btn--name__link {
+    @include button;
+    padding:30px 80px;
+  }
+  
+  .show__btn--name__link:active {
+    @include button_active;
+  }
+
+.show__btn--destroy__link{
+    @include button;
+    padding:30px 80px;
+    background-image: linear-gradient(red 0%, #f14949 100%);
+}
+
+.show__btn--destroy__link:active{
+    @include button_active;
+}
+.show__comments{
+    margin-left:150px;
+    margin-top:100px;
+}
+
+.show__link{
+    display:flex;
+    justify-content: space-between;
+    &--next{
+        margin-right:100px;
+        margin-top:20px;
+        margin-bottom:20px;
+    }
+    &--prev{
+        margin-left:100px;
+        margin-top:20px;
+        margin-bottom:20px;
+    }
+}
+
+.show__media--links{
+    width:500px;
+    height:100px;
+    margin:20px auto;
+    position:relative;
+    &--box{
+        display:flex;
+        width:250px;
+        height:50px;
+        position:absolute;
+        top:25px;
+        left:125px;
+        text-align:center;
+    }
+}
+
+a{
+    text-decoration:none;
+}
+
+.fa-facebook{
+  font-size:3rem;
+  color:#3b5998;
+}
+
+.fa-twitter{
+  font-size:3rem;
+  color:#55ACEE;
+  padding-left:20px;
+}
+
+.fa-line{
+  font-size:3rem;
+  color:#00B900;
+  padding-left:20px;
+  padding-right:20px;
+}
+
+.fa-pinterest-square{
+    font-size:3rem; 
+    color:#bd081c;
+}
+
+.show__users{
+    margin-top:30px;
+    margin-left:70px;
+    font-size:30px;
+}
+
+.show__users--other{
+  width:800px;
+  display:flex;
+  margin:0 auto;
+  flex-wrap:wrap;
+  justify-content:space-around;
+  &__item{
+    margin-bottom:40px;
+    background-color:white;
+    &--contents{
+        background-color:white;
+        text-align:center;
+        font-size:15px;
+        &__name{
+          @include padding;
+        }
+        &__price{
+          @include padding;
+        }
+    }
+  }  
+}
+
+.item__detailpage__comment{
+  font-size: 14px;
+  margin-top: 10px;;
+  background-color: #ffffff;
+  &__box{
+    padding: 24px;
+    &__1{
+      padding: 8px;
+      background-color: #fff6de;
+      margin-bottom: 10px;
+    }
+    textarea{
+      height: 104px;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    &__3{
+      width: 100%;
+      background-color: #e91616;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+    }
+  }
+}

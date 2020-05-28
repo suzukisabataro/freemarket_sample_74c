@@ -20,6 +20,7 @@ class Item < ApplicationRecord
   validates :category_id,         presence: true
   belongs_to :user
   belongs_to :category
+  has_many :comments, dependent: :destroy
 
 
   def self.search(search)
