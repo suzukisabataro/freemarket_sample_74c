@@ -4,12 +4,12 @@ class CommentsController < ApplicationController
 
   def create
     comment = Comment.new(comment_params)
-#{comment.item.id}"
+
     if comment.save
-    redirect_to item_path(comment.item.id)
+      redirect_to item_path(comment.item.id)
     else
-    render show
-    flash.now[:alert] = "商品出品に失敗しました"
+      render show
+      flash.now[:alert] = "商品出品に失敗しました"
     end
   end
 
