@@ -5,8 +5,13 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   
+  namespace :items do
+    resources :searches, only: :index
+  end
   root 'items#index' 
   resources :items
+  
+
   resources :cards, only: [:new, :show, :destroy,:index] do
     collection do
       post 'pay', to: 'cards#pay'
