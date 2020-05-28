@@ -1,5 +1,7 @@
 .items__index
   = render partial: 'partial/navbar'
+  - breadcrumb :categories
+  = breadcrumbs separator: " &rsaquo; "
 .category
   .category__list
     %h3.category__list--title
