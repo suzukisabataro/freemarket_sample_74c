@@ -9,11 +9,11 @@
         = icon('far', 'envelope', class: 'main__content__line__btn--mail__icon')
         メールアドレスで登録する
 
-      = link_to registration_signup_index_path, class: "facebook" do
+      = link_to user_facebook_omniauth_authorize_path, method: :post, class: "facebook" do
         = icon('fab', 'facebook-square', class: 'main__content__line__btn--facebook__icon')
         Facebookで登録する
 
-      = link_to registration_signup_index_path, class: "google" do
+      = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "google" do
         = icon('fab', 'google', class: 'main__content__line__btn--google__icon') 
         Googleで登録する
 

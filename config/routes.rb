@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'users/registrations'
+  }
+  
   root 'items#index' 
   resources :items
   resources :cards, only: [:new, :show, :destroy,:index] do
@@ -34,4 +38,6 @@ Rails.application.routes.draw do
       get 'logout'
     end
   end
+
+  resources :categories, only: [:index]
 end

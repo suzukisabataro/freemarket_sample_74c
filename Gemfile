@@ -80,12 +80,14 @@ gem 'active_hash'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
 gem 'payjp'
 gem 'dotenv-rails'
 gem 'jquery-rails', '~> 4.3.5'
 gem 'rails-i18n'
 gem 'ancestry'
 gem 'fog-aws'
+gem "gretel"
 group :production do
   gem 'unicorn'
 end
