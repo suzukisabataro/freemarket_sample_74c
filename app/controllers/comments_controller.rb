@@ -3,8 +3,14 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    comment = Comment.create(comment_params)
-    redirect_to "/items/#{comment.item.id}"
+    comment = Comment.new(comment_params)
+#{comment.item.id}"
+    if comment.save
+    redirect_to item_path(comment.item.id)
+    else
+    render show
+    flash.now[:alert] = "商品出品に失敗しました"
+    end
   end
 
 
