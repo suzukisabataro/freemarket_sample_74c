@@ -10,10 +10,16 @@ class SignupController < ApplicationController
 
   def registration
     @user = User.new
+
   end
 
 
   def registration_valid #バリデーション
+    if params[:sns_auth] == 'true'
+      pass = Devise.friendly_token
+      params[:user][:password] = pass
+      params[:user][:password_confirmation] = pass
+    end
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
