@@ -14,7 +14,8 @@ ja:
           price: 商品価格
           area_id: 発送元の地域
           condition_id: 商品の状態
-          delivery_charge_id: 配送方法
+          delivery_charge_id: 配送量負担
+          delivery_way_id: 配送方法
           delivery_day_id: 発送までの日数
           category_id: 商品カテゴリー
           item_images: 商品画像

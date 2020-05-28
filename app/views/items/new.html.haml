@@ -96,6 +96,8 @@
                 %b 配送方法
               .d2-lower
                 %b 必須
+              .error
+                = render 'layouts/error_messages', errors: @item.errors.full_messages_for(:delivery_way_id)
             = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :value, prompt: "--" 
             .delivery-4
               .d4-upper

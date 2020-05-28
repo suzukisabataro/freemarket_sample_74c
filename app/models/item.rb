@@ -16,6 +16,7 @@ class Item < ApplicationRecord
   validates :condition_id,        presence: true
   validates :delivery_charge_id,  presence: true
   validates :delivery_day_id,     presence: true
+  validates :delivery_way_id,     presence: true
   validates :area_id,             presence: true
   validates :category_id,         presence: true
   belongs_to :user
