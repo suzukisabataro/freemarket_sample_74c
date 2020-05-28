@@ -72,7 +72,7 @@
             height:19px;
             background-color: white;
             font-size: 14px;
-            display: flex;
+            // display: flex;
             .label-2{
               @include label;
               background-color: red;
@@ -405,22 +405,15 @@
 }
 
 .js-file_group {
-  display:none;
+  // display:none;
+  // visibility: hidden;
 }
 .box-1{
-  display: flex;
   height: 150px;
   background-color: #eeeeee;
 }
 #previews{
-  height: 150px;
-  width: 120px;
+  display: flex;
 }
 .box-2{
-  height: 150px;
-  width: 100%;
-  background-color: steelblue;
-  input[type='file'] {
-    display: none;
-  }
 }
