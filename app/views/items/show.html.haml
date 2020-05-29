@@ -83,7 +83,7 @@
     - if user_signed_in? && (current_user.id == @item.user_id)
       .show_btn
         .show_btn-edit
-          =link_to"編集",mypage_index_path,class:"show__btn--name__link" 
+          =link_to"編集",edit_item_path(@item.id),class:"show__btn--name__link" 
         .show_btn-destroy
           =link_to"削除",item_path(@item.id), method: :delete, data: {confirm: "削除しますか？"}, class:"show__btn--destroy__link"
     - elsif user_signed_in? && (@item.buyer != nil)
