@@ -5,7 +5,9 @@
 [![Image from Gyazo](https://i.gyazo.com/5299874a4d615616b001db4b101d2aa8.gif)](https://gyazo.com/5299874a4d615616b001db4b101d2aa8)
 
 購入用アカウント: sell@gmail.com
+
 出品用アカウント: buy@gmail.com
+
 パスワード: 1234567
 
 
