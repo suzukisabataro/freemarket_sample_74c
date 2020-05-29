@@ -1,14 +1,22 @@
 ## ER図
 [![Image from Gyazo](https://i.gyazo.com/907ad06f26dca32fbcd159a8c7c32bcf.png)](https://gyazo.com/907ad06f26dca32fbcd159a8c7c32bcf)
 # freemarket_sample_74b
-フリマアプリのクローンサイト。
+
+# フリマアプリのクローンサイト。
 [![Image from Gyazo](https://i.gyazo.com/5299874a4d615616b001db4b101d2aa8.gif)](https://gyazo.com/5299874a4d615616b001db4b101d2aa8)
 
-購入用アカウント: sell@gmail.com
+# フリマアプリ訪問
+URL: http://46.51.232.119//
 
-出品用アカウント: buy@gmail.com
+ID: teamb
 
-パスワード: 1234567
+Pass: bbbb
+
+ 購入用アカウント: sell@gmail.com
+
+ 出品用アカウント: buy@gmail.com
+
+ パスワード: 1234567
 
 
 ## Usersテーブル
