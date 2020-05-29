@@ -72,7 +72,7 @@
             height:19px;
             background-color: white;
             font-size: 14px;
-            // display: flex;
+            display: flex;
             .label-2{
               @include label;
               background-color: red;

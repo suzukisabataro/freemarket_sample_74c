@@ -77,17 +77,16 @@
           %li.product__posts--boxs__item
             .posts__image
               = link_to item_path(item.id), class: "product-a" do
-                =image_tag item.item_images.first.image.url, class: "item-image"
+                = image_tag item.item_images.first.image.url, class: "item-image"
                 %span.posts__price
                   ￥
-                  =item.price
-                = render partial: 'partial/sold'
+                  = item.price
                 .posts__text
                   %p.posta__tag
-                    =item.name
+                    = item.name
             - if item.buyer  != nil
               = render partial: 'partial/sold'
-            -else
+            - else
 
 %section.products#mens
   .products__list
@@ -114,7 +113,7 @@
                     =item.name
             - if item.buyer  != nil
               = render partial: 'partial/sold'
-            -else
+            - else
 
 %section.products#home_appliances
   .products__list
@@ -139,10 +138,10 @@
                 = render partial: 'partial/sold'
                 .posts__text
                   %p.posta__tag
-                    =item.name
+                    = item.name
             - if item.buyer  != nil
               = render partial: 'partial/sold'
-            -else
+            - else
 
 %section.products#other
   .products__list
@@ -167,7 +166,7 @@
                 = render partial: 'partial/sold'
                 .posts__text
                   %p.posta__tag
-                    =item.name
+                    = item.name
             - if item.buyer  != nil
               = render partial: 'partial/sold'
-            -else
+            - else

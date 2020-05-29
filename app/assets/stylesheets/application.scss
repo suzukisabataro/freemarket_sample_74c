@@ -17,6 +17,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "items";
+@import "category_pulldown";
 @import"sharingbuttons-io";
 @import"show";
 @import"new";
@@ -29,4 +30,6 @@
 @import "partial/camera";
 @import "categories";
 @import "shard/error_messages";
-@import "signup/errors"
+@import "signup/errors";
+@import "items/searches";
+@import "items/show";

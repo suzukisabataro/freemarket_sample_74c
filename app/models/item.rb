@@ -16,8 +16,16 @@ class Item < ApplicationRecord
   validates :condition_id,        presence: true
   validates :delivery_charge_id,  presence: true
   validates :delivery_day_id,     presence: true
+  validates :delivery_way_id,     presence: true
   validates :area_id,             presence: true
   validates :category_id,         presence: true
   belongs_to :user
   belongs_to :category
+  has_many :comments, dependent: :destroy
+
+
+  def self.search(search)
+    return Item.all unless search
+    Item.where('name LIKE(?)', "%#{search}%")
+  end
 end

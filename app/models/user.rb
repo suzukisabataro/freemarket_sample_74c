@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :items
   has_one :card
   has_many :sns_credentials
+  has_many :comments
 
   #  registrationの登録画面（STEP1）
   validates :nickname,                presence: true, length: {maximum: 20}, on: :validates_step1
