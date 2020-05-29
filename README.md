@@ -3,7 +3,7 @@
 # freemarket_sample_74b
 
 # フリマアプリのクローンサイト。
-[![Image from Gyazo](https://i.gyazo.com/5299874a4d615616b001db4b101d2aa8.gif)](https://gyazo.com/5299874a4d615616b001db4b101d2aa8)
+[![Image from Gyazo](https://i.gyazo.com/3a529b3b823c297193c66262227cf2dc.gif)](https://gyazo.com/3a529b3b823c297193c66262227cf2dc)
 
 # フリマアプリ訪問
 URL: http://46.51.232.119//
