@@ -30,6 +30,10 @@ crumb :categories do
   link "カテゴリー一覧", categories_path
 end
 
+crumb :searches do
+  link "検索", items_searches_path
+end
+
 
 # crumb :projects do
 #   link "Projects", projects_path

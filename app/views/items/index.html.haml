@@ -1,6 +1,19 @@
 .items__index
   = render partial: 'partial/navbar'
-%section.top
+.top
+  /以下 swiperのコード/
+  .swiper-container
+    .swiper-wrapper
+      .swiper-slide
+        = image_tag "material/pict/bg-mainVisual-pict_pc.jpg"
+      .swiper-slide
+        = image_tag "material/pict/bg-appBanner-pict.jpg"
+      .swiper-slide
+        = image_tag "material/pict/bg-topMiddleDl-pict.jpg"
+    .swiper-pagination.swiper-pagination-white
+    .swiper-button-prev.swiper-button-white
+    .swiper-button-next.swiper-button-white
+  
   .top__name
     %h2.top__name--title
       = "人生を変えるフリマアプリ"
