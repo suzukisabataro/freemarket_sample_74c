@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, only: [:new, :create, :edit, :update]
   before_action :set_item, except: [:index, :new, :create]
+  before_action :parents_where
 
   def index
     @items = Item.limit(10).order('created_at DESC')
@@ -51,6 +52,7 @@ class ItemsController < ApplicationController
 
   def update
     @item.update(item_params) if @item.user_id == current_user.id
+    redirect_to root_path
   end 
 
   def destroy 
@@ -73,5 +75,9 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def parents_where
+    @parents = Category.where(ancestry: nil).limit(13)
   end
 end
