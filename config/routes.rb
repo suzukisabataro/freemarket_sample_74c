@@ -25,6 +25,7 @@ Rails.application.routes.draw do
         post 'pay', to: 'buyers#pay'
       end
     end
+    resources :comments, only: [:create, :destroy] 
   end
 
   resources :signup, only: [:index, :create] do

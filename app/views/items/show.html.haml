@@ -1,17 +1,16 @@
 .items__index
-  = render partial: 'header'
+  = render partial: 'partial/navbar'
 
 .show_contents
-  .show__header--contents
-    .show__items--name
+  .show_contents--contents
+    .show_contents--contents--name
       %h1
-        = @item.name      
-    .show__items--content
-      %h2
-        = @item.description       
+        = @item.name
+
   .show_flex
     .show__main--contents 
       =image_tag("#{@image.image}",class:"show_image", size: '300x300')
+      
       .show__items--details
       %table.show_items--details__details{border:"1"}
         %tr
@@ -95,17 +94,6 @@
     - else
       .show_btn-show_ng
         =link_to "ログインして下さい",new_user_session_path, method: :get, class:"show__btn--name__link" 
-      
-                  
-  -# .show__comments
-  -#   .show__comments--comment 
-  -#     ="ほとんど着てません"
-  -#   .show__comments--tag
-  -#     ="タグ"
-  -#   .show__comments--tag 
-  -#     ="タグ"
-  -#   .show__comments--tag
-  -#     ="タグ"
 
 
 
@@ -120,6 +108,27 @@
         %i.fab.fa-line
       =link_to"https://www.pinterest.jp/"do
         %i.fab.fa-pinterest-square
+
+  .item__detailpage__comment
+  .item__detailpage__comment__box
+    .comments
+      %h4 <コメント一覧>
+      - if @comments
+        - @comments.each do |comment|
+          %p.name-contents
+            %strong
+              = link_to comment.user.nickname, "/users/#{comment.user_id}", class: "name-contents-nickname"
+              ：
+            = comment.comment
+    .item__detailpage__comment__box__1
+      相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となる事があります。
+    = form_with(model: [@item, @comment], local: true) do |f|
+      = f.text_area :comment, class: "item__detailpage__comment__box__2", placeholder: "コメント ..."
+      = f.submit 'コメントする', class: 'item__detailpage__comment__box__3'
+
+
+
+  
     
   .items__index
     = render partial: 'footer'   

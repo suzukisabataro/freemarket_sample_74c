@@ -13,6 +13,8 @@ class ItemsController < ApplicationController
 
 
   def show
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
     @item = Item.find(params[:id]) 
     @item.item_images
     @user = User.find_by(id:@item.user_id)
