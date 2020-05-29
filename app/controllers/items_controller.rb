@@ -13,6 +13,7 @@ class ItemsController < ApplicationController
 
 
   def show
+    @parents = Category.where(ancestry: nil).limit(13)
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
     @item = Item.find(params[:id]) 
