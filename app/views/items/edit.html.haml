@@ -1,4 +1,6 @@
 = form_with model:@item, local:true do |f|
+  - breadcrumb :edit
+  = breadcrumbs separator: " &rsaquo; "
   .wapper
     .header
       .header-icon
