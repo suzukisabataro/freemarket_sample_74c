@@ -2,6 +2,7 @@
 [![Image from Gyazo](https://i.gyazo.com/907ad06f26dca32fbcd159a8c7c32bcf.png)](https://gyazo.com/907ad06f26dca32fbcd159a8c7c32bcf)
 # freemarket_sample_74b
 フリマアプリのクローンサイト。
+[![Image from Gyazo](https://i.gyazo.com/5299874a4d615616b001db4b101d2aa8.gif)](https://gyazo.com/5299874a4d615616b001db4b101d2aa8)
 
 購入用アカウント: sell@gmail.com
 出品用アカウント: buy@gmail.com
@@ -99,8 +100,8 @@
 - belongs_to_active_hash :delivery_way
 - belongs_to_active_hash :delivery_way
 - belongs_to_active_hash :prefecture
-- belongs_to_active_hash :category
 - belongs_to_active_hash :size
+- belongs_to :categories
 - belongs_to : brand
 - has_many :images
 - belongs_to :user
@@ -112,6 +113,14 @@
 |name|string|null: false|
 ### Association
 - has_many :items
+
+## categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|ancestry|null: false|
+### Association
+- has_many :items
+- has_ancestry
 
 ## Item_imagesテーブル
 |Column|Type|Options|
