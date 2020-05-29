@@ -3,6 +3,11 @@
 # freemarket_sample_74b
 フリマアプリのクローンサイト。
 
+購入用アカウント: sell@gmail.com
+出品用アカウント: buy@gmail.com
+パスワード: 1234567
+
+
 ## Usersテーブル
 |Column|Type|Options|
 |------|----|-------|
