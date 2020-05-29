@@ -16,6 +16,16 @@ crumb :logout do
   parent :mypage
 end
 
+crumb :show do
+  link "商品詳細", item_path
+  parent :root
+end
+
+crumb :edit do
+  link "商品編集", edit_item_path
+  parent :show
+end
+
 crumb :categories do
   link "カテゴリー一覧", categories_path
 end
