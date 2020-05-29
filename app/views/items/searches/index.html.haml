@@ -1,5 +1,7 @@
 .search
   = render 'partial/navbar'
+  - breadcrumb :searches
+  = breadcrumbs separator: " &rsaquo; "
   .search_main
     .search_main_result
       .search_main_result__search
