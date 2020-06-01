@@ -14,9 +14,30 @@ Pass: bbbb
 
  購入用アカウント: sell@gmail.com
 
+ パスワード： 1234567
+
  出品用アカウント: buy@gmail.com
 
  パスワード: 1234567
+
+# 機能一覧
+ ・ユーザ登録(session と devise を用いたページ遷移あり),ログイン機能全般
+
+ ・facebook/googele での omniauth 認証(ローカル環境のみ)
+
+ ・商品出品機能
+
+ ・多階層カテゴリー(ancestry)
+
+ ・画像のプレビュー機能(jquery) 
+
+ ・複数画像アップロード(carrierwave)
+
+ ・商品購入機能(payjp)
+
+ ・検索機能(ransack)
+
+ ・自動デプロイ(capistrano)
 
 
 ## Usersテーブル
