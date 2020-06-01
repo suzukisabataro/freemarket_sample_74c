@@ -1,6 +1,4 @@
 = form_with model:@item, local:true do |f|
-  - breadcrumb :edit
-  = breadcrumbs separator: " &rsaquo; "
   .wapper
     .header
       .header-icon
@@ -29,15 +27,12 @@
                 = f.fields_for :item_images do |image|
                   .js-file_group{"data-index" => "#{image.index}"}
                     = image.file_field :image, class: 'js-file'
-                    %br/
                     %span.js-remove 削除
                   - if @item.persisted?
                     = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
                   - if @item.persisted?
                     .js-file_group{"data-index" => "#{@item.item_images.count}"}
                       = file_field_tag :image, name: "item[item_images_attributes][#{@item.item_images.count}][image]", class: 'js-file'
-                      .js-remove 削除
-
 
         .product_name
           .product-content
@@ -74,7 +69,6 @@
                   %b 必須
                 .error
                   = render 'layouts/error_messages', errors: @item.errors.full_messages_for(:category_id)
-            -# = f.collection_select :category_id, Category.all, :id, :name, prompt: "--"
             = f.collection_select :category_id, Category.limit(13), :id, :name, prompt: "--"
             .content-4
               .fourth-upper
@@ -107,6 +101,14 @@
               .error
                 = render 'layouts/error_messages', errors: @item.errors.full_messages_for(:delivery_charge_id)
             = f.collection_select :delivery_charge_id, DeliveryCharge.all, :id, :value, prompt: "--" 
+            .delivery-3
+              .d2-upper
+                %b 配送方法
+              .d2-lower
+                %b 必須
+              .error
+                = render 'layouts/error_messages', errors: @item.errors.full_messages_for(:delivery_way_id)
+            = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :value, prompt: "--" 
             .delivery-4
               .d4-upper
                 %b 発送元の地域
@@ -138,7 +140,6 @@
                 .upper-logo
                   %b ¥
                   = f.text_field :price, :placeholder => "例) 300", id: 'price_calc', class: 'upper-right'
-                  -# %input#price_calc.upper-right{placeholder: "例) 300", type: "number"}/
               .error
                 = render 'layouts/error_messages', errors: @item.errors.full_messages_for(:price)
               .p2-bottom
@@ -148,13 +149,11 @@
               .p2-lower
                 .lower-left
                   販売利益
-                  -# = f.number_field :price, style: "display: none", id: "price"
                 .right_bar_2
         .exhibition
           .exhibition-content
             = f.submit "出品情報を変更する",class:"content-1"
-            = link_to mypage_index_path,class: "content-3" do
-              %b 戻る
+            = link_to "戻る", mypage_index_path,class: "content-3" 
           .exhibition-content2
             %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
 = render partial: 'footer'
