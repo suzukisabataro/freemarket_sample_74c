@@ -1,11 +1,9 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, only: [:new, :create, :edit, :update]
   before_action :set_item, except: [:index, :new, :create]
-  before_action :parents_where
 
   def index
     @items = Item.limit(10).order('created_at DESC')
-    @parents = Category.where(ancestry: nil).limit(13)
     @ladies = Item.where(category: 1).includes(:item_images).order("created_at DESC").limit(10)
     @mens = Item.where(category: 2).includes(:item_images).order("created_at DESC").limit(10)
     @home_appliances = Item.where(category: 8).includes(:item_images).order("created_at DESC").limit(10)
@@ -14,7 +12,6 @@ class ItemsController < ApplicationController
 
 
   def show
-    @parents = Category.where(ancestry: nil).limit(13)
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
     @item = Item.find(params[:id]) 
@@ -75,9 +72,5 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
-  end
-
-  def parents_where
-    @parents = Category.where(ancestry: nil).limit(13)
   end
 end

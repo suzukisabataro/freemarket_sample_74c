@@ -1,9 +1,9 @@
 ## ER図
 [![Image from Gyazo](https://i.gyazo.com/907ad06f26dca32fbcd159a8c7c32bcf.png)](https://gyazo.com/907ad06f26dca32fbcd159a8c7c32bcf)
-# freemarket_sample_74b
+# freemarket_sample_74c
 
 # フリマアプリのクローンサイト。
-<a href="https://gyazo.com/3a529b3b823c297193c66262227cf2dc"><img src="https://i.gyazo.com/3a529b3b823c297193c66262227cf2dc.gif" alt="Image from Gyazo" width="1000"/></a>
+![c215521bb708fd14f5ce31b646ad830c](https://github.com/suzukisabataro/freemarket_sample_74c/blob/master/public/image/c215521bb708fd14f5ce31b646ad830c.gif)
 
 # フリマアプリ訪問
 URL: http://46.51.232.119//
@@ -14,9 +14,30 @@ Pass: bbbb
 
  購入用アカウント: sell@gmail.com
 
+ パスワード： 1234567
+
  出品用アカウント: buy@gmail.com
 
  パスワード: 1234567
+
+# 機能一覧
+ ・ユーザ登録(session と devise を用いたページ遷移あり),ログイン機能全般
+
+ ・facebook/googele での omniauth 認証(ローカル環境のみ)
+
+ ・商品出品機能
+
+ ・多階層カテゴリー(ancestry)
+
+ ・画像のプレビュー機能(jquery) 
+
+ ・複数画像アップロード(carrierwave)
+
+ ・商品購入機能(payjp)
+
+ ・検索機能(ransack)
+
+ ・自動デプロイ(capistrano)
 
 
 ## Usersテーブル
