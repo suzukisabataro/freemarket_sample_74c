@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :basic_auth, if: :production?
   protect_from_forgery with: :exception
+  before_action :parents_where
 
   private
 
@@ -18,5 +19,9 @@ class ApplicationController < ActionController::Base
       username == Rails.application.credentials[:basic_auth][:user] &&
       password == Rails.application.credentials[:basic_auth][:pass]
     end
+  end
+
+  def parents_where
+    @parents = Category.where(ancestry: nil).limit(13)
   end
 end

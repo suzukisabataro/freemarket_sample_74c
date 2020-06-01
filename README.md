@@ -1,9 +1,9 @@
 ## ER図
 [![Image from Gyazo](https://i.gyazo.com/907ad06f26dca32fbcd159a8c7c32bcf.png)](https://gyazo.com/907ad06f26dca32fbcd159a8c7c32bcf)
-# freemarket_sample_74b
+# freemarket_sample_74c
 
 # フリマアプリのクローンサイト。
-<a href="https://gyazo.com/3a529b3b823c297193c66262227cf2dc"><img src="https://i.gyazo.com/3a529b3b823c297193c66262227cf2dc.gif" alt="Image from Gyazo" width="1000"/></a>
+[![Image from Gyazo](https://i.gyazo.com/ed499704f66b7708cb5df6c6e5f5588a.gif)](https://gyazo.com/ed499704f66b7708cb5df6c6e5f5588a)
 
 # フリマアプリ訪問
 URL: http://46.51.232.119//
